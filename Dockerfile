@@ -7,7 +7,7 @@ WORKDIR /app
 RUN npm install -g pnpm
 
 # Copy package.json and pnpm-lock.yaml
-COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml nginx.conf ./
 
 # Install dependencies
 RUN pnpm install --frozen-lockfile
