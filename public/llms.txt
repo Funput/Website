@@ -5,8 +5,8 @@
 ## Links
 
 - Website: https://funput.pulsefu.com
-- Download: https://github.com/pcodedynamics/Funput/releases
-- Source: https://github.com/pcodedynamics/Funput
+- Download: https://github.com/PulseFu/Funput/releases
+- Source: https://github.com/PulseFu/Funput
 - Contact: pcodedynamics@gmail.com
 - Fanpage: https://www.facebook.com/pulsefu/
 
