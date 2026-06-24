@@ -14,6 +14,8 @@ interface FooterLink {
 })
 export class FooterComponent {
   protected readonly constants = FUNPUT_CONSTANTS;
+  protected readonly contactEmail = FUNPUT_CONSTANTS.CONTACT_EMAIL;
+  protected readonly contactMailto = `mailto:${FUNPUT_CONSTANTS.CONTACT_EMAIL}`;
   protected readonly currentYear = new Date().getFullYear();
 
   protected readonly productLinks: FooterLink[] = [
