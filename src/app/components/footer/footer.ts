@@ -24,6 +24,7 @@ export class FooterComponent {
   ];
 
   protected readonly resourceLinks: FooterLink[] = [
+    { label: 'Tài liệu', href: FUNPUT_CONSTANTS.DOCS_URL, external: true },
     { label: 'GitHub', href: FUNPUT_CONSTANTS.GITHUB_URL, external: true },
     { label: 'Bản phát hành', href: FUNPUT_CONSTANTS.RELEASES_URL, external: true },
     { label: 'Giấy phép MIT', href: `${FUNPUT_CONSTANTS.GITHUB_URL}/blob/main/LICENSE`, external: true },
