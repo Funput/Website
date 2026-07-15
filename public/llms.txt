@@ -1,16 +1,17 @@
 # Funput
 
-> Bộ gõ tiếng Việt Telex & VNI cho macOS, Windows, Linux. Open source, miễn phí.
+> Bộ gõ tiếng Việt Telex & VNI cho macOS, Windows, Linux, Android và iOS. Mã nguồn mở, miễn phí; phiên bản mobile đang kiểm thử.
 
 ## Links
 
 - Website: https://funput.app
 - Download: https://github.com/Funput/Funput/releases
+- iOS TestFlight: https://testflight.apple.com/join/E8YRd3sy
 - Source: https://github.com/Funput/Funput
 - Contact: hello@funput.app
 - Fanpage: https://www.facebook.com/FunputIME/
 
 ## About
 
-Funput is a cross-platform Vietnamese input method supporting Telex and VNI typing.
+Funput is a cross-platform Vietnamese input method for macOS, Windows, Linux, Android, and iOS, supporting Telex and VNI typing. The mobile apps are currently in testing.
 Built with Rust, open source under MIT license by Funput.
