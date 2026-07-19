@@ -1,30 +1,39 @@
 <header class="sticky top-0 z-50 w-full border-b border-brand-dark-800 bg-brand-dark-950/80 backdrop-blur-md">
-  <div class="mx-auto flex max-w-7xl h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
-    <!-- Logo -->
-    <a routerLink="/" class="flex items-center gap-3 group">
-      <img src="funput.svg" alt="Funput Logo" class="h-9 w-auto transition-transform duration-300 group-hover:scale-105" />
-      <span class="text-xl font-bold tracking-tight text-white group-hover:text-brand-orange-500 transition-colors">
+  <div class="relative mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+    <a routerLink="/" class="relative z-10 flex shrink-0 items-center gap-3 group">
+      <img
+        src="funput.svg"
+        alt="Funput Logo"
+        class="h-9 w-auto transition-transform duration-300 group-hover:scale-105"
+      />
+      <span class="text-xl font-bold tracking-tight text-white transition-colors group-hover:text-brand-orange-500">
         Funput
       </span>
     </a>
 
-    <!-- CTA -->
-    <div class="flex items-center gap-4 ml-auto">
-      <a
-        [href]="constants.DOCS_URL"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="text-sm font-medium text-zinc-400 transition-colors hover:text-white"
-      >
-        Tài liệu
-      </a>
-      <a [href]="constants.GITHUB_URL" target="_blank" rel="noopener" class="hidden sm:flex text-zinc-400 hover:text-white transition-colors" aria-label="GitHub">
-        <img src="github.svg" alt="GitHub" class="h-5 w-5 invert opacity-80 hover:opacity-100 transition-opacity" />
-      </a>
-      <a [href]="constants.RELEASES_URL" target="_blank" rel="noopener" 
-         class="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-brand-orange-500 via-brand-pink-500 to-brand-purple-500 px-5 py-2 text-sm font-semibold text-white shadow-lg shadow-brand-orange-500/20 hover:shadow-brand-orange-500/30 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200">
-        Tải ngay
-      </a>
-    </div>
+    <nav
+      class="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 items-center gap-6 md:flex"
+      aria-label="Điều hướng chính"
+    >
+      @for (link of navLinks; track link.label) {
+        <a
+          [href]="link.href"
+          [attr.target]="link.external ? '_blank' : null"
+          [attr.rel]="link.external ? 'noopener noreferrer' : null"
+          class="text-sm font-medium text-zinc-400 transition-colors hover:text-white"
+        >
+          {{ link.label }}
+        </a>
+      }
+    </nav>
+
+    <a
+      [href]="constants.RELEASES_URL"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="relative z-10 inline-flex items-center justify-center rounded-full bg-gradient-to-r from-brand-orange-500 via-brand-pink-500 to-brand-purple-500 px-5 py-2 text-sm font-semibold text-white shadow-lg shadow-brand-orange-500/20 transition-all duration-200 hover:scale-[1.02] hover:shadow-brand-orange-500/30 active:scale-[0.98]"
+    >
+      Tải xuống
+    </a>
   </div>
 </header>

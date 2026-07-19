@@ -4,7 +4,7 @@ import { FUNPUT_CONSTANTS } from '../../constants';
 
 interface FooterLink {
   label: string;
-  href: string;
+  href?: string;
   external?: boolean;
   routerLink?: string;
 }
@@ -23,16 +23,21 @@ export class FooterComponent {
   protected readonly productLinks: FooterLink[] = [
     { label: 'Nền tảng', href: '/#platforms' },
     { label: 'Tải xuống', href: FUNPUT_CONSTANTS.RELEASES_URL, external: true },
+    { label: 'Tài liệu', href: FUNPUT_CONSTANTS.DOCS_URL, external: true },
   ];
 
-  protected readonly resourceLinks: FooterLink[] = [
-    { label: 'Tài liệu', href: FUNPUT_CONSTANTS.DOCS_URL, external: true },
+  protected readonly communityLinks: FooterLink[] = [
     { label: 'GitHub', href: FUNPUT_CONSTANTS.GITHUB_URL, external: true },
-    { label: 'Bản phát hành', href: FUNPUT_CONSTANTS.RELEASES_URL, external: true },
-    { label: 'Giấy phép MIT', href: `${FUNPUT_CONSTANTS.GITHUB_URL}/blob/main/LICENSE`, external: true },
+    { label: 'Facebook', href: FUNPUT_CONSTANTS.FACEBOOK_URL, external: true },
+    { label: 'Liên hệ', href: `mailto:${FUNPUT_CONSTANTS.CONTACT_EMAIL}` },
   ];
 
   protected readonly legalLinks: FooterLink[] = [
-    { label: 'Chính sách quyền riêng tư', href: '/privacy', routerLink: '/privacy' },
+    { label: 'Quyền riêng tư', routerLink: '/privacy' },
+    {
+      label: 'Giấy phép MIT',
+      href: `${FUNPUT_CONSTANTS.GITHUB_URL}/blob/main/LICENSE`,
+      external: true,
+    },
   ];
 }
