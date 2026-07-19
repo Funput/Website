@@ -5,6 +5,7 @@
 ## Links
 
 - Website: https://funput.app
+- Privacy: https://funput.app/privacy
 - Download: https://github.com/Funput/Funput/releases
 - iOS TestFlight: https://testflight.apple.com/join/E8YRd3sy
 - Source: https://github.com/Funput/Funput

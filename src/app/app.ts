@@ -1,17 +1,11 @@
 import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/header/header';
-import { HeroComponent } from './components/hero/hero';
-import { PlatformsComponent } from './components/platforms/platforms';
 import { FooterComponent } from './components/footer/footer';
 
 @Component({
   selector: 'app-root',
-  imports: [
-    HeaderComponent,
-    HeroComponent,
-    PlatformsComponent,
-    FooterComponent,
-  ],
+  imports: [RouterOutlet, HeaderComponent, FooterComponent],
   templateUrl: './app.html',
 })
 export class App {}
