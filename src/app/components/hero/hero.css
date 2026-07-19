@@ -306,6 +306,61 @@
   }
 }
 
+/* Mobile / narrow viewports: drop GPU-heavy layers; keep a static branded mark. */
+@media (max-width: 1023px) {
+  .logo-prism {
+    perspective: none;
+  }
+
+  .prism-scene,
+  .prism-rig,
+  .prism-tilt {
+    transform-style: flat;
+  }
+
+  .prism-floor,
+  .prism-orbit,
+  .prism-particles,
+  .prism-shadow,
+  .ribbon-glow,
+  .spine-glow,
+  .prism-shimmer {
+    display: none !important;
+  }
+
+  .prism-ambient,
+  .prism-orbit,
+  .prism-rig,
+  .prism-shimmer,
+  .spine-glow,
+  .ribbon-glow--top,
+  .ribbon-glow--middle,
+  .ribbon-glow--bottom,
+  .prism-particle {
+    animation: none !important;
+  }
+
+  .prism-ambient {
+    opacity: 0.65;
+    filter: blur(40px);
+  }
+
+  .prism-tilt {
+    transition: none;
+    transform: none !important;
+  }
+
+  .prism-rig {
+    transform: none;
+  }
+
+  .prism-logo {
+    transform: none;
+    filter: drop-shadow(0 16px 28px rgba(249, 115, 22, 0.2))
+      drop-shadow(0 6px 16px rgba(168, 85, 247, 0.14));
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .prism-ambient,
   .prism-orbit,
