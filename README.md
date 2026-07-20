@@ -1,59 +1,105 @@
-# Funput
+# Funput Landing
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.0.3.
+Official marketing site for [Funput](https://funput.app) — an open-source Vietnamese input method for **macOS**, **Windows**, **Linux**, **Android**, and **iOS**.
 
-## Development server
+**Live site:** [funput.app](https://funput.app)
 
-To start a local development server, run:
+Built with [Angular](https://angular.dev/) 22, [Tailwind CSS](https://tailwindcss.com/) 4, and served via nginx in Docker.
 
-```bash
-ng serve
-```
+## Prerequisites
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- [Node.js](https://nodejs.org/) **24+** (Node 26 recommended for Docker)
+- [pnpm](https://pnpm.io/) **11.5+** (see `packageManager` in `package.json`)
 
-## Code scaffolding
+## Getting started
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Install dependencies:
 
 ```bash
-ng generate --help
+pnpm install
 ```
 
-## Building
-
-To build the project run:
+Start the development server:
 
 ```bash
-ng build
+pnpm start
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Open [http://localhost:4200](http://localhost:4200).
 
-## Running unit tests
+## Build
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+Production build (output under `dist/funput/`):
 
 ```bash
-ng test
+pnpm build
 ```
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
+Run unit tests:
 
 ```bash
-ng e2e
+pnpm test
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Format with Prettier:
 
-## Additional Resources
+```bash
+pnpm format
+pnpm format:check
+```
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Docker
+
+Multi-stage image: Node 26 (build) + nginx alpine (serve static browser output).
+
+```bash
+docker build -t funput-landing .
+docker run --rm -p 8080:80 funput-landing
+```
+
+Then open [http://localhost:8080](http://localhost:8080).
+
+## Project layout
+
+```
+website/
+├── public/            # Static assets (icons, robots, sitemap, OG image)
+├── src/
+│   ├── app/           # Components, routes, constants
+│   ├── index.html     # SEO meta, structured data
+│   └── server.ts      # SSR entry (Express)
+├── Dockerfile
+├── nginx.conf
+└── package.json
+```
+
+## Scripts
+
+| Command | Description |
+| ------- | ----------- |
+| `pnpm start` | Dev server (`ng serve`) |
+| `pnpm build` | Production build |
+| `pnpm test` | Unit tests (Vitest) |
+| `pnpm format` | Format sources with Prettier |
+| `pnpm format:check` | Check Prettier formatting |
+| `pnpm serve:ssr:funput` | Serve SSR build locally |
+
+## Links
+
+- **Main repository:** [github.com/Funput/Funput](https://github.com/Funput/Funput)
+- **Docs:** [docs.funput.app](https://docs.funput.app)
+- **Releases:** [github.com/Funput/Funput/releases](https://github.com/Funput/Funput/releases)
+
+## Contributing
+
+1. Fork the repository and create a feature branch.
+2. Install dependencies with `pnpm install`.
+3. Make your changes; keep UI and copy consistent with the existing site.
+4. Before opening a pull request, run `pnpm format:check`, `pnpm test`, and `pnpm build`.
+5. Open a PR with a clear description of the change.
+
+## License
+
+MIT — see [LICENSE](./LICENSE). Brand and trademark notes are in [NOTICE](./NOTICE).
+
+The Funput application itself is also MIT; see [Funput/Funput](https://github.com/Funput/Funput/blob/main/LICENSE).

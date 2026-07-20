@@ -1,16 +1,21 @@
 {
   "name": "funput",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "serve:ssr:funput": "node dist/funput/server/server.mjs"
   },
   "private": true,
   "packageManager": "pnpm@11.5.2",
+  "engines": {
+    "node": ">=20"
+  },
   "dependencies": {
     "@angular/common": "^22.0.0",
     "@angular/compiler": "^22.0.0",
