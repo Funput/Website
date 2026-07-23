@@ -1,14 +1,14 @@
 # Funput
 
-> Funput là bộ gõ tiếng Việt mã nguồn mở, siêu nhẹ và an toàn. Hỗ trợ đầy đủ 5 nền tảng: iOS, Android, macOS, Windows và Linux. Gõ Telex và VNI miễn phí trên máy tính, iPhone, iPad và Android.
+> Funput là bộ gõ tiếng Việt mã nguồn mở, nhẹ và tập trung vào quyền riêng tư. Gõ Telex hoặc VNI trên iOS, Android, macOS, Windows và Linux — từ máy tính đến điện thoại.
 
 ## Summary
 
-Funput (Funput IME) is an open-source Vietnamese input method. It lets people type Vietnamese with Telex or VNI across five platforms: iOS, Android, macOS, Windows, and Linux. Desktop builds are available from GitHub Releases; iOS is on the App Store and Android is on Google Play.
+Funput (Funput IME) is an open-source Vietnamese input method. It lets people type Vietnamese with Telex or VNI on iOS, Android, macOS, Windows, and Linux. Desktop builds are available from GitHub Releases; iOS is on the App Store and Android is on Google Play.
 
 ## Platforms
 
-Funput supports these five platforms:
+Funput runs on:
 
 - iOS — Vietnamese keyboard for iPhone and iPad; available on the App Store
 - Android — Vietnamese keyboard for phones and tablets; available on Google Play
@@ -37,9 +37,9 @@ Funput supports these five platforms:
 
 ## About (Vietnamese)
 
-Funput là bộ gõ tiếng Việt mã nguồn mở dành cho người cần gõ tiếng Việt trên nhiều thiết bị. Funput hỗ trợ đầy đủ 5 nền tảng: iOS, Android, macOS, Windows và Linux. Bạn có thể dùng kiểu gõ Telex hoặc VNI trên máy tính, iPhone, iPad và Android.
+Funput là bộ gõ tiếng Việt mã nguồn mở dành cho người cần gõ tiếng Việt trên nhiều thiết bị. Bạn có thể dùng Telex hoặc VNI trên iOS, Android, macOS, Windows và Linux — từ máy tính đến điện thoại.
 
 ## About (English)
 
-Funput is a free, open-source Vietnamese input method for people who type Vietnamese on more than one device. It runs on five platforms — iOS, Android, macOS, Windows, and Linux — with Telex and VNI support.
+Funput is a free, open-source Vietnamese input method for people who type Vietnamese across devices. It runs on iOS, Android, macOS, Windows, and Linux, with Telex and VNI support.
 Built with Rust under the MIT license by Funput.
