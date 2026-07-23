@@ -4,7 +4,7 @@ export const routes: Routes = [
   {
     path: '',
     loadComponent: () => import('./components/home/home').then((m) => m.HomeComponent),
-    title: 'Funput - Bộ gõ tiếng Việt đa nền tảng',
+    title: 'Funput — Bộ gõ tiếng Việt cho iOS, Android, macOS, Windows và Linux',
   },
   {
     path: 'privacy',

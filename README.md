@@ -1,6 +1,6 @@
 # Funput Landing
 
-Official marketing site for [Funput](https://funput.app) — an open-source Vietnamese input method for **macOS**, **Windows**, **Linux**, **Android**, and **iOS**.
+Official marketing site for [Funput](https://funput.app) — an open-source Vietnamese input method for **iOS**, **Android**, **macOS**, **Windows**, and **Linux**.
 
 **Live site:** [funput.app](https://funput.app)
 
