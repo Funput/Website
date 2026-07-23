@@ -31,6 +31,8 @@ Funput runs on:
 - Privacy: https://funput.app/privacy
 - Documentation: https://docs.funput.app/
 - Download (desktop): https://github.com/Funput/Funput/releases
+- App Store (iOS): https://apps.apple.com/vn/app/id6788829996
+- Google Play (Android): https://play.google.com/store/apps/details?id=app.funput.funput
 - Source: https://github.com/Funput/Funput
 - Contact: hello@funput.app
 - Fanpage: https://www.facebook.com/FunputIME/
