@@ -1,9 +1,12 @@
-<app-header></app-header>
-<main class="relative min-h-screen overflow-hidden bg-brand-dark-950">
-  <div
-    class="absolute top-0 left-1/2 -z-10 h-[600px] w-full max-w-7xl -translate-x-1/2 bg-[radial-gradient(circle_at_top,rgba(249,115,22,0.08),transparent_50%)]"
-  ></div>
+<div class="pb-[calc(4.75rem+env(safe-area-inset-bottom,0px))] md:pb-0">
+  <app-header></app-header>
+  <main class="relative min-h-screen overflow-hidden bg-brand-dark-950">
+    <div
+      class="absolute top-0 left-1/2 -z-10 h-[600px] w-full max-w-7xl -translate-x-1/2 bg-[radial-gradient(circle_at_top,rgba(249,115,22,0.08),transparent_50%)]"
+    ></div>
 
-  <router-outlet />
-</main>
-<app-footer></app-footer>
+    <router-outlet />
+  </main>
+  <app-footer></app-footer>
+</div>
+<app-mobile-nav></app-mobile-nav>
