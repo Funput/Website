@@ -1,8 +1,10 @@
+import { NgOptimizedImage } from '@angular/common';
 import { afterNextRender, Component, DestroyRef, inject, signal } from '@angular/core';
 import { FUNPUT_CONSTANTS } from '../../constants';
 
 @Component({
   selector: 'app-hero',
+  imports: [NgOptimizedImage],
   templateUrl: './hero.html',
   styleUrl: './hero.css',
 })

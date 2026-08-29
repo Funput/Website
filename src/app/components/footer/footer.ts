@@ -1,3 +1,4 @@
+import { NgOptimizedImage } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { FUNPUT_CONSTANTS } from '../../constants';
@@ -11,7 +12,7 @@ interface FooterLink {
 
 @Component({
   selector: 'app-footer',
-  imports: [RouterLink],
+  imports: [NgOptimizedImage, RouterLink],
   templateUrl: './footer.html',
 })
 export class FooterComponent {
@@ -24,6 +25,11 @@ export class FooterComponent {
     { label: 'Nền tảng', href: '/#platforms' },
     { label: 'Tải xuống', href: FUNPUT_CONSTANTS.RELEASES_URL, external: true },
     { label: 'Tài liệu', href: FUNPUT_CONSTANTS.DOCS_URL, external: true },
+    {
+      label: 'Hướng dẫn cài đặt',
+      href: FUNPUT_CONSTANTS.INSTALL_DOCS_URL,
+      external: true,
+    },
   ];
 
   protected readonly communityLinks: FooterLink[] = [

@@ -1,9 +1,10 @@
+import { NgOptimizedImage } from '@angular/common';
 import { Component } from '@angular/core';
 import { FUNPUT_CONSTANTS } from '../../constants';
 
 @Component({
   selector: 'app-platforms',
-  imports: [],
+  imports: [NgOptimizedImage],
   templateUrl: './platforms.html',
 })
 export class PlatformsComponent {
