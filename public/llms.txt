@@ -10,11 +10,11 @@ Funput (Funput IME) is an open-source Vietnamese input method. It lets people ty
 
 Funput runs on:
 
-- iOS — Vietnamese keyboard for iPhone and iPad; available on the App Store
-- Android — Vietnamese keyboard for phones and tablets; available on Google Play
-- macOS — native input method; ready to download
-- Windows — native input method; ready to download
-- Linux — native input method (Fcitx5 and IBus); ready to download
+- iOS — Vietnamese keyboard for iPhone and iPad; requires iOS/iPadOS 18.6+; available on the App Store
+- Android — Vietnamese keyboard for phones and tablets; requires Android 8.0 (API 26)+; available on Google Play
+- macOS — native input method; requires macOS 26 (Tahoe)+; ready to download
+- Windows — native input method; requires Windows 10 version 1809+ or Windows 11; ready to download
+- Linux — native input method (Fcitx5 and IBus); install guide: https://docs.funput.app/docs/install/linux/
 
 ## Features
 

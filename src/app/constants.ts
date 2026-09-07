@@ -2,6 +2,7 @@ export const FUNPUT_CONSTANTS = {
   GITHUB_URL: 'https://github.com/Funput/Funput',
   DOCS_URL: 'https://docs.funput.app/',
   INSTALL_DOCS_URL: 'https://docs.funput.app/docs/install/',
+  LINUX_DOCS_URL: 'https://docs.funput.app/docs/install/linux/',
   ANDROID_DOCS_URL: 'https://docs.funput.app/docs/install/android',
   FACEBOOK_URL: 'https://www.facebook.com/FunputIME',
   CONTACT_EMAIL: 'hello@funput.app',
