@@ -1,0 +1,20 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+---
+
+<BaseLayout
+  title="Chính sách quyền riêng tư | Funput"
+  description="Chính sách quyền riêng tư của Funput — bộ gõ tiếng Việt mã nguồn mở."
+>
+  <Header slot="header" />
+  <article class="mx-auto max-w-3xl px-6 py-16">
+    <h1 class="text-3xl font-bold tracking-tight">Chính sách quyền riêng tư</h1>
+    <p class="mt-4 text-zinc-600">
+      Nội dung đầy đủ sẽ được chuyển sang trong giai đoạn redesign. Trang này giữ URL
+      <code>/privacy</code>.
+    </p>
+  </article>
+  <Footer slot="footer" />
+</BaseLayout>

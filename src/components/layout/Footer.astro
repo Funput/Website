@@ -1,0 +1,13 @@
+---
+import { FUNPUT_CONSTANTS } from '../../lib/constants';
+
+const year = new Date().getFullYear();
+---
+
+<footer>
+  <p>&copy; {year} Funput</p>
+  <p>
+    <a href={FUNPUT_CONSTANTS.GITHUB_URL}>GitHub</a>·
+    <a href={`mailto:${FUNPUT_CONSTANTS.CONTACT_EMAIL}`}>Contact</a>
+  </p>
+</footer>

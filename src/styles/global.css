@@ -1,0 +1,6 @@
+@import 'tailwindcss';
+
+@theme {
+  /* Brand tokens — expand during redesign */
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+}

@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+---
+
+<BaseLayout
+  title="Funput — Bộ gõ tiếng Việt cho iOS, Android, macOS, Windows và Linux"
+  description="Funput là bộ gõ tiếng Việt mã nguồn mở, nhẹ và tập trung vào quyền riêng tư. Gõ Telex hoặc VNI trên iOS, Android, macOS, Windows và Linux."
+>
+  <Header slot="header" />
+  <section class="mx-auto max-w-3xl px-6 py-16">
+    <h1 class="text-4xl font-bold tracking-tight">Funput</h1>
+    <p class="mt-4 text-lg text-zinc-600">
+      Bộ gõ tiếng Việt mã nguồn mở — scaffold Astro + Tailwind sẵn sàng cho redesign.
+    </p>
+  </section>
+  <Footer slot="footer" />
+</BaseLayout>

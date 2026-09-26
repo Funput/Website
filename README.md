@@ -4,53 +4,56 @@ Official marketing site for [Funput](https://funput.app) — an open-source Viet
 
 **Live site:** [funput.app](https://funput.app)
 
-Built with [Angular](https://angular.dev/) 22, [Tailwind CSS](https://tailwindcss.com/) 4, and served via nginx in Docker.
+Built with [Astro](https://astro.build/) and [Tailwind CSS](https://tailwindcss.com/) 4. Static output is served via nginx in Docker.
 
 ## Prerequisites
 
-- [Node.js](https://nodejs.org/) **24+** (Node 26 recommended for Docker)
-- [pnpm](https://pnpm.io/) **11.5+** (see `packageManager` in `package.json`)
+- [Node.js](https://nodejs.org/) **22.12+** (Node 26 recommended for Docker)
+- [pnpm](https://pnpm.dev/) **11.5+** (see `packageManager` in `package.json`)
 
 ## Getting started
 
-Install dependencies:
-
 ```bash
 pnpm install
+pnpm dev
 ```
 
-Start the development server:
+Open [http://localhost:4321](http://localhost:4321).
 
-```bash
-pnpm start
+## Scripts
+
+| Command             | Description                       |
+| ------------------- | --------------------------------- |
+| `pnpm dev`          | Dev server                        |
+| `pnpm build`        | Production static build (`dist/`) |
+| `pnpm preview`      | Preview the production build      |
+| `pnpm check`        | Astro + TypeScript checks         |
+| `pnpm format`       | Format with Prettier              |
+| `pnpm format:check` | Check Prettier formatting         |
+
+## Project layout
+
 ```
-
-Open [http://localhost:4200](http://localhost:4200).
-
-## Build
-
-Production build (output under `dist/funput/`):
-
-```bash
-pnpm build
-```
-
-Run unit tests:
-
-```bash
-pnpm test
-```
-
-Format with Prettier:
-
-```bash
-pnpm format
-pnpm format:check
+website/
+├── public/              # Static assets (icons, robots, OG image, llms.txt)
+├── src/
+│   ├── assets/          # Images processed by Astro
+│   ├── components/      # Layout, sections, UI
+│   ├── content/blog/    # Blog Markdown/MDX (Content Collections)
+│   ├── content.config.ts
+│   ├── layouts/         # Shared page layouts
+│   ├── lib/             # Shared constants and helpers
+│   ├── pages/           # File-based routes
+│   └── styles/          # Global CSS (Tailwind entry)
+├── astro.config.mjs
+├── Dockerfile
+├── nginx.conf
+└── package.json
 ```
 
 ## Docker
 
-Multi-stage image: Node 26 (build) + nginx alpine (serve static browser output).
+Multi-stage image: Node 26 (build) + nginx alpine (serve `dist/`).
 
 ```bash
 docker build -t funput-landing .
@@ -58,31 +61,6 @@ docker run --rm -p 8080:80 funput-landing
 ```
 
 Then open [http://localhost:8080](http://localhost:8080).
-
-## Project layout
-
-```
-website/
-├── public/            # Static assets (icons, robots, sitemap, OG image)
-├── src/
-│   ├── app/           # Components, routes, constants
-│   ├── index.html     # SEO meta, structured data
-│   └── server.ts      # SSR entry (Express)
-├── Dockerfile
-├── nginx.conf
-└── package.json
-```
-
-## Scripts
-
-| Command | Description |
-| ------- | ----------- |
-| `pnpm start` | Dev server (`ng serve`) |
-| `pnpm build` | Production build |
-| `pnpm test` | Unit tests (Vitest) |
-| `pnpm format` | Format sources with Prettier |
-| `pnpm format:check` | Check Prettier formatting |
-| `pnpm serve:ssr:funput` | Serve SSR build locally |
 
 ## Links
 
@@ -94,12 +72,10 @@ website/
 
 1. Fork the repository and create a feature branch.
 2. Install dependencies with `pnpm install`.
-3. Make your changes; keep UI and copy consistent with the existing site.
-4. Before opening a pull request, run `pnpm format:check`, `pnpm test`, and `pnpm build`.
+3. Make your changes; keep structure and copy consistent with the existing site.
+4. Before opening a pull request, run `pnpm format:check`, `pnpm check`, and `pnpm build`.
 5. Open a PR with a clear description of the change.
 
 ## License
 
-MIT — see [LICENSE](./LICENSE). Brand and trademark notes are in [NOTICE](./NOTICE).
-
-The Funput application itself is also MIT; see [Funput/Funput](https://github.com/Funput/Funput/blob/main/LICENSE).
+See [LICENSE](LICENSE) and [NOTICE](NOTICE).

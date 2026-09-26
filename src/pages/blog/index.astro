@@ -1,0 +1,40 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/layout/Header.astro';
+import Footer from '../../components/layout/Footer.astro';
+
+const posts = (await getCollection('blog'))
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<BaseLayout
+  title="Blog | Funput"
+  description="Tin tức và cập nhật từ Funput — bộ gõ tiếng Việt mã nguồn mở."
+>
+  <Header slot="header" />
+  <section class="mx-auto max-w-3xl px-6 py-16">
+    <h1 class="text-3xl font-bold tracking-tight">Blog</h1>
+    {posts.length === 0 ? (
+      <p class="mt-4 text-zinc-600">Chưa có bài viết. Sắp có tin tức từ Funput.</p>
+    ) : (
+      <ul class="mt-8 space-y-6">
+        {posts.map((post) => (
+          <li>
+            <a class="text-xl font-semibold hover:underline" href={`/blog/${post.id}/`}>
+              {post.data.title}
+            </a>
+            <p class="mt-1 text-sm text-zinc-500">
+              <time datetime={post.data.pubDate.toISOString()}>
+                {post.data.pubDate.toLocaleDateString('vi-VN')}
+              </time>
+            </p>
+            <p class="mt-2 text-zinc-600">{post.data.description}</p>
+          </li>
+        ))}
+      </ul>
+    )}
+  </section>
+  <Footer slot="footer" />
+</BaseLayout>
