@@ -37,14 +37,16 @@ Open [http://localhost:4321](http://localhost:4321).
 website/
 ├── public/              # Static assets (icons, robots, OG image, llms.txt)
 ├── src/
-│   ├── assets/          # Images processed by Astro
-│   ├── components/      # Layout, sections, UI
-│   ├── content/blog/    # Blog Markdown/MDX (Content Collections)
+│   ├── components/      # Layout, sections, UI, SEO
+│   ├── content/
+│   │   ├── blog/        # Blog Markdown/MDX (Content Collections)
+│   │   └── privacy.md   # Privacy policy (Markdown)
 │   ├── content.config.ts
 │   ├── layouts/         # Shared page layouts
-│   ├── lib/             # Shared constants and helpers
+│   ├── lib/             # Constants, platforms, nav, SEO helpers
 │   ├── pages/           # File-based routes
-│   └── styles/          # Global CSS (Tailwind entry)
+│   └── styles/          # Global CSS (Tailwind + design tokens)
+├── .github/workflows/   # CI (format, check, build)
 ├── astro.config.mjs
 ├── Dockerfile
 ├── nginx.conf

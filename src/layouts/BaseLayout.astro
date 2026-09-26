@@ -1,30 +1,61 @@
 ---
 import '../styles/global.css';
+import SeoHead from '../components/seo/SeoHead.astro';
+import { GA_MEASUREMENT_ID } from '../lib/analytics';
+import { DEFAULT_DESCRIPTION } from '../lib/seo';
 
 interface Props {
   title: string;
   description?: string;
+  canonicalPath?: string;
+  ogImage?: string;
+  ogType?: 'website' | 'article';
+  jsonLd?: Record<string, unknown> | null;
 }
 
 const {
   title,
-  description = 'Funput là bộ gõ tiếng Việt mã nguồn mở, nhẹ và tập trung vào quyền riêng tư.',
+  description = DEFAULT_DESCRIPTION,
+  canonicalPath = '/',
+  ogImage,
+  ogType,
+  jsonLd = null,
 } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="vi">
+<html lang="vi" class="scroll-smooth">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
-    <meta name="description" content={description} />
+    <SeoHead
+      title={title}
+      description={description}
+      canonicalPath={canonicalPath}
+      ogImage={ogImage}
+      ogType={ogType}
+      jsonLd={jsonLd}
+    />
     <link rel="icon" type="image/svg+xml" href="/funput.svg" />
     <link rel="icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" href="/brand/logo.png" />
     <title>{title}</title>
+    <script
+      is:inline
+      async
+      src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+    ></script>
+    <script is:inline define:vars={{ GA_MEASUREMENT_ID }}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', GA_MEASUREMENT_ID);
+    </script>
   </head>
-  <body class="min-h-dvh antialiased">
+  <body class="bg-brand-dark-950 text-zinc-100 antialiased">
     <slot name="header" />
     <main>
       <slot />

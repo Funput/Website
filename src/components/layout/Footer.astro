@@ -1,13 +1,68 @@
 ---
 import { FUNPUT_CONSTANTS } from '../../lib/constants';
+import { FOOTER_COMMUNITY, FOOTER_LEGAL, FOOTER_PRODUCT } from '../../lib/nav';
 
 const year = new Date().getFullYear();
+
+const columns = [
+  { title: 'Sản phẩm', links: FOOTER_PRODUCT },
+  { title: 'Cộng đồng', links: FOOTER_COMMUNITY },
+  { title: 'Pháp lý', links: FOOTER_LEGAL },
+];
 ---
 
-<footer>
-  <p>&copy; {year} Funput</p>
-  <p>
-    <a href={FUNPUT_CONSTANTS.GITHUB_URL}>GitHub</a>·
-    <a href={`mailto:${FUNPUT_CONSTANTS.CONTACT_EMAIL}`}>Contact</a>
-  </p>
+<footer class="border-t border-brand-dark-800 bg-brand-dark-950">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 gap-12 py-16 lg:grid-cols-12 lg:gap-8 lg:py-20">
+      <div class="lg:col-span-5">
+        <a href="/" class="inline-flex items-center" aria-label="Funput — Trang chủ">
+          <img
+            src="/brand/lockup-gradient.png"
+            width="480"
+            height="160"
+            alt="Funput"
+            class="h-7 w-auto sm:h-8"
+          />
+        </a>
+        <p class="mt-4 max-w-sm text-sm leading-relaxed text-zinc-500">
+          Bộ gõ tiếng Việt mã nguồn mở cho máy tính và điện thoại. Nhẹ, miễn phí, dùng được trên
+          iOS, Android, macOS, Windows và Linux.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:col-span-7 lg:gap-10">
+        {columns.map((column) => (
+          <div class="min-w-0">
+            <h3 class="mb-4 text-xs font-semibold tracking-wider text-zinc-500 uppercase">
+              {column.title}
+            </h3>
+            <ul class="space-y-3">
+              {column.links.map((link) => (
+                <li>
+                  <a
+                    href={link.href}
+                    class="text-sm text-zinc-400 transition-colors hover:text-white"
+                    target={link.external ? '_blank' : undefined}
+                    rel={link.external ? 'noopener noreferrer' : undefined}
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="flex flex-col gap-3 border-t border-brand-dark-800 py-6 text-sm text-zinc-500 sm:flex-row sm:items-center sm:justify-between">
+      <p>&copy; {year} Funput. Mã nguồn mở dưới giấy phép MIT.</p>
+      <a
+        href={`mailto:${FUNPUT_CONSTANTS.CONTACT_EMAIL}`}
+        class="text-zinc-400 transition-colors hover:text-white"
+      >
+        {FUNPUT_CONSTANTS.CONTACT_EMAIL}
+      </a>
+    </div>
+  </div>
 </footer>
