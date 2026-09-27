@@ -3,83 +3,168 @@ import { FUNPUT_CONSTANTS as links } from '../../lib/constants';
 ---
 
 <footer class="site-footer site-wrap">
-  <a class="site-brand" href="/" aria-label="Funput — Trang chủ">
-    <img src="/brand/horizontal-lockup-gradient.png" width="2172" height="724" alt="Funput" />
-  </a>
-  <p>Được làm với tình yêu dành cho tiếng Việt.</p>
-  <nav aria-label="Liên kết cuối trang">
-    <a href="/macos/">macOS</a>
-    <a href="/windows/">Windows</a>
-    <a href="/linux/">Linux</a>
-    <a href="/ios/">iOS</a>
-    <a href="/android/">Android</a>
-    <a href={links.GITHUB_URL}>GitHub ↗</a>
-    <a href="/blog/">Blog</a>
-    <a href="/privacy/">Riêng tư</a>
-    <a href={`mailto:${links.CONTACT_EMAIL}`}>Liên hệ</a>
-  </nav>
+  <div class="footer-main">
+    <div class="footer-intro">
+      <a class="site-brand" href="/" aria-label="Funput — Trang chủ">
+        <img src="/brand/horizontal-lockup-gradient.png" width="2172" height="724" alt="Funput" />
+      </a>
+      <p>
+        Được làm với tình yêu
+        <br />
+        dành cho tiếng Việt.
+      </p>
+      <span class="footer-signoff">Gõ vui nhé :)</span>
+    </div>
+    <nav aria-label="Liên kết cuối trang">
+      <div class="footer-group">
+        <h2>Tải Funput</h2>
+        <ul>
+          <li>
+            <a href="/macos/">macOS</a>
+          </li>
+          <li>
+            <a href="/windows/">Windows</a>
+          </li>
+          <li>
+            <a href="/linux/">Linux</a>
+          </li>
+          <li>
+            <a href="/ios/">iPhone & iPad</a>
+          </li>
+          <li>
+            <a href="/android/">Android</a>
+          </li>
+        </ul>
+      </div>
+      <div class="footer-group">
+        <h2>Khám phá</h2>
+        <ul>
+          <li>
+            <a href="/blog/">Blog</a>
+          </li>
+          <li>
+            <a href={links.DOCS_URL}>
+              Hướng dẫn <span aria-hidden="true">↗</span>
+            </a>
+          </li>
+          <li>
+            <a href={links.GITHUB_URL}>
+              GitHub <span aria-hidden="true">↗</span>
+            </a>
+          </li>
+          <li>
+            <a href="/privacy/">Quyền riêng tư</a>
+          </li>
+          <li>
+            <a href={`mailto:${links.CONTACT_EMAIL}`}>Liên hệ</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
   <div class="footer-bottom">
     <span>© {new Date().getFullYear()} Funput</span>
     <a href={links.LICENSE_URL}>Tự do & mã nguồn mở · MIT License</a>
-    <span>Gõ vui nhé :)</span>
   </div>
 </footer>
 <style>
   .site-footer {
-    padding-top: 55px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 28px;
+    padding-top: 56px;
   }
-  .site-footer > p {
-    font-size: 11px;
+  .footer-main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    padding-bottom: 40px;
+  }
+  .footer-intro p {
+    margin-top: 18px;
+    font-size: 14px;
+    line-height: 1.8;
     color: var(--muted);
   }
+  .footer-signoff {
+    display: block;
+    margin-top: 20px;
+    font-size: 13px;
+    color: #ba3919;
+  }
   nav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px;
+  }
+  .footer-group h2 {
+    margin-bottom: 14px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .footer-group ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .footer-group a {
     display: flex;
-    flex-wrap: wrap;
-    gap: 22px;
-    margin-left: auto;
+    align-items: center;
+    gap: 8px;
+    width: fit-content;
+    min-height: 44px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--muted);
+  }
+  .footer-group a span {
     font-size: 12px;
   }
   a:hover {
-    color: var(--orange);
+    color: #ba3919;
+  }
+  a:focus-visible {
+    outline: 2px solid var(--orange);
+    outline-offset: 4px;
+    border-radius: 3px;
   }
   .footer-bottom {
-    width: 100%;
     border-top: 1px solid var(--line);
-    padding-block: 25px;
+    padding-block: 24px;
     display: flex;
     justify-content: space-between;
-    font-size: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+    font-size: 12px;
+    line-height: 1.7;
     color: var(--muted);
-    margin-top: 10px;
   }
   @media (max-width: 760px) {
     .site-footer {
       padding-top: 38px;
-      gap: 17px;
     }
-    .site-footer > p {
-      font-size: 10px;
+    .footer-main {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 32px;
+      padding-bottom: 28px;
+    }
+    .footer-intro p {
+      margin-top: 12px;
+    }
+    .footer-signoff {
+      margin-top: 12px;
     }
     nav {
-      width: 100%;
-      margin: 8px 0 0;
-      justify-content: space-between;
-      gap: 12px;
+      border-top: 1px solid var(--line);
+      padding-top: 24px;
+      gap: 20px;
     }
-    nav a {
-      padding-block: 10px;
+    .footer-group h2 {
+      margin-bottom: 8px;
     }
     .footer-bottom {
-      font-size: 9px;
-      flex-wrap: wrap;
-      gap: 14px;
-    }
-    .footer-bottom > span:last-child {
-      display: none;
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 4px;
+      padding-block: 20px;
     }
   }
 </style>

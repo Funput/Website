@@ -1,5 +1,5 @@
 ---
-title: 'Cài Funput trên Windows 10 và Windows 11: mở lên, bắt đầu gõ'
+title: 'Cách cài Funput trên Windows 10 và 11'
 seoTitle: 'Cách cài Funput trên Windows 10, Windows 11 và gõ tiếng Việt'
 description: 'Hướng dẫn tải Funput cho Windows, chạy bản .exe portable, chọn Telex, VNI hoặc Telex+ và xử lý khi chưa gõ được tiếng Việt. Có hướng dẫn cập nhật và khởi động cùng máy.'
 pubDate: 2026-09-27T07:30:00Z
