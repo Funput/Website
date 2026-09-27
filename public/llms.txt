@@ -37,6 +37,7 @@ Funput runs on:
 - [Set up Funput on iPhone and iPad](https://funput.app/blog/cach-bat-ban-phim-funput-iphone-ipad/): Illustrated keyboard setup, Full Access explanation and troubleshooting.
 - [Install Funput on Windows](https://funput.app/blog/cai-funput-windows-10-11/): Windows 10/11 portable setup, typing methods, system tray, troubleshooting and updates.
 - [Blog](https://funput.app/blog/): Published updates from Funput.
+- [Troubleshoot Vietnamese typing](https://funput.app/blog/khong-go-duoc-tieng-viet/): Diagnose keyboard selection, Telex/VNI mismatches and app-specific input problems across Windows, macOS, Linux, iOS and Android.
 - [Sitemap](https://funput.app/sitemap-index.xml): Index of public website pages.
 
 ## Links

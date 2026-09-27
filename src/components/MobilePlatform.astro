@@ -84,21 +84,29 @@ const features = ios
           <div class="download-copy">
             <p class="download-label">MỘT CHẠM, BẮT ĐẦU GÕ.</p>
             <h2>Tải Funput miễn phí</h2>
-            <p class="download-hint">
-              Mở {storeName} hoặc quét mã
-              <br />
-              bằng camera điện thoại.
-            </p>
+            <p class="download-hint">Tải từ {storeName} và làm theo hướng dẫn trong ứng dụng.</p>
             <a class="site-button" href={platform.ctaHref}>
               {platform.ctaLabel} <span aria-hidden="true">↗</span>
             </a>
           </div>
-          <div class="store-qr">
+          <div class="store-qr desktop-qr">
             <img src={qrCode} width="168" height="168" alt={`Mã QR tải Funput trên ${storeName}`} />
             <p>
               QUÉT ĐỂ TẢI <span aria-hidden="true">↗</span>
             </p>
           </div>
+          <details class="mobile-qr">
+            <summary>Quét bằng thiết bị khác</summary>
+            <div class="store-qr">
+              <img
+                src={qrCode}
+                width="168"
+                height="168"
+                alt={`Mã QR tải Funput trên ${storeName}`}
+              />
+              <p>Dùng camera trên thiết bị bạn muốn cài Funput.</p>
+            </div>
+          </details>
         </div>
         <p class="compatibility">
           {ios ? 'iOS / iPadOS 18.6 trở lên' : 'Android 8.0 (API 26) trở lên'} · Mã nguồn mở
@@ -161,6 +169,32 @@ const features = ios
   </article>
 </BaseLayout>
 <style>
+  .mobile-qr {
+    display: none;
+  }
+  .mobile-qr summary {
+    cursor: pointer;
+    font-size: 15px;
+    padding-block: 12px;
+    color: var(--muted);
+  }
+  @media (max-width: 760px) {
+    .app-page .download-options {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .desktop-qr {
+      display: none;
+    }
+    .mobile-qr {
+      display: block;
+      border-top: 1px solid var(--line);
+    }
+    .mobile-qr .store-qr {
+      border: 0;
+      padding-top: 8px;
+    }
+  }
+
   .app-page {
     padding-block: 45px 60px;
   }
@@ -191,7 +225,7 @@ const features = ios
     background: #fff;
   }
   .download-label {
-    font-size: 8px;
+    font-size: 11px;
     letter-spacing: 1.3px;
     color: var(--muted);
   }
@@ -204,14 +238,14 @@ const features = ios
   }
   .download-hint {
     margin-top: 9px;
-    font-size: 11px;
+    font-size: 14px;
     line-height: 1.8;
     color: var(--muted);
   }
   .download-copy .site-button {
     margin-top: 19px;
     padding: 13px 17px;
-    font-size: 11px;
+    font-size: 14px;
     gap: 12px;
   }
   .store-qr {
@@ -224,7 +258,7 @@ const features = ios
     margin: auto;
   }
   .store-qr p {
-    font-size: 8px;
+    font-size: 11px;
     letter-spacing: 1.2px;
     color: var(--muted);
     margin-top: 4px;
@@ -244,7 +278,7 @@ const features = ios
   }
   .compatibility {
     color: var(--muted);
-    font-size: 11px;
+    font-size: 14px;
     margin-top: 20px;
   }
   figure {
@@ -276,7 +310,7 @@ const features = ios
   }
   .app-features span {
     color: var(--orange);
-    font-size: 11px;
+    font-size: 14px;
   }
   .app-features h2 {
     font-size: 21px;
@@ -286,7 +320,7 @@ const features = ios
   }
   .app-features p,
   .app-install p:not(.page-eyebrow) {
-    font-size: 13px;
+    font-size: 15px;
     color: var(--muted);
     line-height: 1.9;
   }

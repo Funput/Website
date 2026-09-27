@@ -24,7 +24,7 @@ export const PLATFORMS: Platform[] = [
   {
     id: 'macos',
     name: 'macOS',
-    blurb: 'Gắn vào hệ thống Mac như bộ gõ mặc định — gõ tiếng Việt trong mọi ứng dụng.',
+    blurb: 'Tích hợp vào nguồn nhập của macOS, với kiểu gõ Telex và VNI quen thuộc.',
     bullets: [
       'Cần macOS 26 (Tahoe) trở lên',
       'Chạy trên Mac Apple Silicon và Intel',
@@ -37,7 +37,7 @@ export const PLATFORMS: Platform[] = [
     screenshotAlt: 'Giao diện Funput trên macOS',
     screenshotWidth: 960,
     screenshotHeight: 756,
-    ctaLabel: 'Tải bản .pkg / .zip',
+    ctaLabel: 'Xem bản Mac trên GitHub',
     ctaHref: FUNPUT_CONSTANTS.RELEASES_URL,
   },
   {
@@ -56,7 +56,7 @@ export const PLATFORMS: Platform[] = [
     screenshotAlt: 'Giao diện Funput trên Windows',
     screenshotWidth: 960,
     screenshotHeight: 756,
-    ctaLabel: 'Tải bản .exe',
+    ctaLabel: 'Xem bản Windows trên GitHub',
     ctaHref: FUNPUT_CONSTANTS.RELEASES_URL,
   },
   {
