@@ -109,10 +109,24 @@ const docs = `${links.INSTALL_DOCS_URL}${id}/`;
         <a href="/privacy/">chính sách quyền riêng tư</a>.
       </p>
     </section>
+    {id === 'windows' && (
+      <p class="windows-guide">
+        <a href="/blog/cai-funput-windows-10-11/">
+          Đọc hướng dẫn cài Funput trên Windows 10/11 và xử lý lỗi thường gặp →
+        </a>
+      </p>
+    )}
     <PlatformLinks current={id} />
   </article>
 </BaseLayout>
 <style>
+  .windows-guide {
+    margin-top: 32px;
+    font-size: 14px;
+    color: #ba3919;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
   .desktop-page {
     padding-block: 45px 60px;
   }

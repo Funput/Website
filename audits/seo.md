@@ -17,7 +17,7 @@
 
 ## Verification
 
-`pnpm format:check`, `pnpm check`, `pnpm build`, `pnpm seo:check`, and `git diff --check` passed. The final build has 10 HTML files and 9 indexable sitemap URLs (404 excluded). Local `/ios/` returns HTTP 200. The first published article is `/blog/funput-la-gi/`; its BlogPosting schema, publication metadata and discovery from the blog index pass automated validation.
+`pnpm format:check`, `pnpm check`, `pnpm build`, `pnpm seo:check`, and `git diff --check` passed. The final build has 13 HTML files and 12 indexable sitemap URLs (404 excluded). Local `/ios/` returns HTTP 200. The first published article is `/blog/funput-la-gi/`; its BlogPosting schema, publication metadata and discovery from the blog index pass automated validation.
 
 The nginx changes have not been executed in a container: Docker is installed but its daemon is not running. Verify nginx syntax and HTTP status behavior in the deployment environment before release. JSON-LD checks validate the generated data and relationships; they do not substitute for Google's Rich Results Test. No ratings or reviews have been invented to satisfy rich-result requirements.
 
@@ -54,3 +54,7 @@ No implementation can guarantee inclusion or ranking across every search engine 
 ## Desktop platform expansion
 
 Added individual macOS, Windows and Linux pages with platform-specific screenshots, compatibility requirements, setup steps and visible questions. Desktop SoftwareApplication entities share stable IDs with the homepage and are connected to each page through mainEntity. Every platform page links to the other four; all five are linked from the homepage, footer and llms.txt. Compatibility and installation copy was checked against the app platform READMEs, including macOS installer privileges and Linux x86-64 support.
+
+## Guide series
+
+Published Telex/VNI/advanced Telex, iPhone/iPad setup, and Windows 10/11 setup guides. BlogPosting metadata, blog index links and sitemap entries are checked for all published articles. Platform landing pages link to their setup guides. iOS guide screenshots are processed by Astro with Sharp into WebP at build time.

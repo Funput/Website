@@ -49,7 +49,7 @@ Telex dùng các chữ cái để tạo dấu và ký tự tiếng Việt. Chẳ
 
 Nếu đã sử dụng một trong hai kiểu gõ, hãy chọn đúng kiểu đó trong Funput rồi thử vài câu ngắn. Bạn có thể mở một ứng dụng ghi chú để kiểm tra các từ như “tiếng Việt”, “cảm ơn” và “đường về”. Nếu mới bắt đầu, hãy chọn một kiểu và làm quen dần thay vì đổi liên tục.
 
-Các bản máy tính còn có Telex+ và công cụ chuyển mã giữa Unicode, TCVN3 và VNI-Windows. **Kiểu gõ VNI và bảng mã VNI-Windows là hai lựa chọn khác nhau**: một bên là cách nhấn phím, bên còn lại là cách biểu diễn văn bản. Với nhu cầu viết hằng ngày trong ứng dụng hiện đại, bạn thường sẽ làm việc với Unicode.
+Funput còn có Telex nâng cao (Telex+) trên cả năm nền tảng. Bạn có thể xem [bảng phím và ví dụ so sánh Telex, VNI, Telex nâng cao](/blog/telex-vni-va-telex-nang-cao/) để chọn cách gõ phù hợp. Các bản máy tính còn có công cụ chuyển mã giữa Unicode, TCVN3 và VNI-Windows. **Kiểu gõ VNI và bảng mã VNI-Windows là hai lựa chọn khác nhau**: một bên là cách nhấn phím, bên còn lại là cách biểu diễn văn bản. Với nhu cầu viết hằng ngày trong ứng dụng hiện đại, bạn thường sẽ làm việc với Unicode.
 
 ## Tải Funput cho thiết bị của bạn
 

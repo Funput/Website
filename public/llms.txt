@@ -33,6 +33,9 @@ Funput runs on:
 - [Funput for iOS](https://funput.app/ios/): Vietnamese keyboard for iPhone and iPad; App Store ID 6788829996.
 - [Funput for Android](https://funput.app/android/): Vietnamese keyboard for phones and tablets; Google Play package app.funput.funput.
 - [Introducing Funput](https://funput.app/blog/funput-la-gi/): Vietnamese introduction to Funput, Telex/VNI, supported devices and official downloads.
+- [Telex, VNI and advanced Telex](https://funput.app/blog/telex-vni-va-telex-nang-cao/): Vietnamese typing guide with key mappings, examples and Funput advanced Telex shortcuts.
+- [Set up Funput on iPhone and iPad](https://funput.app/blog/cach-bat-ban-phim-funput-iphone-ipad/): Illustrated keyboard setup, Full Access explanation and troubleshooting.
+- [Install Funput on Windows](https://funput.app/blog/cai-funput-windows-10-11/): Windows 10/11 portable setup, typing methods, system tray, troubleshooting and updates.
 - [Blog](https://funput.app/blog/): Published updates from Funput.
 - [Sitemap](https://funput.app/sitemap-index.xml): Index of public website pages.
 

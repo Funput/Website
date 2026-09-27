@@ -207,13 +207,6 @@
 .article-prose ol,
 .article-prose blockquote,
 .article-prose pre,
-.article-prose figcaption {
-  color: var(--muted);
-  font-size: 12px;
-  line-height: 1.8;
-  margin-top: -14px;
-  margin-bottom: 28px;
-}
 .article-prose table {
   margin-block: 22px;
 }
@@ -285,6 +278,11 @@
   height: auto;
   border-radius: 9px;
   margin-block: 28px;
+}
+.article-prose img[alt^='Hướng dẫn iOS:'] {
+  display: block;
+  width: 320px;
+  margin-inline: auto;
 }
 .article-prose figcaption {
   color: var(--muted);
