@@ -3,7 +3,7 @@ FROM node:26-alpine AS builder
 
 WORKDIR /app
 
-RUN npm install -g pnpm
+RUN npm install -g pnpm@11.5.2
 
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 
@@ -18,6 +18,8 @@ FROM nginx:alpine
 
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=builder /app/dist /usr/share/nginx/html
+
+RUN nginx -t
 
 EXPOSE 80
 
