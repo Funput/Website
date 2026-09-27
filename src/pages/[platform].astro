@@ -1,0 +1,11 @@
+---
+import MobilePlatform from '../components/MobilePlatform.astro';
+import DesktopPlatform from '../components/DesktopPlatform.astro';
+import { PLATFORMS, type PlatformId } from '../lib/platforms';
+export function getStaticPaths() {
+  return PLATFORMS.map(({ id }) => ({ params: { platform: id } }));
+}
+const id = Astro.params.platform as PlatformId;
+---
+
+{id === 'ios' || id === 'android' ? <MobilePlatform id={id} /> : <DesktopPlatform id={id} />}

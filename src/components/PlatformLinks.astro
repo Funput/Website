@@ -1,0 +1,72 @@
+---
+import { PLATFORMS, type PlatformId } from '../lib/platforms';
+interface Props {
+  current: PlatformId;
+}
+const { current } = Astro.props;
+---
+
+<nav class="platform-links" aria-label="Funput trên các nền tảng khác">
+  <div>
+    <p class="page-eyebrow">MỘT FUNPUT. MỌI THIẾT BỊ.</p>
+    <h2>Bạn còn dùng thiết bị nào?</h2>
+  </div>
+  <div class="platform-list">
+    {PLATFORMS.filter((p) => p.id !== current).map((p) => (
+      <a href={`/${p.id}/`}>
+        <img src={p.iconSrc} width="22" height="22" alt="" />
+        Funput cho {p.name}
+        <span aria-hidden="true">↗</span>
+      </a>
+    ))}
+  </div>
+</nav>
+<style>
+  .platform-links {
+    margin-top: 60px;
+    padding-block: 35px;
+    border-block: 1px solid var(--line);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 35px;
+  }
+  h2 {
+    margin-top: 15px;
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: -0.7px;
+  }
+  .platform-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px;
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    font-size: 12px;
+  }
+  a:hover {
+    border-color: var(--orange);
+    color: var(--orange);
+  }
+  a span {
+    margin-left: auto;
+  }
+  @media (max-width: 760px) {
+    .platform-links {
+      grid-template-columns: 1fr;
+      margin-top: 40px;
+    }
+  }
+  @media (max-width: 420px) {
+    .platform-list {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

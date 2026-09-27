@@ -15,7 +15,7 @@ Built with [Astro](https://astro.build/) and [Tailwind CSS](https://tailwindcss.
 
 ```bash
 pnpm install
-pnpm dev
+pnpm dev --background
 ```
 
 Open [http://localhost:4321](http://localhost:4321).
@@ -37,13 +37,13 @@ Open [http://localhost:4321](http://localhost:4321).
 website/
 ├── public/              # Static assets (icons, robots, OG image, llms.txt)
 ├── src/
-│   ├── components/      # Layout, sections, UI, SEO
+│   ├── components/      # Home experience, shared header/footer, SEO
 │   ├── content/
 │   │   ├── blog/        # Blog Markdown/MDX (Content Collections)
 │   │   └── privacy.md   # Privacy policy (Markdown)
 │   ├── content.config.ts
 │   ├── layouts/         # Shared page layouts
-│   ├── lib/             # Constants, platforms, nav, SEO helpers
+│   ├── lib/             # Constants, platforms, SEO helpers
 │   ├── pages/           # File-based routes
 │   └── styles/          # Global CSS (Tailwind + design tokens)
 ├── .github/workflows/   # CI (format, check, build)
@@ -81,3 +81,13 @@ Then open [http://localhost:8080](http://localhost:8080).
 ## License
 
 See [LICENSE](LICENSE) and [NOTICE](NOTICE).
+
+## Design system
+
+The site uses a paper, orange, and sage palette with Vietnamese typography. Shared tokens, layout utilities, and article typography live in `src/styles/global.css`. `BaseLayout.astro` supplies the same header and footer to every page.
+
+- `HomeExperience.astro`: landing page and interactive tone marks.
+- `ReadingLayout.astro`: blog articles and the privacy policy, with a heading-based table of contents.
+- `src/pages/blog/index.astro`: journal listing and empty state. Draft posts stay unpublished.
+
+Manage the background preview with `pnpm astro dev status`, `pnpm astro dev logs`, and `pnpm astro dev stop`.

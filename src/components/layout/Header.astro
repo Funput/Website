@@ -1,80 +1,173 @@
 ---
-import { FUNPUT_CONSTANTS } from '../../lib/constants';
-import { PRIMARY_NAV } from '../../lib/nav';
-import Button from '../ui/Button.astro';
+import { FUNPUT_CONSTANTS as links } from '../../lib/constants';
+const isBlog = Astro.url.pathname.startsWith('/blog');
 ---
 
-<header class="sticky top-0 z-50 w-full border-b border-brand-dark-800/80 bg-brand-dark-950/85 backdrop-blur-md">
-  <div class="relative mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-    <a href="/" class="relative z-10 flex shrink-0 items-center" aria-label="Funput — Trang chủ">
-      <img
-        src="/brand/lockup-gradient.png"
-        width="480"
-        height="160"
-        alt="Funput"
-        class="h-8 w-auto sm:h-9"
-      />
+<a class="skip-link" href="#main-content">
+  Đến nội dung chính
+</a>
+<header class="site-header site-wrap">
+  <a class="site-brand" href="/" aria-label="Funput — Trang chủ">
+    <img src="/brand/horizontal-lockup-gradient.png" width="2172" height="724" alt="Funput" />
+  </a>
+  <nav class="desktop-nav" aria-label="Điều hướng chính">
+    <a href="/#experience">Khám phá</a>
+    <a href="/#platforms">Nền tảng</a>
+    <a href="/blog/" aria-current={isBlog ? 'page' : undefined}>
+      Blog
     </a>
-
-    <nav
-      class="absolute top-1/2 left-1/2 hidden -translate-x-1/2 -translate-y-1/2 items-center gap-8 md:flex"
-      aria-label="Điều hướng chính"
-    >
-      {PRIMARY_NAV.map((link) => (
-        <a
-          href={link.href}
-          class="text-sm font-medium text-zinc-400 transition-colors hover:text-white"
-          target={link.external ? '_blank' : undefined}
-          rel={link.external ? 'noopener noreferrer' : undefined}
-        >
-          {link.label}
+    <a href={links.DOCS_URL}>Tài liệu ↗</a>
+  </nav>
+  <div class="nav-actions">
+    <a class="download-link" href="/#platforms">
+      Tải Funput <span>↓</span>
+    </a>
+    <details class="mobile-menu">
+      <summary aria-label="Mở menu điều hướng">
+        <span aria-hidden="true">☰</span>
+      </summary>
+      <nav aria-label="Điều hướng trên điện thoại">
+        <a href="/#experience">Khám phá</a>
+        <a href="/#platforms">Nền tảng</a>
+        <a href="/blog/" aria-current={isBlog ? 'page' : undefined}>
+          Blog
         </a>
-      ))}
-    </nav>
-
-    <div class="relative z-10 flex items-center gap-3">
-      <Button href={FUNPUT_CONSTANTS.RELEASES_URL} external class="hidden px-5 py-2 sm:inline-flex">
-        Tải xuống
-      </Button>
-
-      <details class="group relative md:hidden">
-        <summary
-          class="flex h-10 w-10 cursor-pointer list-none items-center justify-center rounded-lg border border-brand-dark-700 text-zinc-300 hover:border-brand-dark-600 hover:text-white [&::-webkit-details-marker]:hidden"
-          aria-label="Mở menu"
-        >
-          <svg
-            class="h-5 w-5"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"></path>
-          </svg>
-        </summary>
-        <div class="absolute right-0 mt-3 w-56 rounded-xl border border-brand-dark-800 bg-brand-dark-900 p-3 shadow-xl shadow-black/40">
-          <nav class="flex flex-col gap-1" aria-label="Menu di động">
-            {PRIMARY_NAV.map((link) => (
-              <a
-                href={link.href}
-                class="rounded-lg px-3 py-2.5 text-sm font-medium text-zinc-300 hover:bg-brand-dark-800 hover:text-white"
-                target={link.external ? '_blank' : undefined}
-                rel={link.external ? 'noopener noreferrer' : undefined}
-              >
-                {link.label}
-              </a>
-            ))}
-            <a
-              href={FUNPUT_CONSTANTS.RELEASES_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="mt-1 rounded-lg bg-brand-orange-500 px-3 py-2.5 text-center text-sm font-semibold text-white hover:bg-brand-orange-600"
-            >
-              Tải xuống
-            </a>
-          </nav>
-        </div>
-      </details>
-    </div>
+        <a href={links.DOCS_URL}>Tài liệu ↗</a>
+        <a href="/privacy/">Quyền riêng tư</a>
+      </nav>
+    </details>
   </div>
 </header>
+<script>
+  document.querySelectorAll<HTMLDetailsElement>('.mobile-menu').forEach((menu) => {
+    menu.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        menu.open = false;
+        menu.querySelector('summary')?.focus();
+      }
+    });
+    menu.querySelectorAll('a').forEach((link) =>
+      link.addEventListener('click', () => {
+        menu.open = false;
+      }),
+    );
+    document.addEventListener('click', (event) => {
+      if (event.target instanceof Node && !menu.contains(event.target)) menu.open = false;
+    });
+  });
+</script>
+<style>
+  .skip-link {
+    position: absolute;
+    top: -80px;
+    left: 20px;
+    z-index: 100;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 14px;
+    border-radius: 6px;
+  }
+  .skip-link:focus {
+    top: 12px;
+  }
+  .site-header {
+    height: 104px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+    position: relative;
+    z-index: 10;
+  }
+  .desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-left: auto;
+    font-size: 12px;
+  }
+  nav a:hover,
+  nav a[aria-current='page'] {
+    color: var(--orange);
+  }
+  nav a[aria-current='page'] {
+    text-decoration: underline;
+    text-underline-offset: 7px;
+  }
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .download-link {
+    font-size: 12px;
+    padding: 12px 19px;
+    border: 1px solid var(--ink);
+    border-radius: 6px;
+  }
+  .download-link:hover {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .download-link span {
+    margin-left: 18px;
+  }
+  .mobile-menu {
+    display: none;
+  }
+  summary {
+    cursor: pointer;
+    list-style: none;
+    min-height: 44px;
+    min-width: 44px;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+  }
+  summary::-webkit-details-marker {
+    display: none;
+  }
+  .mobile-menu nav {
+    position: absolute;
+    top: 72px;
+    right: 24px;
+    width: min(280px, calc(100vw - 48px));
+    padding: 12px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    box-shadow: 0 18px 40px #24251f18;
+  }
+  .mobile-menu nav a {
+    display: block;
+    padding: 13px;
+    font-size: 14px;
+    border-radius: 5px;
+  }
+  .mobile-menu nav a:hover {
+    background: #e8eddb;
+  }
+  @media (max-width: 760px) {
+    .site-header {
+      height: 82px;
+      gap: 12px;
+    }
+    .desktop-nav {
+      display: none;
+    }
+    .mobile-menu {
+      display: block;
+    }
+    .download-link {
+      font-size: 10px;
+      padding: 13px 12px;
+    }
+    .download-link span {
+      margin-left: 8px;
+    }
+    .nav-actions {
+      gap: 8px;
+    }
+  }
+</style>

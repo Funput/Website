@@ -1,0 +1,334 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PlatformLinks from './PlatformLinks.astro';
+import { PLATFORMS } from '../lib/platforms';
+import { DESKTOP } from '../lib/desktop';
+import { platformPageJsonLd } from '../lib/seo';
+import { FUNPUT_CONSTANTS as links } from '../lib/constants';
+interface Props {
+  id: keyof typeof DESKTOP;
+}
+const { id } = Astro.props;
+const content = DESKTOP[id];
+const platform = PLATFORMS.find((p) => p.id === id)!;
+const docs = `${links.INSTALL_DOCS_URL}${id}/`;
+---
+
+<BaseLayout
+  title={content.title}
+  description={content.description}
+  canonicalPath={`/${id}/`}
+  jsonLd={platformPageJsonLd(id, content.title, content.description)}
+>
+  <article class:list={['site-wrap', 'desktop-page', id]}>
+    <a class="breadcrumb" href="/#platforms">
+      ← Tất cả nền tảng
+    </a>
+    <section class="desktop-hero" aria-label={`Funput cho ${platform.name}`}>
+      <div class="hero-copy">
+        <p class="page-eyebrow">FUNPUT / {platform.name}</p>
+        <h1 class="page-title">
+          {content.headline}
+          <br />
+          <em>{content.accent}</em>
+          <span class="sr-only"> Bộ gõ tiếng Việt cho {platform.name}</span>
+        </h1>
+        <p class="page-lead">{content.lead}</p>
+        <a class="site-button" href={platform.ctaHref}>
+          {platform.ctaLabel}
+          <span aria-hidden="true">↗</span>
+        </a>
+        <p class="free-note">Miễn phí · Mã nguồn mở · Telex & VNI</p>
+      </div>
+      <figure>
+        <div class="preview-label">
+          <span>GÕ LÀ FUN, INPUT LÀ CHUẨN</span>
+          <img src={platform.iconSrc} alt="" width="24" height="24" />
+        </div>
+        <img
+          class="app-preview"
+          src={platform.screenshotSrc}
+          width={platform.screenshotWidth}
+          height={platform.screenshotHeight}
+          alt={platform.screenshotAlt}
+          fetchpriority="high"
+        />
+        <figcaption>Thiết kế riêng cho {platform.name}. Quen ngay từ lần gõ đầu.</figcaption>
+      </figure>
+    </section>
+    <section class="requirements" aria-label="Yêu cầu hệ thống">
+      <p class="page-eyebrow">DÀNH CHO MÁY CỦA BẠN</p>
+      <div>
+        <h2>{content.os}</h2>
+        <p>{content.requirements}</p>
+      </div>
+    </section>
+    <section class="features" aria-label={`Tính năng Funput trên ${platform.name}`}>
+      {content.features.map(([title, body], i) => (
+        <div>
+          <span>0{i + 1}</span>
+          <h2>{title}</h2>
+          <p>{body}</p>
+        </div>
+      ))}
+    </section>
+    <section class="installation">
+      <div>
+        <p class="page-eyebrow">BẮT ĐẦU CÙNG FUNPUT</p>
+        <h2>
+          Cài một lần.
+          <br />
+          Gõ vui mỗi ngày.
+        </h2>
+        <a href={docs}>Hướng dẫn cài đặt {platform.name} ↗</a>
+      </div>
+      <ol>
+        {content.steps.map(([title, body]) => (
+          <li>
+            <h3>{title}</h3>
+            <p>{body}</p>
+          </li>
+        ))}
+      </ol>
+    </section>
+    <section class="questions">
+      <h2>Về Funput cho {platform.name}</h2>
+      {content.questions.map(([q, a]) => (
+        <details>
+          <summary>
+            {q}
+            <span aria-hidden="true">+</span>
+          </summary>
+          <p>{a}</p>
+        </details>
+      ))}
+      <p class="source-note">
+        Funput là bộ gõ tiếng Việt miễn phí, phát hành theo giấy phép MIT.{' '}
+        <a href={links.RELEASES_URL}>Các bản phát hành</a>,{' '}
+        <a href={links.GITHUB_URL}>xem mã nguồn</a> hoặc đọc{' '}
+        <a href="/privacy/">chính sách quyền riêng tư</a>.
+      </p>
+    </section>
+    <PlatformLinks current={id} />
+  </article>
+</BaseLayout>
+<style>
+  .desktop-page {
+    padding-block: 45px 60px;
+  }
+  .desktop-hero {
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    align-items: center;
+    gap: 55px;
+    padding-block: 30px 60px;
+  }
+  .page-title {
+    font-size: clamp(42px, 4.7vw, 65px);
+    letter-spacing: -2.5px;
+    margin-top: 25px;
+  }
+  .page-lead {
+    margin-top: 25px;
+    font-size: 15px;
+  }
+  .site-button {
+    margin-top: 30px;
+  }
+  .free-note {
+    margin-top: 16px;
+    font-size: 11px;
+    color: var(--muted);
+  }
+  figure {
+    background: var(--sage);
+    padding: 25px;
+    border-radius: 18px;
+    min-width: 0;
+  }
+  .windows figure {
+    background: #e5eaf0;
+  }
+  .linux figure {
+    background: #eee6da;
+  }
+  .preview-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 8px;
+    letter-spacing: 1.3px;
+    margin-bottom: 28px;
+  }
+  .app-preview {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 18px 35px #24251f20;
+  }
+  figcaption {
+    text-align: center;
+    font-size: 10px;
+    color: var(--muted);
+    margin-top: 25px;
+    line-height: 1.8;
+  }
+  .requirements {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 30px;
+    border-block: 1px solid var(--line);
+    padding-block: 25px;
+    align-items: center;
+  }
+  .requirements h2 {
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .requirements p:not(.page-eyebrow) {
+    margin-top: 8px;
+  }
+  .features {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 35px;
+    padding-block: 45px;
+  }
+  .features span {
+    color: var(--orange);
+    font-size: 11px;
+  }
+  .features h2 {
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    margin-block: 15px;
+  }
+  .features p,
+  .requirements p:not(.page-eyebrow),
+  li p,
+  .questions p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.9;
+  }
+  .installation {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 65px;
+    padding: 40px;
+    border-radius: 16px;
+    background: #eeede5;
+  }
+  .installation h2 {
+    font-size: 36px;
+    font-weight: 600;
+    letter-spacing: -1px;
+    margin-block: 20px;
+  }
+  .installation a,
+  .questions a {
+    color: #ba3919;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    font-size: 12px;
+  }
+  ol {
+    list-style: decimal;
+    padding-left: 24px;
+  }
+  li {
+    padding-left: 10px;
+  }
+  li + li {
+    margin-top: 24px;
+  }
+  li::marker {
+    color: var(--orange);
+  }
+  li h3 {
+    font-weight: 600;
+    font-size: 17px;
+    margin-bottom: 8px;
+  }
+  .questions {
+    max-width: 800px;
+    margin: 55px auto 0;
+  }
+  .questions h2 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    letter-spacing: -0.8px;
+  }
+  details {
+    border-top: 1px solid var(--line);
+  }
+  summary {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding-block: 22px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  summary::-webkit-details-marker {
+    display: none;
+  }
+  summary span {
+    color: var(--orange);
+  }
+  details[open] summary span {
+    transform: rotate(45deg);
+  }
+  details p {
+    padding-bottom: 22px;
+  }
+  .source-note {
+    margin-top: 25px;
+  }
+  @media (max-width: 900px) {
+    .desktop-hero {
+      gap: 30px;
+    }
+    .page-title {
+      font-size: 44px;
+    }
+    .installation {
+      gap: 35px;
+      padding: 28px;
+    }
+  }
+  @media (max-width: 760px) {
+    .desktop-page {
+      padding-top: 28px;
+    }
+    .desktop-hero {
+      grid-template-columns: 1fr;
+      padding-bottom: 35px;
+    }
+    .page-title {
+      font-size: 42px;
+      letter-spacing: -1.8px;
+    }
+    figure {
+      margin-top: 5px;
+    }
+    .requirements,
+    .features,
+    .installation {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    .features {
+      padding-block: 35px;
+    }
+    .installation h2 {
+      font-size: 30px;
+    }
+    .questions h2 {
+      font-size: 24px;
+    }
+  }
+</style>

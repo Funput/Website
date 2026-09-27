@@ -28,7 +28,7 @@ export const PLATFORMS: Platform[] = [
     bullets: [
       'Cần macOS 26 (Tahoe) trở lên',
       'Chạy trên Mac Apple Silicon và Intel',
-      'Cài và dùng không cần quyền admin',
+      'Bản .app.zip không cần quyền admin',
     ],
     badge: 'Sẵn sàng',
     iconSrc: '/apple.svg',
@@ -65,7 +65,7 @@ export const PLATFORMS: Platform[] = [
     blurb: 'Dùng được với Fcitx5 hoặc IBus — cùng một cách gõ tiếng Việt quen thuộc.',
     bullets: [
       'Tương thích Fcitx5 và IBus',
-      'Máy Intel/AMD và ARM',
+      'Bản phát hành cho máy x86-64',
       'Có gói cài riêng cho từng bộ gõ hệ thống',
     ],
     badge: 'Sẵn sàng',
