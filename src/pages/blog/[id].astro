@@ -1,0 +1,39 @@
+---
+import { getCollection, render } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import ReadingLayout from '../../layouts/ReadingLayout.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  return posts.map((post) => ({ params: { id: post.id }, props: { post } }));
+}
+interface Props {
+  post: CollectionEntry<'blog'>;
+}
+const { post } = Astro.props;
+const { Content, headings } = await render(post);
+const formatDate = (date: Date) =>
+  date.toLocaleDateString('vi-VN', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    timeZone: 'UTC',
+  });
+---
+
+<ReadingLayout
+  title={post.data.title}
+  seoTitle={post.data.seoTitle ?? `${post.data.title} | Funput Blog`}
+  description={post.data.description}
+  canonicalPath={`/blog/${post.id}`}
+  category="GHI CHÉP TỪ FUNPUT"
+  headings={headings}
+  dateLabel={formatDate(post.data.pubDate)}
+  dateTime={post.data.pubDate.toISOString()}
+  updatedLabel={post.data.updatedDate ? formatDate(post.data.updatedDate) : undefined}
+  updatedTime={post.data.updatedDate?.toISOString()}
+  tags={post.data.tags}
+  article
+>
+  <Content />
+</ReadingLayout>

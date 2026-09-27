@@ -4,4 +4,4 @@ Allow: /
 # LLM / AI crawlers — plain-text product summary
 # https://funput.app/llms.txt
 
-Sitemap: https://funput.app/sitemap.xml
+Sitemap: https://funput.app/sitemap-index.xml

@@ -1,0 +1,16 @@
+---
+import ReadingLayout from '../layouts/ReadingLayout.astro';
+import { Content, frontmatter, getHeadings } from '../content/privacy.md';
+---
+
+<ReadingLayout
+  title={frontmatter.title}
+  seoTitle={`${frontmatter.title} | Funput`}
+  description={frontmatter.description}
+  canonicalPath="/privacy"
+  category="FUNPUT / QUYỀN RIÊNG TƯ"
+  headings={getHeadings()}
+  dateLabel={`Cập nhật lần cuối: ${frontmatter.lastUpdated}`}
+>
+  <Content />
+</ReadingLayout>

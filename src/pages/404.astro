@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Không tìm thấy trang | Funput"
+  description="Trang bạn tìm không tồn tại. Trở về Funput để tải bộ gõ tiếng Việt cho thiết bị của bạn."
+  canonicalPath="/404"
+  noindex
+>
+  <section class="site-wrap missing-page">
+    <p class="page-eyebrow">404 / LẠC MỘT NHỊP</p>
+    <h1 class="page-title">
+      Trang này
+      <br />
+      <em>chưa có chữ.</em>
+    </h1>
+    <p class="page-lead">Liên kết có thể đã thay đổi hoặc trang không còn tồn tại.</p>
+    <a class="site-button" href="/">
+      Về trang chủ ↗
+    </a>
+  </section>
+</BaseLayout>
+<style>
+  .missing-page {
+    padding-block: 90px;
+    min-height: 65vh;
+  }
+  .page-title {
+    margin-block: 30px;
+  }
+  .site-button {
+    margin-top: 30px;
+  }
+</style>

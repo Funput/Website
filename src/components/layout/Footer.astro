@@ -1,0 +1,85 @@
+---
+import { FUNPUT_CONSTANTS as links } from '../../lib/constants';
+---
+
+<footer class="site-footer site-wrap">
+  <a class="site-brand" href="/" aria-label="Funput — Trang chủ">
+    <img src="/brand/horizontal-lockup-gradient.png" width="2172" height="724" alt="Funput" />
+  </a>
+  <p>Được làm với tình yêu dành cho tiếng Việt.</p>
+  <nav aria-label="Liên kết cuối trang">
+    <a href="/macos/">macOS</a>
+    <a href="/windows/">Windows</a>
+    <a href="/linux/">Linux</a>
+    <a href="/ios/">iOS</a>
+    <a href="/android/">Android</a>
+    <a href={links.GITHUB_URL}>GitHub ↗</a>
+    <a href="/blog/">Blog</a>
+    <a href="/privacy/">Riêng tư</a>
+    <a href={`mailto:${links.CONTACT_EMAIL}`}>Liên hệ</a>
+  </nav>
+  <div class="footer-bottom">
+    <span>© {new Date().getFullYear()} Funput</span>
+    <a href={links.LICENSE_URL}>Tự do & mã nguồn mở · MIT License</a>
+    <span>Gõ vui nhé :)</span>
+  </div>
+</footer>
+<style>
+  .site-footer {
+    padding-top: 55px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 28px;
+  }
+  .site-footer > p {
+    font-size: 11px;
+    color: var(--muted);
+  }
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 22px;
+    margin-left: auto;
+    font-size: 12px;
+  }
+  a:hover {
+    color: var(--orange);
+  }
+  .footer-bottom {
+    width: 100%;
+    border-top: 1px solid var(--line);
+    padding-block: 25px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    color: var(--muted);
+    margin-top: 10px;
+  }
+  @media (max-width: 760px) {
+    .site-footer {
+      padding-top: 38px;
+      gap: 17px;
+    }
+    .site-footer > p {
+      font-size: 10px;
+    }
+    nav {
+      width: 100%;
+      margin: 8px 0 0;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    nav a {
+      padding-block: 10px;
+    }
+    .footer-bottom {
+      font-size: 9px;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+    .footer-bottom > span:last-child {
+      display: none;
+    }
+  }
+</style>

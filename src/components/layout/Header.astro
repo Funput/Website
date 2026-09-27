@@ -1,0 +1,173 @@
+---
+import { FUNPUT_CONSTANTS as links } from '../../lib/constants';
+const isBlog = Astro.url.pathname.startsWith('/blog');
+---
+
+<a class="skip-link" href="#main-content">
+  Đến nội dung chính
+</a>
+<header class="site-header site-wrap">
+  <a class="site-brand" href="/" aria-label="Funput — Trang chủ">
+    <img src="/brand/horizontal-lockup-gradient.png" width="2172" height="724" alt="Funput" />
+  </a>
+  <nav class="desktop-nav" aria-label="Điều hướng chính">
+    <a href="/#experience">Khám phá</a>
+    <a href="/#platforms">Nền tảng</a>
+    <a href="/blog/" aria-current={isBlog ? 'page' : undefined}>
+      Blog
+    </a>
+    <a href={links.DOCS_URL}>Tài liệu ↗</a>
+  </nav>
+  <div class="nav-actions">
+    <a class="download-link" href="/#platforms">
+      Tải Funput <span>↓</span>
+    </a>
+    <details class="mobile-menu">
+      <summary aria-label="Mở menu điều hướng">
+        <span aria-hidden="true">☰</span>
+      </summary>
+      <nav aria-label="Điều hướng trên điện thoại">
+        <a href="/#experience">Khám phá</a>
+        <a href="/#platforms">Nền tảng</a>
+        <a href="/blog/" aria-current={isBlog ? 'page' : undefined}>
+          Blog
+        </a>
+        <a href={links.DOCS_URL}>Tài liệu ↗</a>
+        <a href="/privacy/">Quyền riêng tư</a>
+      </nav>
+    </details>
+  </div>
+</header>
+<script>
+  document.querySelectorAll<HTMLDetailsElement>('.mobile-menu').forEach((menu) => {
+    menu.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        menu.open = false;
+        menu.querySelector('summary')?.focus();
+      }
+    });
+    menu.querySelectorAll('a').forEach((link) =>
+      link.addEventListener('click', () => {
+        menu.open = false;
+      }),
+    );
+    document.addEventListener('click', (event) => {
+      if (event.target instanceof Node && !menu.contains(event.target)) menu.open = false;
+    });
+  });
+</script>
+<style>
+  .skip-link {
+    position: absolute;
+    top: -80px;
+    left: 20px;
+    z-index: 100;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 14px;
+    border-radius: 6px;
+  }
+  .skip-link:focus {
+    top: 12px;
+  }
+  .site-header {
+    height: 104px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+    position: relative;
+    z-index: 10;
+  }
+  .desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-left: auto;
+    font-size: 12px;
+  }
+  nav a:hover,
+  nav a[aria-current='page'] {
+    color: var(--orange);
+  }
+  nav a[aria-current='page'] {
+    text-decoration: underline;
+    text-underline-offset: 7px;
+  }
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .download-link {
+    font-size: 12px;
+    padding: 12px 19px;
+    border: 1px solid var(--ink);
+    border-radius: 6px;
+  }
+  .download-link:hover {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .download-link span {
+    margin-left: 18px;
+  }
+  .mobile-menu {
+    display: none;
+  }
+  summary {
+    cursor: pointer;
+    list-style: none;
+    min-height: 44px;
+    min-width: 44px;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+  }
+  summary::-webkit-details-marker {
+    display: none;
+  }
+  .mobile-menu nav {
+    position: absolute;
+    top: 72px;
+    right: 24px;
+    width: min(280px, calc(100vw - 48px));
+    padding: 12px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    box-shadow: 0 18px 40px #24251f18;
+  }
+  .mobile-menu nav a {
+    display: block;
+    padding: 13px;
+    font-size: 14px;
+    border-radius: 5px;
+  }
+  .mobile-menu nav a:hover {
+    background: #e8eddb;
+  }
+  @media (max-width: 760px) {
+    .site-header {
+      height: 82px;
+      gap: 12px;
+    }
+    .desktop-nav {
+      display: none;
+    }
+    .mobile-menu {
+      display: block;
+    }
+    .download-link {
+      font-size: 10px;
+      padding: 13px 12px;
+    }
+    .download-link span {
+      margin-left: 8px;
+    }
+    .nav-actions {
+      gap: 8px;
+    }
+  }
+</style>

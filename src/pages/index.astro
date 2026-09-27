@@ -1,0 +1,14 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HomeExperience from '../components/HomeExperience.astro';
+import { DEFAULT_DESCRIPTION, HOME_TITLE, homeJsonLd } from '../lib/seo';
+---
+
+<BaseLayout
+  title={HOME_TITLE}
+  description={DEFAULT_DESCRIPTION}
+  canonicalPath="/"
+  jsonLd={homeJsonLd()}
+>
+  <HomeExperience />
+</BaseLayout>

@@ -1,0 +1,348 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import QRCode from 'qrcode';
+import { PLATFORMS } from '../lib/platforms';
+import { FUNPUT_CONSTANTS as links } from '../lib/constants';
+import { platformPageJsonLd } from '../lib/seo';
+import PlatformLinks from './PlatformLinks.astro';
+interface Props {
+  id: 'ios' | 'android';
+}
+const { id } = Astro.props;
+const ios = id === 'ios';
+const platform = PLATFORMS.find((platform) => platform.id === id)!;
+// Generate at build time from the same URL as the download button.
+const storeName = ios ? 'App Store' : 'Google Play';
+const qrCode = await QRCode.toDataURL(platform.ctaHref, {
+  errorCorrectionLevel: 'M',
+  margin: 4,
+  scale: 8,
+  color: { dark: '#000000', light: '#ffffff' },
+});
+const title = ios
+  ? 'Funput cho iPhone & iPad — Bàn phím tiếng Việt iOS'
+  : 'Funput cho Android — Bàn phím tiếng Việt Telex & VNI';
+const description = ios
+  ? 'Tải Funput cho iPhone và iPad trên App Store. Bàn phím tiếng Việt miễn phí, mã nguồn mở, hỗ trợ Telex và VNI. Yêu cầu iOS/iPadOS 18.6 trở lên.'
+  : 'Tải Funput cho Android trên Google Play. Bàn phím tiếng Việt miễn phí, mã nguồn mở, hỗ trợ Telex và VNI cho điện thoại, máy tính bảng Android 8.0 trở lên.';
+const features = ios
+  ? [
+      [
+        'Quen tay với Telex & VNI',
+        'Gõ tiếng Việt trên iPhone và iPad bằng kiểu gõ bạn quen thuộc.',
+      ],
+      [
+        'Giao diện cho thiết bị Apple',
+        'Liquid Glass trên iOS 26; vẫn sử dụng được từ iOS và iPadOS 18.6.',
+      ],
+      [
+        'Nhập liệu trên thiết bị',
+        'Đường xử lý nhập liệu được thiết kế để không gửi nội dung bạn gõ lên máy chủ Funput.',
+      ],
+    ]
+  : [
+      [
+        'Telex & VNI trên Android',
+        'Hai kiểu gõ tiếng Việt quen thuộc trên điện thoại và máy tính bảng.',
+      ],
+      [
+        'Giao diện dành cho Android',
+        'Bàn phím được thiết kế riêng cho Android, hỗ trợ từ Android 8.0 (API 26).',
+      ],
+      [
+        'Mã nguồn mở, dễ tìm hiểu',
+        'Funput phát hành theo giấy phép MIT. Bạn có thể xem mã nguồn và đóng góp trên GitHub.',
+      ],
+    ];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalPath={`/${id}`}
+  jsonLd={platformPageJsonLd(id, title, description)}
+  iosBanner={ios}
+>
+  <article class="site-wrap app-page">
+    <a class="breadcrumb" href="/#platforms">
+      ← Tất cả nền tảng
+    </a>
+    <div class="app-hero">
+      <div>
+        <p class="page-eyebrow">FUNPUT / {platform.name}</p>
+        <h1 class="page-title">
+          Bàn phím tiếng Việt
+          <br />
+          cho <em>{ios ? 'iPhone & iPad.' : 'Android.'}</em>
+        </h1>
+        <p class="page-lead">
+          {ios
+            ? 'Mang niềm vui gõ tiếng Việt vào iPhone và iPad của bạn. Funput hỗ trợ Telex, VNI và giao diện dành riêng cho thiết bị Apple.'
+            : 'Gõ tiếng Việt theo cách bạn quen. Funput mang Telex và VNI đến điện thoại, máy tính bảng Android của bạn.'}
+        </p>
+        <div class="download-options">
+          <div class="download-copy">
+            <p class="download-label">MỘT CHẠM, BẮT ĐẦU GÕ.</p>
+            <h2>Tải Funput miễn phí</h2>
+            <p class="download-hint">
+              Mở {storeName} hoặc quét mã
+              <br />
+              bằng camera điện thoại.
+            </p>
+            <a class="site-button" href={platform.ctaHref}>
+              {platform.ctaLabel} <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+          <div class="store-qr">
+            <img src={qrCode} width="168" height="168" alt={`Mã QR tải Funput trên ${storeName}`} />
+            <p>
+              QUÉT ĐỂ TẢI <span aria-hidden="true">↗</span>
+            </p>
+          </div>
+        </div>
+        <p class="compatibility">
+          {ios ? 'iOS / iPadOS 18.6 trở lên' : 'Android 8.0 (API 26) trở lên'} · Mã nguồn mở
+        </p>
+      </div>
+      <figure>
+        <img
+          src={platform.screenshotSrc}
+          width={platform.screenshotWidth}
+          height={platform.screenshotHeight}
+          alt={platform.screenshotAlt}
+          fetchpriority="high"
+        />
+        <figcaption>Funput trên {ios ? 'iOS' : 'Android'}</figcaption>
+      </figure>
+    </div>
+    <section class="app-features" aria-label="Tính năng">
+      {features.map(([heading, body], index) => (
+        <div>
+          <span>0{index + 1}</span>
+          <h2>{heading}</h2>
+          <p>{body}</p>
+        </div>
+      ))}
+    </section>
+    <section class="app-install">
+      <div>
+        <p class="page-eyebrow">BẮT ĐẦU GÕ CÙNG FUNPUT</p>
+        <h2>
+          Tải đúng ứng dụng.
+          <br />
+          Gõ theo cách của bạn.
+        </h2>
+      </div>
+      <div>
+        <p>
+          Ứng dụng chính thức của Funput dành cho {ios ? 'iPhone và iPad' : 'Android'} được phân
+          phối qua {ios ? 'App Store' : 'Google Play'}. Sau khi cài đặt, làm theo hướng dẫn trong
+          ứng dụng để bật bàn phím và chọn Telex hoặc VNI.
+        </p>
+        <p>
+          Bạn có thể xem <a href={links.INSTALL_DOCS_URL}>tài liệu cài đặt</a>, đọc{' '}
+          <a href="/privacy/">chính sách quyền riêng tư</a> hoặc tìm hiểu{' '}
+          <a href={links.GITHUB_URL}>mã nguồn Funput</a>.
+        </p>
+        {ios && (
+          <p>
+            <a href="/blog/cach-bat-ban-phim-funput-iphone-ipad/">
+              Hướng dẫn bật bàn phím Funput trên iPhone và iPad, có ảnh từng bước →
+            </a>
+          </p>
+        )}
+        <a class="other-platform" href={ios ? '/android/' : '/ios/'}>
+          Bạn dùng {ios ? 'Android' : 'iPhone hoặc iPad'}? Xem Funput cho {ios ? 'Android' : 'iOS'}{' '}
+          ↗
+        </a>
+      </div>
+    </section>
+    <PlatformLinks current={id} />
+  </article>
+</BaseLayout>
+<style>
+  .app-page {
+    padding-block: 45px 60px;
+  }
+  .app-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 65px;
+    padding-block: 20px 65px;
+  }
+  .page-title {
+    font-size: clamp(40px, 4.6vw, 62px);
+    margin-top: 28px;
+    letter-spacing: -2px;
+  }
+  .page-lead {
+    margin-top: 26px;
+  }
+  .download-options {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 168px;
+    align-items: center;
+    gap: 24px;
+    margin-top: 30px;
+    padding: 24px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: #fff;
+  }
+  .download-label {
+    font-size: 8px;
+    letter-spacing: 1.3px;
+    color: var(--muted);
+  }
+  .download-copy h2 {
+    margin-top: 12px;
+    font-size: 21px;
+    font-weight: 600;
+    letter-spacing: -0.6px;
+    line-height: 1.4;
+  }
+  .download-hint {
+    margin-top: 9px;
+    font-size: 11px;
+    line-height: 1.8;
+    color: var(--muted);
+  }
+  .download-copy .site-button {
+    margin-top: 19px;
+    padding: 13px 17px;
+    font-size: 11px;
+    gap: 12px;
+  }
+  .store-qr {
+    text-align: center;
+  }
+  .store-qr img {
+    display: block;
+    width: 168px;
+    height: 168px;
+    margin: auto;
+  }
+  .store-qr p {
+    font-size: 8px;
+    letter-spacing: 1.2px;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+  .store-qr p span {
+    margin-left: 6px;
+  }
+  @media (min-width: 761px) and (max-width: 1050px), (max-width: 480px) {
+    .download-options {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 22px;
+    }
+    .store-qr {
+      border-top: 1px solid var(--line);
+      padding-top: 16px;
+    }
+  }
+  .compatibility {
+    color: var(--muted);
+    font-size: 11px;
+    margin-top: 20px;
+  }
+  figure {
+    padding: 28px;
+    border-radius: 20px;
+    background: var(--sage);
+    text-align: center;
+  }
+  figure img {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: 500px;
+    margin-inline: auto;
+    border-radius: 15px;
+    box-shadow: 0 16px 30px #24251f20;
+  }
+  figcaption {
+    font-size: 10px;
+    color: var(--muted);
+    margin-top: 20px;
+  }
+  .app-features {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 35px;
+    border-block: 1px solid var(--line);
+    padding-block: 38px;
+  }
+  .app-features span {
+    color: var(--orange);
+    font-size: 11px;
+  }
+  .app-features h2 {
+    font-size: 21px;
+    font-weight: 600;
+    margin-block: 16px;
+    letter-spacing: -0.5px;
+  }
+  .app-features p,
+  .app-install p:not(.page-eyebrow) {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.9;
+  }
+  .app-install {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 65px;
+    padding-top: 55px;
+  }
+  .app-install h2 {
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: -1px;
+    margin-top: 20px;
+  }
+  .app-install p + p {
+    margin-top: 18px;
+  }
+  .app-install a {
+    color: #ba3919;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .other-platform {
+    display: inline-block;
+    margin-top: 25px;
+    font-size: 12px;
+  }
+  @media (max-width: 760px) {
+    .app-page {
+      padding-top: 28px;
+    }
+    .app-hero {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 35px;
+      padding-bottom: 40px;
+    }
+    .page-title {
+      font-size: 38px;
+    }
+    figure {
+      max-width: 340px;
+      width: 100%;
+      margin: auto;
+    }
+    figure img {
+      max-height: 420px;
+    }
+    .app-features {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 28px;
+    }
+    .app-install {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 24px;
+      padding-top: 38px;
+    }
+  }
+</style>

@@ -1,0 +1,110 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import { articleJsonLd } from '../lib/seo';
+import { FUNPUT_CONSTANTS } from '../lib/constants';
+interface Props {
+  title: string;
+  seoTitle: string;
+  description: string;
+  canonicalPath: string;
+  category: string;
+  headings: { depth: number; slug: string; text: string }[];
+  dateLabel: string;
+  dateTime?: string;
+  updatedLabel?: string;
+  updatedTime?: string;
+  tags?: string[];
+  article?: boolean;
+}
+const {
+  title,
+  seoTitle,
+  description,
+  canonicalPath,
+  category,
+  headings,
+  dateLabel,
+  dateTime,
+  updatedLabel,
+  updatedTime,
+  tags = [],
+  article = false,
+} = Astro.props;
+const contents = headings.filter((heading) => heading.depth === 2);
+---
+
+<BaseLayout
+  title={seoTitle}
+  description={description}
+  canonicalPath={canonicalPath}
+  ogType={article ? 'article' : 'website'}
+  publishedTime={article ? dateTime : undefined}
+  modifiedTime={article ? (updatedTime ?? dateTime) : undefined}
+  jsonLd={
+    article && dateTime
+      ? articleJsonLd({
+          title,
+          description,
+          canonicalPath,
+          publishedTime: dateTime,
+          modifiedTime: updatedTime,
+        })
+      : undefined
+  }
+>
+  <article class="site-wrap">
+    <header class="editorial-hero">
+      <a class="breadcrumb" href={article ? '/blog/' : '/'}>
+        ← {article ? 'Tất cả bài viết' : 'Về trang chủ'}
+      </a>
+      <p class="page-eyebrow">{category}</p>
+      <h1 class="page-title">{title}</h1>
+      <p class="page-lead">{description}</p>
+      <div class="article-meta">
+        <time datetime={dateTime}>{dateLabel}</time>
+        {updatedLabel && <span>Cập nhật: {updatedLabel}</span>}
+        {tags.map((tag) => (
+          <span>#{tag}</span>
+        ))}
+      </div>
+    </header>
+    <div class="reading-grid">
+      <aside class="reading-sidebar" aria-label="Thông tin bài viết">
+        <div>
+          {contents.length > 0 && (
+            <>
+              <h2>Trong trang này</h2>
+              <nav aria-label="Mục lục">
+                {contents.map((heading) => (
+                  <a href={`#${heading.slug}`}>{heading.text}</a>
+                ))}
+              </nav>
+            </>
+          )}
+          <div class="sidebar-note">
+            {article
+              ? 'Một bộ gõ. Nhiều điều muốn kể.'
+              : 'Minh bạch từ mã nguồn đến cách xử lý dữ liệu.'}
+            <br />
+            <a
+              href={
+                article ? FUNPUT_CONSTANTS.GITHUB_URL : `mailto:${FUNPUT_CONSTANTS.CONTACT_EMAIL}`
+              }
+            >
+              {article ? 'Cùng xây dựng Funput ↗' : 'Trao đổi với Funput ↗'}
+            </a>
+          </div>
+        </div>
+      </aside>
+      <div class="reading-content">
+        <div class="article-prose">
+          <slot />
+        </div>
+        <footer class="article-end">
+          <a href={article ? '/blog/' : '/'}>← {article ? 'Tất cả bài viết' : 'Về trang chủ'}</a>
+          <a href="#main-content">Lên đầu trang ↑</a>
+        </footer>
+      </div>
+    </div>
+  </article>
+</BaseLayout>

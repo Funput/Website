@@ -1,0 +1,73 @@
+---
+import '../styles/global.css';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import SeoHead from '../components/seo/SeoHead.astro';
+import { GA_MEASUREMENT_ID } from '../lib/analytics';
+import { DEFAULT_DESCRIPTION, pageJsonLd } from '../lib/seo';
+import type { SeoInput } from '../lib/seo';
+
+interface Props extends SeoInput {
+  jsonLd?: Record<string, unknown> | null;
+}
+
+const {
+  title,
+  description = DEFAULT_DESCRIPTION,
+  canonicalPath = '/',
+  ogImage,
+  ogType,
+  jsonLd,
+  noindex = false,
+  publishedTime,
+  modifiedTime,
+  iosBanner = false,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="vi" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <SeoHead
+      title={title}
+      description={description}
+      canonicalPath={canonicalPath}
+      ogImage={ogImage}
+      ogType={ogType}
+      jsonLd={
+        noindex ? null : (jsonLd ?? pageJsonLd({ title, description, canonicalPath, ogImage }))
+      }
+      noindex={noindex}
+      publishedTime={publishedTime}
+      modifiedTime={modifiedTime}
+      iosBanner={iosBanner}
+    />
+    <link rel="icon" type="image/svg+xml" href="/funput.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/brand/logo.png" />
+    <title>{title}</title>
+    <script
+      is:inline
+      async
+      src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+    ></script>
+    <script is:inline define:vars={{ GA_MEASUREMENT_ID }}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', GA_MEASUREMENT_ID);
+    </script>
+  </head>
+  <body>
+    <Header />
+    <main id="main-content" tabindex="-1">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

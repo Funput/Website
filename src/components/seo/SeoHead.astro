@@ -1,0 +1,61 @@
+---
+import type { SeoInput } from '../../lib/seo';
+import { buildSeo } from '../../lib/seo';
+
+interface Props extends SeoInput {
+  jsonLd?: Record<string, unknown> | null;
+}
+
+const props = Astro.props;
+const seo = buildSeo(props);
+const jsonLd = props.jsonLd ?? null;
+---
+
+<meta name="title" content={seo.title} />
+<meta name="description" content={seo.description} />
+<meta name="author" content="Funput" />
+<meta
+  name="robots"
+  content={
+    seo.noindex
+      ? 'noindex, follow'
+      : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
+  }
+/>
+{!seo.noindex && <link rel="canonical" href={seo.canonical} />}
+<link
+  rel="help"
+  type="text/plain"
+  href="https://funput.app/llms.txt"
+  title="LLM-friendly summary"
+/>
+
+<meta property="og:type" content={seo.ogType} />
+<meta property="og:locale" content="vi_VN" />
+<meta property="og:site_name" content="Funput" />
+<meta property="og:url" content={seo.url} />
+<meta property="og:title" content={seo.title} />
+<meta property="og:description" content={seo.description} />
+<meta property="og:image" content={seo.ogImage} />
+<meta property="og:image:alt" content="Funput — bộ gõ và bàn phím tiếng Việt mã nguồn mở" />
+{!props.ogImage && (
+  <>
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/webp" />
+  </>
+)}
+{seo.iosBanner && <meta name="apple-itunes-app" content="app-id=6788829996" />}
+{seo.publishedTime && <meta property="article:published_time" content={seo.publishedTime} />}
+{seo.modifiedTime && <meta property="article:modified_time" content={seo.modifiedTime} />}
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content={seo.url} />
+<meta name="twitter:title" content={seo.title} />
+<meta name="twitter:description" content={seo.description} />
+<meta name="twitter:image" content={seo.ogImage} />
+<meta name="twitter:image:alt" content="Funput — bộ gõ và bàn phím tiếng Việt mã nguồn mở" />
+
+{jsonLd && (
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd).replace(/</g, '\\u003c')} />
+)}

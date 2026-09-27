@@ -25,10 +25,24 @@ Funput runs on:
 - Lightweight, privacy-focused, free and open source (MIT)
 - Built with Rust
 
+## Official app pages
+
+- [Funput for macOS](https://funput.app/macos/): Vietnamese input method for macOS 26+, Apple Silicon and Intel; .pkg or .app.zip.
+- [Funput for Windows](https://funput.app/windows/): Vietnamese input method for Windows 10 version 1809+ and Windows 11; portable x86-64 .exe.
+- [Funput for Linux](https://funput.app/linux/): Vietnamese input method for Fcitx5 and IBus; Ubuntu, Debian, Fedora, openSUSE and Arch on x86-64.
+- [Funput for iOS](https://funput.app/ios/): Vietnamese keyboard for iPhone and iPad; App Store ID 6788829996.
+- [Funput for Android](https://funput.app/android/): Vietnamese keyboard for phones and tablets; Google Play package app.funput.funput.
+- [Introducing Funput](https://funput.app/blog/funput-la-gi/): Vietnamese introduction to Funput, Telex/VNI, supported devices and official downloads.
+- [Telex, VNI and advanced Telex](https://funput.app/blog/telex-vni-va-telex-nang-cao/): Vietnamese typing guide with key mappings, examples and Funput advanced Telex shortcuts.
+- [Set up Funput on iPhone and iPad](https://funput.app/blog/cach-bat-ban-phim-funput-iphone-ipad/): Illustrated keyboard setup, Full Access explanation and troubleshooting.
+- [Install Funput on Windows](https://funput.app/blog/cai-funput-windows-10-11/): Windows 10/11 portable setup, typing methods, system tray, troubleshooting and updates.
+- [Blog](https://funput.app/blog/): Published updates from Funput.
+- [Sitemap](https://funput.app/sitemap-index.xml): Index of public website pages.
+
 ## Links
 
 - Website: https://funput.app
-- Privacy: https://funput.app/privacy
+- Privacy: https://funput.app/privacy/
 - Documentation: https://docs.funput.app/
 - Download (desktop): https://github.com/Funput/Funput/releases
 - App Store (iOS): https://apps.apple.com/vn/app/id6788829996
