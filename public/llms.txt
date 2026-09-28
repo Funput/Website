@@ -37,6 +37,11 @@ Funput runs on:
 - [Set up Funput on iPhone and iPad](https://funput.app/blog/cach-bat-ban-phim-funput-iphone-ipad/): Illustrated keyboard setup, Full Access explanation and troubleshooting.
 - [Install Funput on Windows](https://funput.app/blog/cai-funput-windows-10-11/): Windows 10/11 portable setup, typing methods, system tray, troubleshooting and updates.
 - [Blog](https://funput.app/blog/): Published updates from Funput.
+- [Move from Windows to Linux](https://funput.app/blog/chuyen-windows-sang-linux-go-tieng-viet/): Keep familiar Telex/VNI typing with Funput, configure Fcitx5 or IBus and verify everyday workflows.
+- [A modern Vietnamese input method for Linux](https://funput.app/blog/bo-go-tieng-viet-linux-hien-dai/): Funput features, package updates, maintenance evaluation and practical migration checks.
+- [Choose a Vietnamese input method](https://funput.app/blog/chon-bo-go-tieng-viet/): Device compatibility, Telex/VNI, practical typing checks and official Funput downloads.
+- [Set up Funput on Android](https://funput.app/blog/cai-ban-phim-tieng-viet-android/): Enable and select the keyboard, choose Telex/VNI, adjust layout and troubleshoot setup.
+- [Unicode, TCVN3 and VNI-Windows](https://funput.app/blog/unicode-tcvn3-vni-windows/): Distinguish typing methods, encodings and fonts; convert Vietnamese text with Funput desktop.
 - [Troubleshoot Vietnamese typing](https://funput.app/blog/khong-go-duoc-tieng-viet/): Diagnose keyboard selection, Telex/VNI mismatches and app-specific input problems across Windows, macOS, Linux, iOS and Android.
 - [Sitemap](https://funput.app/sitemap-index.xml): Index of public website pages.
 
