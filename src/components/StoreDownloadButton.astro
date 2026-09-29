@@ -1,0 +1,122 @@
+---
+import { FUNPUT_CONSTANTS } from '../lib/constants';
+interface Props {
+  platform?: 'windows' | 'ios' | 'android';
+  compact?: boolean;
+}
+const { platform = 'windows', compact = false } = Astro.props;
+const store = {
+  windows: { name: 'Microsoft Store', href: FUNPUT_CONSTANTS.WINDOWS_STORE_URL },
+  ios: { name: 'App Store', href: FUNPUT_CONSTANTS.IOS_APP_STORE_URL },
+  android: { name: 'Google Play', href: FUNPUT_CONSTANTS.ANDROID_PLAY_STORE_URL },
+}[platform];
+---
+
+<a
+  class:list={['store-button', { compact }]}
+  href={store.href}
+  aria-label={`Tải Funput miễn phí trên ${store.name}`}
+>
+  {platform === 'windows' ? (
+    <svg width="30" height="34" viewBox="0 0 30 34" fill="none" aria-hidden="true">
+      <path
+        d="M2 10h26v21H2zM10 10V7a5 5 0 0 1 10 0v3"
+        stroke="currentColor"
+        stroke-width="1.6"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M8 16h6v6H8zm8 0h6v6h-6zm-8 8h6v6H8zm8 0h6v6h-6z"
+        fill="currentColor"
+        transform="translate(0 -2)"
+      />
+    </svg>
+  ) : platform === 'ios' ? (
+    <img src="/apple-dark.svg" width="30" height="34" alt="" />
+  ) : (
+    <svg width="30" height="34" viewBox="0 0 30 34" fill="none" aria-hidden="true">
+      <path d="M4 3l15 14L4 31V3z" fill="#61d1ff" />
+      <path d="M4 3l20 11-5 3L4 3z" fill="#6dde9b" />
+      <path d="M19 17l5-3 4 3-4 3-5-3z" fill="#ffd45a" />
+      <path d="M4 31l15-14 5 3L4 31z" fill="#ff777f" />
+    </svg>
+  )}
+  <span>
+    <small>TẢI MIỄN PHÍ TRÊN</small>
+    <strong>{store.name}</strong>
+  </span>
+  <span class="store-arrow" aria-hidden="true">
+    ↗
+  </span>
+</a>
+
+<style>
+  .store-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    max-width: 100%;
+    padding: 14px 20px;
+    border: 1px solid #24251f;
+    border-radius: 10px;
+    background: var(--ink);
+    color: #fff;
+    text-decoration: none;
+    box-shadow: 0 4px 0 #24251f18;
+    transition:
+      background 180ms,
+      transform 180ms;
+  }
+  .store-button:hover {
+    background: #3c4034;
+    transform: translateY(-2px);
+  }
+  svg,
+  img {
+    flex-shrink: 0;
+    object-fit: contain;
+  }
+  small {
+    display: block;
+    font-size: 9px;
+    letter-spacing: 1.2px;
+    line-height: 1.6;
+  }
+  strong {
+    display: block;
+    font-size: 19px;
+    font-weight: 600;
+    line-height: 1.5;
+    white-space: nowrap;
+  }
+  .store-arrow {
+    margin-left: 8px;
+    font-size: 22px;
+  }
+  .compact {
+    width: 100%;
+    justify-content: flex-start;
+    gap: 12px;
+    padding-inline: 16px;
+  }
+  .compact strong {
+    font-size: 17px;
+  }
+  .compact svg,
+  .compact img {
+    width: 25px;
+  }
+  .compact .store-arrow {
+    display: none;
+  }
+  @media (max-width: 370px) {
+    .store-button {
+      gap: 12px;
+      padding-inline: 16px;
+    }
+    strong {
+      font-size: 17px;
+    }
+  }
+</style>

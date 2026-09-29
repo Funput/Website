@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PlatformLinks from './PlatformLinks.astro';
+import MicrosoftStoreButton from './MicrosoftStoreButton.astro';
 import { PLATFORMS } from '../lib/platforms';
 import { DESKTOP } from '../lib/desktop';
 import { platformPageJsonLd } from '../lib/seo';
@@ -27,6 +28,11 @@ const docs = `${links.INSTALL_DOCS_URL}${id}/`;
     <section class="desktop-hero" aria-label={`Funput cho ${platform.name}`}>
       <div class="hero-copy">
         <p class="page-eyebrow">FUNPUT / {platform.name}</p>
+        {id === 'windows' && (
+          <p class="store-status">
+            <span aria-hidden="true">✦</span> Đã có trên Microsoft Store
+          </p>
+        )}
         <h1 class="page-title">
           {content.headline}
           <br />
@@ -34,10 +40,19 @@ const docs = `${links.INSTALL_DOCS_URL}${id}/`;
           <span class="sr-only"> Bộ gõ tiếng Việt cho {platform.name}</span>
         </h1>
         <p class="page-lead">{content.lead}</p>
-        <a class="site-button" href={platform.ctaHref}>
-          {platform.ctaLabel}
-          <span aria-hidden="true">↗</span>
-        </a>
+        {id === 'windows' ? (
+          <div class="windows-actions">
+            <MicrosoftStoreButton />
+            <a class="portable-link" href={links.RELEASES_URL}>
+              Bản portable trên GitHub <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        ) : (
+          <a class="site-button" href={platform.ctaHref}>
+            {platform.ctaLabel}
+            <span aria-hidden="true">↗</span>
+          </a>
+        )}
         <p class="free-note">Miễn phí · Mã nguồn mở · Telex & VNI</p>
       </div>
       <figure>
@@ -53,7 +68,11 @@ const docs = `${links.INSTALL_DOCS_URL}${id}/`;
           alt={platform.screenshotAlt}
           fetchpriority="high"
         />
-        <figcaption>Thiết kế riêng cho {platform.name}. Quen ngay từ lần gõ đầu.</figcaption>
+        <figcaption>
+          {id === 'windows'
+            ? 'Thiết kế riêng cho Windows. Tải miễn phí trên Microsoft Store.'
+            : `Thiết kế riêng cho ${platform.name}. Quen ngay từ lần gõ đầu.`}
+        </figcaption>
       </figure>
     </section>
     <section class="requirements" aria-label="Yêu cầu hệ thống">
@@ -81,6 +100,11 @@ const docs = `${links.INSTALL_DOCS_URL}${id}/`;
           Gõ vui mỗi ngày.
         </h2>
         <a href={docs}>Hướng dẫn cài đặt {platform.name} ↗</a>
+        {id === 'windows' && (
+          <p class="install-store-link">
+            <a href={links.WINDOWS_STORE_URL}>Mở Funput trên Microsoft Store ↗</a>
+          </p>
+        )}
       </div>
       <ol>
         {content.steps.map(([title, body]) => (
@@ -104,6 +128,11 @@ const docs = `${links.INSTALL_DOCS_URL}${id}/`;
       ))}
       <p class="source-note">
         Funput là bộ gõ tiếng Việt miễn phí, phát hành theo giấy phép MIT.{' '}
+        {id === 'windows' && (
+          <>
+            <a href={links.WINDOWS_STORE_URL}>Tải trên Microsoft Store</a>,{' '}
+          </>
+        )}
         <a href={links.RELEASES_URL}>Các bản phát hành</a>,{' '}
         <a href={links.GITHUB_URL}>xem mã nguồn</a> hoặc đọc{' '}
         <a href="/privacy/">chính sách quyền riêng tư</a>.
@@ -120,6 +149,42 @@ const docs = `${links.INSTALL_DOCS_URL}${id}/`;
   </article>
 </BaseLayout>
 <style>
+  .store-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 22px;
+    padding: 7px 12px;
+    background: var(--sage);
+    color: #4a5a31;
+    border: 1px solid #d5dec4;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 500;
+  }
+  .store-status span {
+    color: #687c48;
+    font-size: 16px;
+  }
+  .windows-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 18px 24px;
+    margin-top: 30px;
+  }
+  .portable-link {
+    color: var(--muted);
+    font-size: 12px;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+  .portable-link:hover {
+    color: #ba3919;
+  }
+  .install-store-link {
+    margin-top: 16px;
+  }
   .windows-guide {
     margin-top: 32px;
     font-size: 14px;
@@ -161,7 +226,7 @@ const docs = `${links.INSTALL_DOCS_URL}${id}/`;
     min-width: 0;
   }
   .windows figure {
-    background: #e5eaf0;
+    background: linear-gradient(140deg, #e5eaf0, #edf0e2);
   }
   .linux figure {
     background: #eee6da;

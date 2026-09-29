@@ -138,6 +138,17 @@ for platform, store in stores.items():
     assert home_app == app, f"App identity differs across pages: {platform}"
     assert f"/{platform}/" in pages["/"].links
     assert f"{SITE}/{platform}/" in (DIST / "llms.txt").read_text()
+windows_store = "https://apps.microsoft.com/store/detail/9NR3WL5PD4ZS"
+windows_page = pages["/windows/"]
+windows_app = next(node for node in windows_page.schemas if node.get("@id") == f"{SITE}/windows/#app")
+assert windows_app["downloadUrl"] == windows_app["installUrl"] == windows_store
+assert windows_app["offers"]["url"] == windows_store
+assert windows_app["identifier"] == "9NR3WL5PD4ZS"
+assert windows_store in windows_app["sameAs"]
+assert "Microsoft Store" in windows_page.meta["description"]
+for route in ("/", "/windows/", "/blog/cai-funput-windows-10-11/", "/blog/funput-la-gi/"):
+    assert windows_store in pages[route].links, f"Missing Microsoft Store link: {route}"
+assert windows_store in (DIST / "llms.txt").read_text()
 for platform in ("macos", "windows", "linux", "ios", "android"):
     page = pages[f"/{platform}/"]
     app_id = f"{SITE}/{platform}/#app"

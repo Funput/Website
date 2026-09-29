@@ -68,6 +68,7 @@ Then open [http://localhost:8080](http://localhost:8080).
 
 - **Main repository:** [github.com/Funput/Funput](https://github.com/Funput/Funput)
 - **Docs:** [docs.funput.app](https://docs.funput.app)
+- **Windows (Microsoft Store):** [Funput on Microsoft Store](https://apps.microsoft.com/store/detail/9NR3WL5PD4ZS)
 - **Releases:** [github.com/Funput/Funput/releases](https://github.com/Funput/Funput/releases)
 
 ## Contributing
