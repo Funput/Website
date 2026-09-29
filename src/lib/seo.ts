@@ -3,7 +3,7 @@ import { PLATFORMS, type PlatformId } from './platforms';
 import { DESKTOP } from './desktop';
 
 export const DEFAULT_DESCRIPTION =
-  'Funput là bộ gõ tiếng Việt miễn phí, mã nguồn mở. Gõ Telex và VNI trên iPhone, iPad, Android, macOS, Windows và Linux. Tải từ App Store, Google Play hoặc GitHub.';
+  'Funput là bộ gõ tiếng Việt miễn phí, mã nguồn mở cho điện thoại và máy tính. Gõ Telex, VNI. Tải từ Microsoft Store, App Store, Google Play hoặc GitHub.';
 export const HOME_TITLE = 'Funput — Bộ gõ tiếng Việt cho iOS, Android, macOS, Windows và Linux';
 
 /** Page URLs match Astro's directory output and sitemap. Asset URLs are left intact. */
@@ -128,8 +128,9 @@ export function platformAppJsonLd(id: PlatformId) {
     applicationSubCategory: 'Vietnamese input method',
     operatingSystem: content.os,
     softwareRequirements: content.requirements,
-    downloadUrl: links.RELEASES_URL,
-    installUrl: `${links.INSTALL_DOCS_URL}${id}/`,
+    downloadUrl: id === 'windows' ? links.WINDOWS_STORE_URL : links.RELEASES_URL,
+    installUrl: id === 'windows' ? links.WINDOWS_STORE_URL : `${links.INSTALL_DOCS_URL}${id}/`,
+    ...(id === 'windows' ? { identifier: '9NR3WL5PD4ZS', sameAs: [links.WINDOWS_STORE_URL] } : {}),
     softwareHelp: { '@type': 'WebPage', url: `${links.INSTALL_DOCS_URL}${id}/` },
     image: absoluteUrl('/brand/logo.png'),
     screenshot: absoluteUrl(platform.screenshotSrc),
@@ -137,7 +138,12 @@ export function platformAppJsonLd(id: PlatformId) {
     isAccessibleForFree: true,
     license: links.LICENSE_URL,
     publisher: { '@id': organizationId },
-    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD', url: links.RELEASES_URL },
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'USD',
+      url: id === 'windows' ? links.WINDOWS_STORE_URL : links.RELEASES_URL,
+    },
   };
 }
 export function homeJsonLd() {

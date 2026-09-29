@@ -49,19 +49,19 @@ export const DESKTOP = {
     ],
   },
   windows: {
-    title: 'Funput cho Windows 10 & 11 — Bộ gõ tiếng Việt miễn phí',
+    title: 'Funput cho Windows 10 & 11 — Tải trên Microsoft Store',
     description:
-      'Tải Funput cho Windows 10 và Windows 11. Bộ gõ tiếng Việt Telex, VNI miễn phí, mã nguồn mở, bản .exe portable cho x86-64. Hỗ trợ Windows 10 từ phiên bản 1809.',
+      'Tải Funput miễn phí trên Microsoft Store cho Windows 10 và Windows 11. Bộ gõ tiếng Việt Telex, Telex+ và VNI, mã nguồn mở. Cài đặt và cập nhật qua Store.',
     headline: 'Mở lên.',
     accent: 'Gõ tiếng Việt.',
-    lead: 'Từ dòng tin nhắn đến trang tài liệu. Funput mang Telex và VNI đến Windows, gọn trong một ứng dụng ở khay hệ thống.',
+    lead: 'Từ dòng tin nhắn đến trang tài liệu. Telex và VNI quen tay, trong một ứng dụng gọn nhẹ. Nay đã có trên Microsoft Store, để bắt đầu càng dễ dàng.',
     os: 'Windows 10 phiên bản 1809 trở lên · Windows 11',
     requirements:
-      'Bản x86-64, một tệp .exe portable. Windows on ARM chạy qua mô phỏng; chưa có bản ARM riêng.',
+      'Bản x86-64, cài từ Microsoft Store. Windows on ARM chạy qua mô phỏng; chưa có bản ARM riêng. Bản portable vẫn có trên GitHub.',
     features: [
       [
-        'Một tệp, bắt đầu ngay',
-        'Bản .exe portable hoạt động từ khay hệ thống. Không cần thêm nguồn nhập vào Windows.',
+        'Cài dễ. Cập nhật gọn.',
+        'Tải Funput từ Microsoft Store và nhận bản cập nhật qua Store. Không cần tự tìm tệp cài đặt.',
       ],
       [
         'Kiểu gõ quen tay',
@@ -74,12 +74,12 @@ export const DESKTOP = {
     ],
     steps: [
       [
-        'Tải Funput.exe',
-        'Mở GitHub Releases và chọn tệp .exe dành cho Windows. Lưu vào thư mục bạn muốn giữ ứng dụng.',
+        'Cài từ Microsoft Store',
+        'Mở trang Funput trên Microsoft Store, chọn Nhận hoặc Cài đặt và chờ hoàn tất.',
       ],
       [
         'Mở ứng dụng',
-        'Chạy Funput.exe. Funput xuất hiện ở khay hệ thống để bạn mở cài đặt và điều khiển bộ gõ.',
+        'Mở Funput từ menu Start. Biểu tượng ở khay hệ thống giúp bạn mở cài đặt và điều khiển bộ gõ.',
       ],
       [
         'Chọn kiểu gõ',
@@ -92,8 +92,16 @@ export const DESKTOP = {
         'Funput hỗ trợ Windows 10 từ phiên bản 1809 (build 17763) và Windows 11. Bản phát hành dành cho x86-64.',
       ],
       [
-        'Có cần cài đặt bằng MSI không?',
-        'Không. Bản Windows hiện được phát hành dưới dạng .exe portable, chưa có bộ cài MSI.',
+        'Funput đã có trên Microsoft Store chưa?',
+        'Có. Funput đã có trên Microsoft Store. Bạn có thể cài miễn phí qua nút tải trên trang này, rồi mở ứng dụng từ menu Start.',
+      ],
+      [
+        'Cập nhật bản Microsoft Store thế nào?',
+        'Microsoft Store quản lý bản cập nhật của bản cài từ Store. Mở Store để kiểm tra và tải bản cập nhật Funput; không cần thay tệp .exe thủ công.',
+      ],
+      [
+        'Tôi vẫn dùng bản portable được không?',
+        'Có. Bản .exe portable vẫn được cung cấp trên GitHub Releases. Xem hướng dẫn cài Windows để chọn cách phù hợp; nên thoát bản đang chạy trước khi mở bản khác.',
       ],
     ],
   },

@@ -4,7 +4,7 @@
 
 ## Summary
 
-Funput (Funput IME) is an open-source Vietnamese input method. It lets people type Vietnamese with Telex or VNI on iOS, Android, macOS, Windows, and Linux. Desktop builds are available from GitHub Releases; iOS is on the App Store and Android is on Google Play.
+Funput (Funput IME) is an open-source Vietnamese input method. It lets people type Vietnamese with Telex or VNI on iOS, Android, macOS, Windows, and Linux. Windows is available on Microsoft Store; desktop builds are also available from GitHub Releases. iOS is on the App Store and Android is on Google Play.
 
 ## Platforms
 
@@ -13,7 +13,7 @@ Funput runs on:
 - iOS — Vietnamese keyboard for iPhone and iPad; requires iOS/iPadOS 18.6+; available on the App Store
 - Android — Vietnamese keyboard for phones and tablets; requires Android 8.0 (API 26)+; available on Google Play
 - macOS — native input method; requires macOS 26 (Tahoe)+; ready to download
-- Windows — native input method; requires Windows 10 version 1809+ or Windows 11; ready to download
+- Windows — native input method; requires Windows 10 version 1809+ or Windows 11; available on Microsoft Store (ID 9NR3WL5PD4ZS), with a portable build also on GitHub
 - Linux — native input method (Fcitx5 and IBus); install guide: https://docs.funput.app/docs/install/linux/
 
 ## Features
@@ -28,14 +28,14 @@ Funput runs on:
 ## Official app pages
 
 - [Funput for macOS](https://funput.app/macos/): Vietnamese input method for macOS 26+, Apple Silicon and Intel; .pkg or .app.zip.
-- [Funput for Windows](https://funput.app/windows/): Vietnamese input method for Windows 10 version 1809+ and Windows 11; portable x86-64 .exe.
+- [Funput for Windows](https://funput.app/windows/): Vietnamese input method for Windows 10 version 1809+ and Windows 11; install and update through Microsoft Store, with an optional portable x86-64 .exe.
 - [Funput for Linux](https://funput.app/linux/): Vietnamese input method for Fcitx5 and IBus; Ubuntu, Debian, Fedora, openSUSE and Arch on x86-64.
 - [Funput for iOS](https://funput.app/ios/): Vietnamese keyboard for iPhone and iPad; App Store ID 6788829996.
 - [Funput for Android](https://funput.app/android/): Vietnamese keyboard for phones and tablets; Google Play package app.funput.funput.
 - [Introducing Funput](https://funput.app/blog/funput-la-gi/): Vietnamese introduction to Funput, Telex/VNI, supported devices and official downloads.
 - [Telex, VNI and advanced Telex](https://funput.app/blog/telex-vni-va-telex-nang-cao/): Vietnamese typing guide with key mappings, examples and Funput advanced Telex shortcuts.
 - [Set up Funput on iPhone and iPad](https://funput.app/blog/cach-bat-ban-phim-funput-iphone-ipad/): Illustrated keyboard setup, Full Access explanation and troubleshooting.
-- [Install Funput on Windows](https://funput.app/blog/cai-funput-windows-10-11/): Windows 10/11 portable setup, typing methods, system tray, troubleshooting and updates.
+- [Install Funput on Windows](https://funput.app/blog/cai-funput-windows-10-11/): Windows 10/11 Microsoft Store installation, typing methods, system tray, troubleshooting, Store updates and optional portable setup.
 - [Blog](https://funput.app/blog/): Published updates from Funput.
 - [Move from Windows to Linux](https://funput.app/blog/chuyen-windows-sang-linux-go-tieng-viet/): Keep familiar Telex/VNI typing with Funput, configure Fcitx5 or IBus and verify everyday workflows.
 - [A modern Vietnamese input method for Linux](https://funput.app/blog/bo-go-tieng-viet-linux-hien-dai/): Funput features, package updates, maintenance evaluation and practical migration checks.
@@ -50,7 +50,8 @@ Funput runs on:
 - Website: https://funput.app
 - Privacy: https://funput.app/privacy/
 - Documentation: https://docs.funput.app/
-- Download (desktop): https://github.com/Funput/Funput/releases
+- Microsoft Store (Windows): https://apps.microsoft.com/store/detail/9NR3WL5PD4ZS
+- Download (desktop / portable): https://github.com/Funput/Funput/releases
 - App Store (iOS): https://apps.apple.com/vn/app/id6788829996
 - Google Play (Android): https://play.google.com/store/apps/details?id=app.funput.funput
 - Source: https://github.com/Funput/Funput
