@@ -67,7 +67,7 @@ Funput cần được thêm vào **Nguồn nhập / Input Sources**, sau đó đ
 
 Trong **Cài đặt Hệ thống → Bàn phím**, tìm phần nguồn nhập, thêm **Vietnamese → Funput** nếu chưa có, rồi chọn Funput từ menu nguồn nhập. Kiểm tra tiếp chế độ tiếng Việt trong Funput. Tên và vị trí các mục có thể khác giữa các phiên bản macOS.
 
-Xem yêu cầu hệ thống tại [Funput cho macOS](/macos/) và các bước đầy đủ trong [tài liệu cài đặt macOS](https://docs.funput.app/docs/install/macos/).
+Xem yêu cầu hệ thống tại [Funput cho macOS](/macos/) và hướng dẫn từng bước trong [bài cài bộ gõ tiếng Việt cho Mac](/blog/bo-go-tieng-viet-cho-mac/) hoặc [tài liệu cài đặt macOS](https://docs.funput.app/docs/install/macos/).
 
 ### Trên iPhone và iPad
 

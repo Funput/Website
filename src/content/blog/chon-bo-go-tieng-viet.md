@@ -61,7 +61,7 @@ Funput là bộ gõ tiếng Việt miễn phí, mã nguồn mở, hỗ trợ Tel
 | Bạn đang dùng      | Trang tải và hướng dẫn                                                                            |
 | ------------------ | ------------------------------------------------------------------------------------------------- |
 | Máy tính Windows   | [Funput cho Windows](/windows/) và [cách cài trên Windows 10/11](/blog/cai-funput-windows-10-11/) |
-| Mac                | [Funput cho macOS](/macos/)                                                                       |
+| Mac                | [Funput cho macOS](/macos/) và [cách cài trên Mac](/blog/bo-go-tieng-viet-cho-mac/)               |
 | Máy tính Linux     | [Funput cho Linux](/linux/)                                                                       |
 | iPhone hoặc iPad   | [Funput cho iOS](/ios/) và [cách bật bàn phím](/blog/cach-bat-ban-phim-funput-iphone-ipad/)       |
 | Điện thoại Android | [Funput cho Android](/android/) và [hướng dẫn thiết lập](/blog/cai-ban-phim-tieng-viet-android/)  |
