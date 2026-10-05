@@ -64,7 +64,7 @@ Bảng dưới đây giúp bạn chọn đúng phiên bản. Mỗi liên kết d
 | iPhone, iPad | iOS hoặc iPadOS 18.6 trở lên                                  | [Funput cho iOS](/ios/)         |
 | Android      | Android 8.0 (API 26) trở lên                                  | [Funput cho Android](/android/) |
 
-Trên macOS, gói `.pkg` cần quyền admin; bản `.app.zip` có thể cài cho tài khoản hiện tại theo hướng dẫn. Bản Windows đã có trên [Microsoft Store](https://apps.microsoft.com/store/detail/9NR3WL5PD4ZS), với cài đặt và cập nhật qua Store. Bạn cũng có thể chọn bản `.exe` portable trên GitHub. Với Linux, hãy đọc hướng dẫn theo bản phân phối và phiên desktop trước khi chọn Fcitx5 hoặc IBus.
+Trên macOS, gói `.pkg` cần quyền admin; bản `.app.zip` có thể cài cho tài khoản hiện tại theo [hướng dẫn cài Funput trên Mac](/blog/bo-go-tieng-viet-cho-mac/). Bản Windows đã có trên [Microsoft Store](https://apps.microsoft.com/store/detail/9NR3WL5PD4ZS), với cài đặt và cập nhật qua Store. Bạn cũng có thể chọn bản `.exe` portable trên GitHub. Với Linux, hãy đọc hướng dẫn theo bản phân phối và phiên desktop trước khi chọn Fcitx5 hoặc IBus.
 
 Ứng dụng iPhone và iPad được phân phối qua [App Store](https://apps.apple.com/vn/app/id6788829996). Bản Android có trên [Google Play](https://play.google.com/store/apps/details?id=app.funput.funput). Nếu đang đọc bằng máy tính, bạn có thể mở trang iOS hoặc Android trên website rồi quét mã QR bằng điện thoại.
 
