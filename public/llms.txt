@@ -36,6 +36,7 @@ Funput runs on:
 - [Telex, VNI and advanced Telex](https://funput.app/blog/telex-vni-va-telex-nang-cao/): Vietnamese typing guide with key mappings, examples and Funput advanced Telex shortcuts.
 - [Set up Funput on iPhone and iPad](https://funput.app/blog/cach-bat-ban-phim-funput-iphone-ipad/): Illustrated keyboard setup, Full Access explanation and troubleshooting.
 - [Install Funput on Windows](https://funput.app/blog/cai-funput-windows-10-11/): Windows 10/11 Microsoft Store installation, typing methods, system tray, troubleshooting, Store updates and optional portable setup.
+- [Install Funput on Mac](https://funput.app/blog/bo-go-tieng-viet-cho-mac/): macOS 26+ setup with .pkg or .app.zip, adding Funput to Input Sources, typing methods, Chromium/Electron workaround, updates and uninstall.
 - [Blog](https://funput.app/blog/): Published updates from Funput.
 - [Move from Windows to Linux](https://funput.app/blog/chuyen-windows-sang-linux-go-tieng-viet/): Keep familiar Telex/VNI typing with Funput, configure Fcitx5 or IBus and verify everyday workflows.
 - [A modern Vietnamese input method for Linux](https://funput.app/blog/bo-go-tieng-viet-linux-hien-dai/): Funput features, package updates, maintenance evaluation and practical migration checks.
