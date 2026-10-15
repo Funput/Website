@@ -1,7 +1,7 @@
 ---
 title: Chính sách quyền riêng tư
 description: Chính sách quyền riêng tư của Funput — bộ gõ tiếng Việt mã nguồn mở.
-lastUpdated: '19 tháng 7 năm 2026'
+lastUpdated: '15 tháng 10 năm 2026'
 ---
 
 Chính sách này giải thích cách Funput xử lý thông tin khi bạn sử dụng ứng dụng bộ gõ Funput và website [funput.app](https://funput.app/). Funput là phần mềm mã nguồn mở; chúng tôi ưu tiên minh bạch và quyền riêng tư theo thiết kế.
@@ -37,6 +37,12 @@ Trong ứng dụng Funput, chúng tôi không:
 ## 5. Dữ liệu lưu trên thiết bị
 
 Funput có thể lưu các tùy chọn cấu hình trên thiết bị của bạn (ví dụ kiểu gõ, giao diện, hoặc trạng thái thiết lập) để ứng dụng hoạt động đúng như bạn mong muốn. Dữ liệu này được lưu cục bộ và không được Funput thu thập về máy chủ của chúng tôi.
+
+### Tin tức trong ứng dụng
+
+Khi bạn mở mục Tin tức trong ứng dụng Funput, ứng dụng tải danh sách bài viết công khai từ `https://funput.app/blog/feed.json`. Yêu cầu này không kèm mã nhận dạng, tài khoản, cookie hay bất kỳ nội dung nào bạn gõ, và chỉ diễn ra khi bạn mở mục Tin tức. Danh sách được lưu tạm trên thiết bị để xem khi không có mạng. Bàn phím Funput không tham gia vào việc này.
+
+Khi bạn chạm vào một bài viết, bài đó mở trên website funput.app, nên mục 6 dưới đây được áp dụng.
 
 ## 6. Website và Google Analytics
 
