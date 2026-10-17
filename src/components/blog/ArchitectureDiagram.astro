@@ -1,0 +1,90 @@
+---
+import { Image } from 'astro:assets';
+import architecture from '../../assets/blog/funput-architecture.png';
+---
+
+<figure class="architecture-diagram">
+  <Image
+    src={architecture}
+    alt="Sơ đồ kiến trúc Funput: iOS, macOS và Linux nối qua funput-ffi; Android qua funput-jni; Windows nối trực tiếp. Năm nền tảng dùng chung funput-engine và funput-core; Linux dùng Fcitx5 hoặc IBus với direct typing."
+    widths={[480, 768, 1024, 1672]}
+    sizes="(max-width: 760px) calc(100vw - 48px), (max-width: 1050px) calc(100vw - 300px), (max-width: 1174px) calc(100vw - 414px), 760px"
+    format="webp"
+    loading="lazy"
+  />
+  <figcaption>
+    Đọc từ trên xuống: nơi nhận phím trên từng thiết bị → phần kết nối → bộ xử lý chung → quy tắc
+    tiếng Việt. Ảnh từ kho mã nguồn Funput, phiên bản có Linux direct typing.
+  </figcaption>
+  <details>
+    <summary>
+      Phóng to sơ đồ <span aria-hidden="true">↗</span>
+    </summary>
+    <p class="zoom-hint">Vuốt ngang hoặc dùng phím mũi tên trong khung ảnh để xem từng phần.</p>
+    <div
+      class="diagram-scroll"
+      tabindex="0"
+      role="region"
+      aria-label="Sơ đồ phóng to, có thể cuộn ngang"
+    >
+      <Image
+        class="diagram-large"
+        src={architecture}
+        alt="Bản lớn của sơ đồ kiến trúc Funput ở trên."
+        format="webp"
+        loading="lazy"
+      />
+    </div>
+  </details>
+</figure>
+
+<style>
+  .architecture-diagram {
+    margin-block: 32px;
+  }
+  .architecture-diagram > img {
+    display: block;
+    width: 100%;
+    margin: 0 0 20px;
+    border: 1px solid #28203e;
+    border-radius: 12px;
+  }
+  .architecture-diagram figcaption {
+    margin: 0 0 18px;
+  }
+  details {
+    padding: 16px 20px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: var(--sage);
+  }
+  summary {
+    cursor: pointer;
+    color: var(--ink);
+    font-size: 13px;
+    font-weight: 500;
+  }
+  summary span {
+    margin-left: 8px;
+    color: #ba3919;
+  }
+  .zoom-hint {
+    margin-block: 12px;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.8;
+  }
+  .diagram-scroll {
+    overflow-x: auto;
+    border-radius: 8px;
+    background: #080719;
+  }
+  .diagram-scroll .diagram-large {
+    display: block;
+    width: 1672px;
+    max-width: none;
+    height: auto;
+    margin: 0;
+    border-radius: 0;
+  }
+</style>
