@@ -1,0 +1,121 @@
+<figure class="shortcut-example" aria-label="Ví dụ gõ tắt sau khi đã tạo mục cm trong Funput">
+  <div class="example-heading">
+    <span>ÍT PHÍM HƠN, ĐỦ Ý HƠN</span>
+    <span aria-hidden="true">✳</span>
+  </div>
+  <div class="example-flow">
+    <div class="example-input">
+      <span class="example-label">BẠN GÕ</span>
+      <div class="example-keys">
+        <kbd>c</kbd>
+        <kbd>m</kbd>
+        <span>+</span>
+        <kbd>Space</kbd>
+      </div>
+    </div>
+    <span class="example-arrow" aria-hidden="true">
+      →
+    </span>
+    <div class="example-output">
+      <span class="example-label">FUNPUT ĐIỀN</span>
+      <p>Cảm ơn bạn!</p>
+    </div>
+  </div>
+  <figcaption>
+    Tạo một lần trong bảng gõ tắt. Dùng lại khi viết email, nhắn tin hay soạn tài liệu.
+  </figcaption>
+</figure>
+
+<style>
+  .shortcut-example {
+    margin-block: 32px;
+    padding: 28px;
+    border: 1px solid #cbd4bd;
+    border-radius: 16px;
+    background: var(--sage);
+    color: var(--ink);
+  }
+  .example-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid #cbd4bd;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+  }
+  .example-heading > :last-child {
+    color: #ba3919;
+    font-size: 32px;
+    line-height: 1;
+  }
+  .example-flow {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: center;
+    gap: 24px;
+    padding-block: 28px;
+  }
+  .example-label {
+    display: block;
+    margin-bottom: 12px;
+    color: #535d46;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+  }
+  .example-keys {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 7px;
+  }
+  kbd {
+    padding: 5px 12px;
+    border: 1px solid #c5cbb9;
+    border-bottom-width: 3px;
+    border-radius: 7px;
+    background: #fffcf4;
+    font-family: inherit;
+    font-size: 15px;
+  }
+  .example-keys > span {
+    color: #535d46;
+    font-size: 12px;
+  }
+  .example-arrow {
+    color: #ba3919;
+    font-size: 28px;
+  }
+  .example-output p {
+    margin: 0;
+    font-size: clamp(22px, 3vw, 30px);
+    font-weight: 600;
+    letter-spacing: -0.8px;
+    line-height: 1.5;
+  }
+  .shortcut-example figcaption {
+    margin: 0;
+    padding-top: 18px;
+    border-top: 1px solid #cbd4bd;
+    color: #535d46;
+    font-size: 12px;
+    line-height: 1.8;
+  }
+  @media (max-width: 600px) {
+    .shortcut-example {
+      padding: 22px;
+    }
+    .example-flow {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 16px;
+    }
+    .example-arrow {
+      justify-self: start;
+      transform: rotate(90deg);
+      line-height: 1;
+    }
+  }
+</style>
