@@ -1,0 +1,116 @@
+---
+title: 'Bên trong Funput: một lõi gõ, năm nền tảng'
+seoTitle: 'Kiến trúc Funput: một lõi gõ tiếng Việt cho năm nền tảng'
+description: 'Tìm hiểu kiến trúc Funput qua sơ đồ dễ đọc: năm nền tảng dùng chung lõi tiếng Việt, cách xử lý từng phím và trải nghiệm gõ thẳng mới trên Linux.'
+pubDate: 2026-10-18
+draft: false
+tags:
+  - cau-chuyen-funput
+  - kien-truc
+  - linux
+---
+
+import ArchitectureDiagram from '../../components/blog/ArchitectureDiagram.astro';
+
+Bạn gõ `a`, rồi thêm `s`, và chữ “á” xuất hiện. Một thao tác rất quen, nhưng để nó hoạt động trong ứng dụng nhắn tin trên điện thoại, trình duyệt trên máy tính hay tài liệu trên Linux, Funput cần làm hai việc: **hiểu bạn muốn viết gì** và **đưa chữ vào đúng nơi bạn đang gõ**.
+
+Đó cũng là cách dễ nhất để hiểu **kiến trúc Funput**. Phần hiểu tiếng Việt được dùng chung; phần làm việc với bàn phím và ô nhập được thiết kế cho từng hệ điều hành. Bạn không cần biết lập trình để đọc sơ đồ này — hãy bắt đầu từ thiết bị mình đang dùng.
+
+## Đọc sơ đồ Funput từ đâu?
+
+Hàng trên cùng là năm nơi Funput có mặt: **iPhone và iPad, Mac, Linux, Android và Windows**. Dù đi theo những nhánh khác nhau, các mũi tên đều dẫn về hai khối chung ở phía dưới: `funput-engine` và `funput-core`.
+
+<ArchitectureDiagram />
+
+Hãy hình dung Funput như một đội có nhiều người tiếp nhận thông tin, nhưng cùng tra một bộ quy tắc tiếng Việt. Người tiếp nhận trên điện thoại làm việc qua bàn phím cảm ứng; người tiếp nhận trên máy tính làm việc với cách nhập liệu của hệ điều hành. Còn quy tắc như **Telex dùng `s` cho dấu sắc**, hay **VNI dùng `1`**, không cần viết lại riêng năm lần.
+
+Ba phần chính trong hình có thể đọc như sau:
+
+| Phần trong sơ đồ           | Hiểu đơn giản                                                  | Bạn nhận thấy gì?                                                   |
+| -------------------------- | -------------------------------------------------------------- | ------------------------------------------------------------------- |
+| Các nền tảng ở hàng trên   | Nhận phím và làm việc với ứng dụng đang mở                     | Bàn phím, cửa sổ cài đặt và cách chữ xuất hiện phù hợp với thiết bị |
+| Các cầu nối ở giữa         | Giúp phần riêng của mỗi nền tảng trao đổi với phần xử lý chung | Bạn không cần cài thêm từng “cầu nối”                               |
+| Engine và core ở phía dưới | Theo dõi từ đang gõ và áp dụng quy tắc tiếng Việt              | Telex, VNI và cách đặt dấu có nền tảng xử lý chung                  |
+
+## Một phím bấm đi qua những bước nào?
+
+Lấy ví dụ đơn giản: bạn chọn Telex và muốn viết “á”.
+
+1. **Bạn gõ `a`.** Phần Funput dành cho thiết bị nhận phím và chuyển nó đến bộ xử lý chung.
+2. **Bạn gõ tiếp `s`.** Bộ xử lý biết từ đang có chữ `a`, rồi dùng quy tắc Telex để xác định rằng kết quả mới là “á”.
+3. **Funput cập nhật ô nhập.** Phần dành cho nền tảng đưa kết quả trở lại ứng dụng bạn đang dùng, theo cách mà hệ điều hành và ô nhập hỗ trợ.
+
+Vì vậy, `s` trong tình huống này không trở thành một chữ “s” đứng sau “a”: nó được hiểu là phím đặt dấu. Khi bạn dùng VNI, vai trò đó thuộc về `1`.
+
+Điều bạn nhìn thấy là chữ có dấu. Còn bên trong, Funput tách việc **quyết định chữ nào cần xuất hiện** khỏi việc **làm cho chữ đó xuất hiện trong ứng dụng**. Sự tách biệt này giúp giải thích vì sao cùng một kiểu gõ có thể dùng trên nhiều thiết bị.
+
+## Hai khối dùng chung: nhớ từ đang gõ và hiểu quy tắc tiếng Việt
+
+Tên hai khối dưới cùng có vẻ kỹ thuật, nhưng mỗi khối phụ trách một việc khá quen thuộc.
+
+### Engine: theo dõi việc bạn đang viết
+
+`funput-engine` giống người theo dõi câu chuyện đang diễn ra. Nó biết những phím bạn vừa gõ trong từ hiện tại, kiểu gõ đang chọn và lúc nào bạn kết thúc từ bằng dấu cách hay dấu câu.
+
+Nhờ đó, Funput có cơ sở để xử lý việc xóa lùi, khôi phục chuỗi phím gốc khi phù hợp hoặc bung một mục gõ tắt đã lưu. Đây là phần cần nhớ **bạn vừa làm gì**, thay vì chỉ nhìn riêng một phím.
+
+### Core: bộ quy tắc tạo chữ có dấu
+
+`funput-core` là phần trả lời câu hỏi: với chữ đang có và phím vừa nhập, kết quả theo Telex hoặc VNI sẽ là gì?
+
+Ví dụ, Telex dùng `aa` để tạo “â”, `dd` để tạo “đ”; VNI dùng `a6` và `d9`. Phần này cũng chứa quy tắc đặt dấu thanh. Nếu bạn muốn tra cách gõ cụ thể, xem [bảng phím Telex, VNI và Telex nâng cao](/blog/telex-vni-va-telex-nang-cao/).
+
+Hai phần dùng chung được viết bằng **Rust**, một ngôn ngữ lập trình. Với người dùng, ý nghĩa chính là: các nền tảng cùng dựa vào một phần xử lý tiếng Việt, thay vì mỗi bản tự duy trì một bộ quy tắc riêng.
+
+## Vì sao mỗi thiết bị vẫn cần một phần riêng?
+
+Một bàn phím trên iPhone không thể đưa chữ vào ứng dụng theo đúng cách của bộ gõ Windows. Hệ điều hành quyết định bộ gõ được nhận phím như thế nào, được sửa đoạn chữ nào và giao tiếp với ô nhập ra sao.
+
+Vì vậy, phía trên của sơ đồ vẫn có các phần riêng:
+
+- **iPhone và iPad:** Funput hoạt động dưới dạng bàn phím được thêm vào danh sách bàn phím của iOS hoặc iPadOS.
+- **Android:** Funput cung cấp bàn phím qua cơ chế nhập liệu của Android.
+- **macOS:** Funput tích hợp thành một nguồn nhập để làm việc với các ứng dụng trên Mac.
+- **Windows:** Funput nhận sự kiện bàn phím và cập nhật chữ trong ứng dụng đang gõ.
+- **Linux:** Funput làm việc qua Fcitx5 hoặc IBus, hai hệ thống kết nối bộ gõ với ứng dụng trên desktop Linux.
+
+Trong hình, **Shell** là tên phần phụ trách nền tảng; **IME** chỉ cơ chế bộ gõ dùng để tham gia vào việc nhập văn bản. Bạn không cần học các tên này để dùng Funput. Chúng giải thích vì sao giao diện và một số tính năng có thể khác nhau giữa điện thoại và máy tính.
+
+Các khối “bridge” là **cầu nối bên trong ứng dụng**. iOS, macOS và Linux dùng `funput-ffi`; Android dùng `funput-jni`. Windows kết nối trực tiếp với phần xử lý Rust. Đây đều là thành phần đi cùng bản Funput tương ứng, không phải dịch vụ mà bạn cần đăng ký.
+
+## Linux chuyển sang direct typing: thay đổi gì khi gõ?
+
+Điểm mới ở nhánh Linux trong sơ đồ là **direct typing**, có thể hiểu là **gõ thẳng vào ô nhập**.
+
+Với cách soạn có gạch chân, từ đang gõ được giữ tạm trong một vùng soạn thảo của bộ gõ. Bạn có thể nhìn thấy nó trong ô nhập, nhưng ứng dụng còn phải nhận bước xác nhận để đưa nó vào văn bản. Với cách gõ thẳng, chữ được đưa vào văn bản theo từng phím; khi thêm dấu, Funput sửa phần chữ vừa nhập.
+
+| Cách nhập                         | Bạn thường thấy                                                       |
+| --------------------------------- | --------------------------------------------------------------------- |
+| Soạn tạm, hay được gọi là preedit | Từ đang soạn có thể được gạch chân hoặc nằm trong vùng hiển thị riêng |
+| Gõ thẳng, hay direct typing       | Chữ nằm ngay trong văn bản và được cập nhật khi bạn thêm dấu          |
+
+**Funput Linux hiện ưu tiên gõ thẳng và tự chọn cách phù hợp với ứng dụng.** Khi gõ thẳng hoạt động, từ đã nằm trong văn bản nên không còn chờ được xác nhận từ vùng soạn tạm lúc bạn chuyển sang cửa sổ khác.
+
+Tuy nhiên, một số ứng dụng không cung cấp đủ thông tin quanh con trỏ hoặc không nhận đầy đủ thao tác sửa chữ. Khi gặp giới hạn đó, Funput dùng lại cách soạn có gạch chân. Bạn có thể gặp trường hợp này trong terminal, WPS Office hoặc một số ô nhập đặc biệt; đôi khi từ đầu tiên sau khi chuyển ô nhập vẫn có gạch chân. **Bạn không cần tìm công tắc để tự chọn giữa hai cách.**
+
+Gạch chân xuất hiện vì thế chưa đủ để kết luận Funput bị lỗi. Nếu chữ bị lặp, mất hoặc sửa sai, hãy ghi lại tên ứng dụng, kiểu gõ và chuỗi phím để [báo lỗi bằng một ví dụ cụ thể](/blog/khong-go-duoc-tieng-viet/).
+
+Một chi tiết dễ nhầm trong hình: **Direct typing** ở Linux nói về cách đưa chữ vào ô nhập. **Direct Rust Link** ở Windows nói về cách các thành phần bên trong kết nối với nhau. Hai nhãn này mô tả hai việc khác nhau.
+
+## Kiến trúc này đem lại gì cho bạn?
+
+**Giữ cách gõ quen khi đổi thiết bị.** Khi chuyển từ máy Windows sang Mac hoặc Linux, bạn vẫn có thể dùng Telex hay VNI theo các quy tắc chung. Việc cần làm quen chủ yếu là bật bộ gõ, chọn bàn phím hoặc nguồn nhập của hệ điều hành mới.
+
+**Cải tiến có thể được dùng lại.** Khi sửa một quy tắc đặt dấu trong phần chung, các nền tảng có thể cùng nhận thay đổi đó qua bản cập nhật tương ứng. Một thay đổi trong lõi không có nghĩa mọi thiết bị đã được cập nhật ngay: mỗi nền tảng vẫn cần tích hợp, kiểm tra và phát hành.
+
+**Mỗi nền tảng có chỗ để xử lý khác biệt.** Việc Linux tự chọn gõ thẳng hay soạn tạm là một ví dụ. Dùng chung lõi không buộc mọi bản phải có cùng giao diện hoặc hỗ trợ đầy đủ cùng một danh sách tính năng.
+
+**Việc tạo dấu được xử lý trên thiết bị.** Các mũi tên trong sơ đồ là trao đổi giữa các thành phần của Funput, không phải hành trình gửi chữ lên một máy chủ để chờ đặt dấu. Theo [chính sách quyền riêng tư](/privacy/), đường xử lý nhập liệu được thiết kế để không gửi nội dung bạn gõ lên máy chủ Funput. Việc tải cập nhật hoặc mở tin tức là hoạt động riêng với việc xử lý phím.
+
+## Dùng Funput có cần hiểu hết sơ đồ này không?
+
+Bạn chỉ cần chọn bản phù hợp với thiết bị, bật Funput và chọn kiểu gõ quen thuộc. Sơ đồ giúp trả lời những câu hỏi phía sau trải nghiệm ấy: vì sao có nhiều bản Funput, vì sao chúng cùng hiểu Telex/VNI, và vì sao một ô nhập đôi khi cần cách xử lý riêng.
+
+Nếu muốn tìm hiểu thêm, bạn có thể xem [sơ đồ trong kho mã nguồn Funput](https://github.com/Funput/Funput/blob/main/assets/design/architecture.png) và [phần giới thiệu cách nhập liệu trên Linux](https://github.com/Funput/Funput/blob/main/platforms/linux/README.md). Bài viết này mô tả kiến trúc trong mã nguồn hiện tại; các bản đã cài trên máy có thể nhận thay đổi ở những lần phát hành khác nhau.
+
+Còn để bắt đầu sử dụng, hãy chọn **[Windows](/windows/), [macOS](/macos/), [Linux](/linux/), [iPhone và iPad](/ios/)** hoặc **[Android](/android/)**. Phần bên trong được chia sẻ để những dòng chữ bên ngoài gần gũi hơn với cách bạn đã quen gõ.
