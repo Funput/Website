@@ -1,0 +1,130 @@
+---
+title: 'Gõ nhầm phím trên điện thoại: Funput tự sửa khi bạn kết thúc từ'
+seoTitle: 'Tự sửa lỗi gõ nhầm phím tiếng Việt trên iPhone và Android'
+description: 'Tự sửa lỗi gõ nhầm phím tiếng Việt trên iPhone, iPad và Android. Funput đổi phím chạm lệch khi bạn kết thúc từ, và hoàn tác được ngay.'
+pubDate: 2026-10-20
+draft: false
+tags:
+  - tu-sua
+  - dien-thoai
+  - huong-dan
+---
+
+import TypoCorrectionExample from '../../components/blog/TypoCorrectionExample.astro';
+
+Ngón tay trượt một chút trên kính, và `tôi` thành `tpoi`. Bạn nhấn dấu cách. Ô nhập nhận **tôi**.
+
+Đó là **tự sửa lỗi gõ nhầm phím** trên bàn phím Funput. Tính năng bật sẵn cho **iPhone, iPad và Android**. Bài này dành cho bàn phím cảm ứng: Funput nhìn vị trí ngón tay, rồi đổi đúng một phím nằm cạnh khi từ vừa gõ không phải âm tiết tiếng Việt.
+
+<TypoCorrectionExample />
+
+## Tự sửa lỗi gõ nhầm phím chạy lúc nào?
+
+Funput chờ bạn kết thúc từ bằng dấu cách, dấu câu hoặc Enter. Nếu chuỗi vừa gõ không tạo được âm tiết tiếng Việt, và chỉ cần đổi **một phím kề** là thành từ quen, Funput thay vào.
+
+Phím kề là phím ngón tay dễ chạm nhầm: `p` sát `o`, `h` sát `g`, `y` sát `t`. Bạn vẫn dùng kiểu gõ đang chọn. Telex, Telex nâng cao và VNI đều được. Muốn đối chiếu chuỗi phím, xem [bảng Telex, VNI và Telex nâng cao](/blog/telex-vni-va-telex-nang-cao/).
+
+Hãy gõ trực tiếp trên bàn phím Funput. Vị trí ngón tay là dữ liệu Funput dùng để chọn phím đúng. Dán một chuỗi từ chỗ khác không mang theo cú chạm đó.
+
+| Bạn gõ      | Kiểu gõ | Funput sửa thành | Phím chạm lệch   |
+| ----------- | ------- | ---------------- | ---------------- |
+| `tpoi`      | Telex   | tôi              | `p` đứng chỗ `o` |
+| `khpong`    | Telex   | không            | `p` đứng chỗ `o` |
+| `dduwowfnh` | Telex   | đường            | `h` đứng chỗ `g` |
+| `vieeyj`    | Telex   | việt             | `y` đứng chỗ `t` |
+| `minhg`     | Telex   | mình             | `g` đứng chỗ `f` |
+| `d9u7o7nh2` | VNI     | đường            | `h` đứng chỗ `g` |
+
+`tpoi` là câu thử ngắn nhất. Gõ xong, nhấn dấu cách, và đọc lại ô nhập.
+
+Khi sửa, Funput giữ chữ hoa ở đầu từ. Cả từ viết hoa, như `NHAD`, thì Funput để nguyên.
+
+## Nhìn từ đúng trước khi chốt
+
+Trước dấu cách, thanh gợi ý phía trên bàn phím hiện chữ bạn đang gõ và từ Funput đề xuất. Bạn chọn, hoặc để dấu cách quyết định khi Funput đủ chắc.
+
+<TypoCorrectionExample variant="bar" />
+
+| Thao tác                                 | Điều xảy ra                        |
+| ---------------------------------------- | ---------------------------------- |
+| Nhấn dấu cách                            | Nhận từ đề xuất khi Funput đủ chắc |
+| Chạm **Sửa thành**                       | Nhận từ đó, kèm dấu cách           |
+| Chạm **Giữ nguyên**, chữ trong ngoặc kép | Giữ chuỗi đã gõ                    |
+| Chạm **Hoàn tác**, hoặc nhấn xóa ngay    | Trả lại đúng chuỗi đã gõ           |
+| Gõ tiếp một phím khác                    | Hết lượt hoàn tác một chạm         |
+
+Chạm **Giữ nguyên** để chuỗi đã gõ ở lại. Funput ghi nhớ chữ đó trên thiết bị, cùng dữ liệu các từ đã học.
+
+Hai từ đề xuất sát nhau thì Funput chờ bạn chọn. Cả hai nằm trên thanh, và bạn chạm từ mình muốn. Ví dụ `nhad` có thể là **nhà** hoặc **nhá**, tùy ngón lệch về `f` hay về `s`.
+
+> **Thử trong Ghi chú trước.** Gõ `tpoi`, nhấn dấu cách, và xem ô nhập có thành **tôi**. Làm quen ở một ô trống giúp bạn biết tính năng đang chạy trên máy mình.
+
+Thanh gợi ý đang ẩn thì chip không hiện, nhưng dấu cách vẫn sửa khi Funput đủ chắc. Lúc đó, nhấn xóa ngay để lấy lại chuỗi đã gõ.
+
+Trong Tin nhắn, Ghi chú, Zalo hay Messenger, ô nhập thường cho phép tự sửa, nên Funput sửa được ở những nơi bạn viết mỗi ngày.
+
+## Bật hoặc tắt trong mục Thông minh
+
+Mở ứng dụng Funput, vào **Thông minh**, rồi tìm **Tự sửa lỗi gõ nhầm phím**. Dòng dưới công tắc là: “Sửa từ gõ trượt sang phím bên cạnh khi kết thúc từ.”
+
+iPhone, iPad và Android dùng cùng tên này. Công tắc bật sẵn. Tắt khi bạn muốn từng phím giữ nguyên, chẳng hạn lúc nhập mã hoặc một tên riêng lạ. Tắt công tắc giữ nguyên kiểu gõ, bảng gõ tắt và các tùy chọn khác.
+
+Nếu mục **Thông minh** chưa có công tắc này, hãy cập nhật Funput. Chưa thấy bàn phím trong ô nhập thì làm theo [cách bật Funput trên iPhone và iPad](/blog/cach-bat-ban-phim-funput-iphone-ipad/) hoặc [cài bàn phím Funput trên Android](/blog/cai-ban-phim-tieng-viet-android/).
+
+## Funput giữ nguyên khi nào?
+
+Funput giữ nguyên những trường hợp sau.
+
+| Trường hợp                                 | Ví dụ                         | Funput làm gì                            |
+| ------------------------------------------ | ----------------------------- | ---------------------------------------- |
+| Từ tiếng Việt hợp lệ                       | `bans` ra bán, `banj` ra bạn  | Giữ nguyên. Đây là hai từ đúng           |
+| Hai từ đề xuất sát nhau                    | `nhad` có thể là nhà hoặc nhá | Cả hai hiện trên thanh gợi ý để bạn chọn |
+| Ô mật khẩu, email, địa chỉ web, mã một lần | Ô đăng nhập                   | Bỏ qua                                   |
+| Ô ứng dụng đã tắt tự sửa                   | Một số ô nhập kỹ thuật        | Bỏ qua                                   |
+| Cả từ viết hoa                             | `NHAD`                        | Bỏ qua                                   |
+
+**Kiểm tra chính tả** nhận diện từ tiếng Việt chưa hợp lệ. **Tự sửa lỗi gõ nhầm phím** thay phím kề khi bạn kết thúc từ. Hai công tắc nằm cạnh nhau trong mục **Thông minh**, và mỗi công tắc một việc.
+
+Trên Windows, Mac và Linux, bản phát hành này giữ nguyên từng phím của bàn phím vật lý. Lỗi ở đó thường là đảo chữ hoặc gõ trùng, khác với ngón trượt trên kính. Bạn vẫn đặt dấu bằng Telex và VNI theo [hướng dẫn Windows](/blog/cai-funput-windows-10-11/), [hướng dẫn Mac](/blog/bo-go-tieng-viet-cho-mac/) và [bộ gõ Linux](/blog/bo-go-tieng-viet-linux-hien-dai/).
+
+Chữ không có dấu dù ngón tay đặt đúng phím là việc của kiểu gõ hoặc bàn phím chưa được chọn. Xem [Không gõ được tiếng Việt](/blog/khong-go-duoc-tieng-viet/).
+
+## Thử trong nửa phút
+
+1. Mở Ghi chú, tin nhắn, hoặc ứng dụng bạn hay viết.
+2. Chọn bàn phím Funput.
+3. Gõ `tpoi`, rồi nhấn dấu cách.
+4. Ô nhập nên hiện **tôi**.
+5. Nhấn xóa ngay nếu bạn muốn thấy lại `tpoi`.
+
+Lặp lại với `khpong` để thấy **không**. Khi cả hai từ đều ra đúng, tính năng đã sẵn sàng cho các cuộc trò chuyện sau.
+
+## Câu hỏi thường gặp
+
+### Telex và VNI đều được sửa chứ?
+
+Có. Telex, Telex nâng cao và VNI dùng chung cách sửa này. Bạn giữ kiểu gõ quen, và chỉ cần kết thúc từ để Funput xem phím vừa chạm.
+
+### Funput có cần mạng để sửa không?
+
+Không. Phép sửa chạy trên máy bạn đang cầm. Theo [chính sách quyền riêng tư](/privacy/), đường xử lý nhập liệu của Funput được thiết kế để không gửi nội dung bạn gõ lên máy chủ của Funput.
+
+### Vì sao một từ không được sửa?
+
+Từ đó có thể đã là tiếng Việt hợp lệ, cả từ đang viết hoa, hoặc ô nhập không cho tự sửa. Hai ứng viên quá sát thì Funput chờ bạn chạm trên thanh gợi ý. Công tắc **Tự sửa lỗi gõ nhầm phím** trong mục **Thông minh** cũng cần đang bật.
+
+### iPad có tính năng này không?
+
+Có. iPad dùng cùng bàn phím với iPhone. Cách thêm bàn phím nằm trong [hướng dẫn bật Funput trên iPhone và iPad](/blog/cach-bat-ban-phim-funput-iphone-ipad/).
+
+### Windows và Mac có tự sửa không?
+
+Bản phát hành này dành cho iPhone, iPad và Android. Trên máy tính, Funput tiếp tục đặt dấu theo kiểu gõ bạn chọn. Trang [Funput cho Windows](/windows/), [Funput cho macOS](/macos/) và [Funput cho Linux](/linux/) là nơi tải bản máy tính.
+
+## Cập nhật Funput rồi thử một từ
+
+Mở bản Funput mới nhất, vào Ghi chú, gõ một từ trượt phím và nhấn dấu cách. Nếu từ đề xuất chưa đúng ý, chạm giữ nguyên hoặc nhấn xóa ngay — chữ của bạn vẫn ở đó.
+
+**Một phím lệch không làm đứt câu bạn đang viết.**
+
+Tải [Funput cho iPhone và iPad](/ios/) hoặc [Funput cho Android](/android/).

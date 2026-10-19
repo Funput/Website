@@ -39,6 +39,7 @@ Funput runs on:
 - [Install Funput on Mac](https://funput.app/blog/bo-go-tieng-viet-cho-mac/): macOS 26+ setup with .pkg or .app.zip, adding Funput to Input Sources, typing methods, Chromium/Electron workaround, updates and uninstall.
 - [Inside Funput: one typing core, five platforms](https://funput.app/blog/kien-truc-funput/): A user-friendly architecture tour with the official diagram, shared Vietnamese typing rules, platform integration and Linux direct typing with automatic preedit fallback.
 - [Vietnamese text shortcuts with Funput](https://funput.app/blog/go-tat-tieng-viet-funput/): Create text expansion shortcuts on Windows, macOS and Linux, with email examples, case matching, English mode and troubleshooting.
+- [Repair mistyped Vietnamese keys](https://funput.app/blog/tu-sua-loi-go-nham-phim/): On iPhone, iPad and Android, Funput replaces a neighbouring key slip when a word ends, with a suggestion-bar preview and one-tap undo.
 - [Blog](https://funput.app/blog/): Published updates from Funput.
 - [Move from Windows to Linux](https://funput.app/blog/chuyen-windows-sang-linux-go-tieng-viet/): Keep familiar Telex/VNI typing with Funput, configure Fcitx5 or IBus and verify everyday workflows.
 - [A modern Vietnamese input method for Linux](https://funput.app/blog/bo-go-tieng-viet-linux-hien-dai/): Funput features, package updates, maintenance evaluation and practical migration checks.

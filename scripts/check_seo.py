@@ -112,6 +112,7 @@ for route, page in pages.items():
             assert unquote(url.fragment) in pages[target].ids, f"Broken anchor: {route} -> {href}"
 
 # Published articles must be discoverable and have complete article metadata.
+llms = (DIST / "llms.txt").read_text()
 for route, page in pages.items():
     if route.startswith("/blog/") and route != "/blog/":
         article = next(node for node in page.schemas if node["@type"] == "BlogPosting")
@@ -120,6 +121,7 @@ for route, page in pages.items():
         assert article["headline"] and article["author"]["name"] == "Funput"
         assert page.meta["og:type"] == "article"
         assert route in pages["/blog/"].links
+        assert f"{SITE}{route}" in llms, f"Blog post missing from llms.txt: {route}"
 
 assert sitemap_urls == {SITE + route for route in pages if route != "/404.html"}
 robots = (DIST / "robots.txt").read_text()
