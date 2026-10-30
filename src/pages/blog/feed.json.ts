@@ -17,7 +17,7 @@ export const GET: APIRoute = async ({ site }) => {
     title: 'Funput Blog',
     home_page_url: new URL('/blog/', origin).href,
     feed_url: new URL('/blog/feed.json', origin).href,
-    description: 'Cập nhật và hướng dẫn từ Funput — bộ gõ tiếng Việt mã nguồn mở.',
+    description: 'Cập nhật và hướng dẫn từ Funput: bộ gõ tiếng Việt mã nguồn mở.',
     language: 'vi',
     items: posts.map((post) => ({
       id: post.id,

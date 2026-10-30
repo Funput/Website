@@ -29,7 +29,7 @@ Trên điện thoại, **bàn phím tiếng Việt** thường là cả giao di�
 | Thiết bị             | Hệ điều hành, phiên bản tối thiểu và kiến trúc máy có được hỗ trợ không?                |
 | Kiểu gõ              | Có Telex hoặc VNI mà bạn đã quen không?                                                 |
 | Ứng dụng thường dùng | Gõ, sửa và xóa chữ trong trình duyệt, trình soạn thảo, ứng dụng nhắn tin có đúng không? |
-| Thao tác hằng ngày   | Chuyển Việt–Anh, đổi kiểu gõ và mở cài đặt có thuận tiện không?                         |
+| Thao tác hằng ngày   | Chuyển Việt-Anh, đổi kiểu gõ và mở cài đặt có thuận tiện không?                         |
 | Nguồn tải và dữ liệu | Có trang tải chính thức, tài liệu và chính sách quyền riêng tư rõ ràng không?           |
 
 Đừng chỉ thử một câu rồi quyết định. Nếu thường viết email có tên sản phẩm tiếng Anh, hãy thử đúng kiểu nội dung đó. Nếu chủ yếu nhắn tin bằng điện thoại, hãy kiểm tra xem bạn có hay chạm nhầm phím hoặc khó đưa con trỏ về chỗ cần sửa không.

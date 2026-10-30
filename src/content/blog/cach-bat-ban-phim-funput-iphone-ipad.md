@@ -34,11 +34,11 @@ Thẻ này giúp bạn theo dõi các bước thiết lập. Bạn có thể ch�
 
 Trong ứng dụng **Cài đặt** của iPhone hoặc iPad, đi theo đường dẫn:
 
-**Cài đặt → Cài đặt chung → Bàn phím → Các bàn phím → Thêm bàn phím mới… → Funput**
+**Cài đặt → Cài đặt chung → Bàn phím → Các bàn phím → Thêm bàn phím mới&#46;&#46;&#46; → Funput**
 
 Nếu máy đang dùng tiếng Anh, đường dẫn tương ứng là:
 
-**Settings → General → Keyboard → Keyboards → Add New Keyboard… → Funput**
+**Settings → General → Keyboard → Keyboards → Add New Keyboard&#46;&#46;&#46; → Funput**
 
 Chọn **Funput** trong nhóm bàn phím bên thứ ba. Nếu bạn đã thấy Funput trong danh sách các bàn phím đang dùng, có thể chuyển sang bước 3.
 
@@ -48,7 +48,7 @@ _Chọn Funput trong nhóm bàn phím bên thứ ba; mục Vietnamese ở nhóm 
 
 ## Bước 3: Hiểu và bật quyền truy cập đầy đủ
 
-Trong phần **Các bàn phím**, chọn **Funput**, sau đó bật **Cho phép truy cập đầy đủ** — **Allow Full Access** nếu dùng tiếng Anh. Đọc thông báo của iOS rồi xác nhận nếu bạn đồng ý cấp quyền.
+Trong phần **Các bàn phím**, chọn **Funput**, sau đó bật **Cho phép truy cập đầy đủ** (Allow Full Access) nếu dùng tiếng Anh. Đọc thông báo của iOS rồi xác nhận nếu bạn đồng ý cấp quyền.
 
 ![Hướng dẫn iOS: công tắc Funput và Allow Full Access trong Cài đặt đã được bật](../../assets/blog/ios-install-access.png)
 
@@ -120,4 +120,4 @@ Nếu muốn bỏ Funput khỏi danh sách bàn phím, vào **Cài đặt → C�
 
 Bạn đã sẵn sàng khi có thể chọn Funput, gõ thử đúng kiểu Telex hoặc VNI và thấy dấu tiếng Việt xuất hiện. Từ đó, hãy dùng trong những cuộc trò chuyện và ghi chú hằng ngày.
 
-**[Tải Funput cho iPhone và iPad](/ios/)** · [Tìm hiểu Funput](/blog/funput-la-gi/) · [Tài liệu cài đặt iOS](https://docs.funput.app/docs/install/ios/)
+**[Tải Funput cho iPhone và iPad](/ios/)** | [Tìm hiểu Funput](/blog/funput-la-gi/) | [Tài liệu cài đặt iOS](https://docs.funput.app/docs/install/ios/)

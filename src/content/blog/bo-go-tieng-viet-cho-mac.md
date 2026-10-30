@@ -63,11 +63,11 @@ Lưu ý: **Funput không có trên Mac App Store**. Bộ gõ trên macOS không 
 
 Đây là bước hay bị bỏ qua nhất. Cài xong, macOS vẫn chưa dùng Funput cho đến khi bạn thêm nó vào danh sách nguồn nhập:
 
-**Cài đặt Hệ thống → Bàn phím → Nhập văn bản → Nguồn nhập → Sửa… → + → Tiếng Việt → Funput → Thêm**
+**Cài đặt Hệ thống → Bàn phím → Nhập văn bản → Nguồn nhập → Sửa&#46;&#46;&#46; → + → Tiếng Việt → Funput → Thêm**
 
 Nếu máy dùng tiếng Anh, đường dẫn tương ứng là:
 
-**System Settings → Keyboard → Text Input → Input Sources → Edit… → + → Vietnamese → Funput → Add**
+**System Settings → Keyboard → Text Input → Input Sources → Edit&#46;&#46;&#46; → + → Vietnamese → Funput → Add**
 
 Tên và vị trí nút có thể khác đôi chút giữa các phiên bản macOS. Sau khi thêm, biểu tượng Funput xuất hiện trên thanh menu. Nếu chưa thấy Funput trong danh sách, xem mục **Xử lý sự cố nhanh** bên dưới.
 
@@ -194,4 +194,4 @@ Funput có trên năm nền tảng với cùng các kiểu gõ Telex và VNI. Xe
 
 Bạn đã hoàn tất khi chọn được Funput trong Nguồn nhập, bật tiếng Việt bằng `Control + \` và gõ đúng câu thử trong ứng dụng thường dùng. Nếu gặp lỗi, gửi phiên bản macOS, phiên bản Funput, tên ứng dụng và chuỗi phím mẫu qua [GitHub Issues](https://github.com/Funput/Funput/issues) hoặc [hello@funput.app](mailto:hello@funput.app).
 
-**[Tải Funput cho macOS](/macos/)** · [Tìm hiểu Funput](/blog/funput-la-gi/) · [Tài liệu cài đặt macOS](https://docs.funput.app/docs/install/macos/)
+**[Tải Funput cho macOS](/macos/)** | [Tìm hiểu Funput](/blog/funput-la-gi/) | [Tài liệu cài đặt macOS](https://docs.funput.app/docs/install/macos/)

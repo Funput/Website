@@ -4,7 +4,7 @@ import { DESKTOP } from './desktop';
 
 export const DEFAULT_DESCRIPTION =
   'Funput là bộ gõ tiếng Việt miễn phí, mã nguồn mở cho điện thoại và máy tính. Gõ Telex, VNI. Tải từ Microsoft Store, App Store, Google Play hoặc GitHub.';
-export const HOME_TITLE = 'Funput — Bộ gõ tiếng Việt cho iOS, Android, macOS, Windows và Linux';
+export const HOME_TITLE = 'Funput: Bộ gõ tiếng Việt cho iOS, Android, macOS, Windows và Linux';
 
 /** Page URLs match Astro's directory output and sitemap. Asset URLs are left intact. */
 export function absoluteUrl(path = '/'): string {
