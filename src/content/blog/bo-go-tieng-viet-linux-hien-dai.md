@@ -89,7 +89,7 @@ Khi xem Issues, hãy đọc cách dự án phân tích lỗi và thông tin cầ
 
 Khả năng nhập liệu trên Linux phụ thuộc cả framework, desktop và ứng dụng. Không nên hiểu hỗ trợ Wayland là bảo đảm mọi ô nhập trong mọi ứng dụng đều có hành vi giống nhau.
 
-Funput Linux hiện **chưa nhớ chế độ Việt–Anh theo từng ứng dụng**. Tùy chọn **Gõ thẳng vào ứng dụng** được tài liệu mô tả là đang thử nghiệm, nên cần kiểm tra với ứng dụng thực tế. Các môi trường như Chrome, WPS hoặc trình soạn thảo dựa trên Electron có những khác biệt mà tài liệu xử lý sự cố đề cập.
+Funput Linux hiện **chưa nhớ chế độ Việt-Anh theo từng ứng dụng**. Tùy chọn **Gõ thẳng vào ứng dụng** được tài liệu mô tả là đang thử nghiệm, nên cần kiểm tra với ứng dụng thực tế. Các môi trường như Chrome, WPS hoặc trình soạn thảo dựa trên Electron có những khác biệt mà tài liệu xử lý sự cố đề cập.
 
 Trên KDE/Wayland, sau khi thay đổi cấu hình hoặc cập nhật, hãy làm theo hướng dẫn đăng xuất và đăng nhập lại; tránh tùy tiện chạy `fcitx5 -r` vì có thể làm mất kết nối nhập liệu của phiên hiện tại.
 

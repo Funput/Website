@@ -37,7 +37,7 @@ Nếu đang dùng bản portable hoặc một bộ gõ tiếng Việt khác, hã
 
 ## Bước 3: Chọn kiểu gõ và thử tiếng Việt
 
-Nhấp trái biểu tượng Funput ở khay hệ thống để mở **Control Center**, bật chế độ tiếng Việt và chọn **Telex**, **Telex+** hoặc **VNI**. Bạn cũng có thể nhấp phải biểu tượng, chọn **Cài đặt…** rồi mở **Cách gõ**.
+Nhấp trái biểu tượng Funput ở khay hệ thống để mở **Control Center**, bật chế độ tiếng Việt và chọn **Telex**, **Telex+** hoặc **VNI**. Bạn cũng có thể nhấp phải biểu tượng, chọn **Cài đặt&#46;&#46;&#46;** rồi mở **Cách gõ**.
 
 <figure>
   <img src="/brand/screenshots/windows.png" width="960" height="756" alt="Cửa sổ cài đặt Funput trên Windows với lựa chọn Telex, Telex+ và VNI" loading="lazy" />
@@ -90,7 +90,7 @@ Cửa sổ Cài đặt trên Windows 10 dùng nền đục, còn hiệu ứng Mi
 
 **Bản Microsoft Store:** mở Microsoft Store và kiểm tra bản cập nhật Funput trong phần quản lý ứng dụng / Thư viện. Bản này do Store quản lý cập nhật; bạn không cần tải hay thay `.exe` thủ công. Trong **Cài đặt → Giới thiệu**, Funput hiển thị “Cập nhật qua Microsoft Store”.
 
-**Bản portable:** chọn **Kiểm tra cập nhật…** từ menu khay hệ thống hoặc **Cài đặt → Giới thiệu**. Bản portable không tự kiểm tra cập nhật nền. Nếu cập nhật thủ công, tải `.exe` mới từ GitHub Releases, thoát Funput rồi đặt tệp mới cùng thư mục với `Funput.exe` và chạy tệp mới.
+**Bản portable:** chọn **Kiểm tra cập nhật&#46;&#46;&#46;** từ menu khay hệ thống hoặc **Cài đặt → Giới thiệu**. Bản portable không tự kiểm tra cập nhật nền. Nếu cập nhật thủ công, tải `.exe` mới từ GitHub Releases, thoát Funput rồi đặt tệp mới cùng thư mục với `Funput.exe` và chạy tệp mới.
 
 Trước khi chuyển từ bản portable sang bản Store, chuyển máy hoặc gỡ ứng dụng, dùng **Cài đặt → Dữ liệu → Xuất cấu hình** nếu muốn giữ các thiết lập. Sau khi mở bản mới, nhập lại cấu hình từ mục Dữ liệu.
 
@@ -134,4 +134,4 @@ Không cần tắt SmartScreen hoặc phần mềm bảo vệ toàn hệ thống
 
 Bạn đã hoàn tất khi mở được Funput, chọn đúng kiểu gõ và nhập được câu tiếng Việt trong ứng dụng thường dùng. Nếu cần trợ giúp, gửi phiên bản Windows, phiên bản Funput và các bước tái hiện bằng nội dung mẫu qua [GitHub Issues](https://github.com/Funput/Funput/issues).
 
-**[Tải Funput trên Microsoft Store](https://apps.microsoft.com/store/detail/9NR3WL5PD4ZS)** · [Funput cho Windows](/windows/) · [Tìm hiểu Funput](/blog/funput-la-gi/) · [Cài bàn phím Funput trên iPhone và iPad](/blog/cach-bat-ban-phim-funput-iphone-ipad/)
+**[Tải Funput trên Microsoft Store](https://apps.microsoft.com/store/detail/9NR3WL5PD4ZS)** | [Funput cho Windows](/windows/) | [Tìm hiểu Funput](/blog/funput-la-gi/) | [Cài bàn phím Funput trên iPhone và iPad](/blog/cach-bat-ban-phim-funput-iphone-ipad/)

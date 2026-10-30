@@ -45,7 +45,7 @@ export const PLATFORMS: Platform[] = [
     name: 'Windows',
     blurb: 'Đã có trên Microsoft Store. Cài dễ dàng, mở lên là gõ tiếng Việt ngay.',
     bullets: [
-      'Cần Windows 10 phiên bản 1809 trở lên · Windows 11',
+      'Cần Windows 10 phiên bản 1809 trở lên | Windows 11',
       'Cài đặt và cập nhật qua Microsoft Store',
       'Giao diện làm riêng cho Windows',
     ],
@@ -62,7 +62,7 @@ export const PLATFORMS: Platform[] = [
   {
     id: 'linux',
     name: 'Linux',
-    blurb: 'Dùng được với Fcitx5 hoặc IBus — cùng một cách gõ tiếng Việt quen thuộc.',
+    blurb: 'Dùng được với Fcitx5 hoặc IBus, cùng một cách gõ tiếng Việt quen thuộc.',
     bullets: [
       'Tương thích Fcitx5 và IBus',
       'Bản phát hành cho máy x86-64',

@@ -1,6 +1,6 @@
 ---
 title: Chính sách quyền riêng tư
-description: Chính sách quyền riêng tư của Funput — bộ gõ tiếng Việt mã nguồn mở.
+description: 'Chính sách quyền riêng tư của Funput: bộ gõ tiếng Việt mã nguồn mở.'
 lastUpdated: '15 tháng 10 năm 2026'
 ---
 

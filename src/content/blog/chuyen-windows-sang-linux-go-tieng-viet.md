@@ -98,9 +98,9 @@ Bạn cũng có thể chọn Telex nâng cao. Xem [bảng phím và ví dụ th�
 
 Với văn bản Unicode, hãy kiểm tra font hỗ trợ tiếng Việt và khả năng hiển thị trong ứng dụng bạn chọn. Nếu tài liệu cũ dùng TCVN3 hoặc VNI-Windows, Funput Linux có công cụ Chuyển mã. Thử trên một đoạn ngắn và giữ bản gốc để đối chiếu; xem [hướng dẫn về bảng mã tiếng Việt](/blog/unicode-tcvn3-vni-windows/).
 
-Nếu thường dùng gõ tắt, hãy thiết lập các cụm từ cần dùng trong Funput rồi thử cả chữ hoa, chữ thường. Kiểm tra lại phím chuyển Việt–Anh để tránh trùng với phím tắt của desktop mới.
+Nếu thường dùng gõ tắt, hãy thiết lập các cụm từ cần dùng trong Funput rồi thử cả chữ hoa, chữ thường. Kiểm tra lại phím chuyển Việt-Anh để tránh trùng với phím tắt của desktop mới.
 
-**Bản Linux hiện chưa có tính năng nhớ chế độ Việt–Anh theo từng ứng dụng như bản Windows.** Hãy tính đến khác biệt này nếu thường xuyên chuyển giữa ứng dụng viết tiếng Việt và môi trường lập trình.
+**Bản Linux hiện chưa có tính năng nhớ chế độ Việt-Anh theo từng ứng dụng như bản Windows.** Hãy tính đến khác biệt này nếu thường xuyên chuyển giữa ứng dụng viết tiếng Việt và môi trường lập trình.
 
 ## Kiểm tra trước ngày làm việc đầu tiên
 

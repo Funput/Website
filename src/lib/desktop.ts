@@ -1,6 +1,6 @@
 export const DESKTOP = {
   macos: {
-    title: 'Funput cho macOS — Bộ gõ tiếng Việt Telex & VNI trên Mac',
+    title: 'Funput cho macOS: Bộ gõ tiếng Việt Telex & VNI trên Mac',
     description:
       'Tải Funput cho Mac miễn phí. Bộ gõ tiếng Việt Telex, VNI cho macOS 26 trở lên, hỗ trợ Apple Silicon và Intel. Cài bằng .pkg hoặc .app.zip, mã nguồn mở.',
     headline: 'Gõ tiếng Việt.',
@@ -49,13 +49,13 @@ export const DESKTOP = {
     ],
   },
   windows: {
-    title: 'Funput cho Windows 10 & 11 — Tải trên Microsoft Store',
+    title: 'Funput cho Windows 10 & 11: Tải trên Microsoft Store',
     description:
       'Tải Funput miễn phí trên Microsoft Store cho Windows 10 và Windows 11. Bộ gõ tiếng Việt Telex, Telex+ và VNI, mã nguồn mở. Cài đặt và cập nhật qua Store.',
     headline: 'Mở lên.',
     accent: 'Gõ tiếng Việt.',
     lead: 'Từ dòng tin nhắn đến trang tài liệu. Telex và VNI quen tay, trong một ứng dụng gọn nhẹ. Nay đã có trên Microsoft Store, để bắt đầu càng dễ dàng.',
-    os: 'Windows 10 phiên bản 1809 trở lên · Windows 11',
+    os: 'Windows 10 phiên bản 1809 trở lên | Windows 11',
     requirements:
       'Bản x86-64, cài từ Microsoft Store. Windows on ARM chạy qua mô phỏng; chưa có bản ARM riêng. Bản portable vẫn có trên GitHub.',
     features: [
@@ -106,13 +106,13 @@ export const DESKTOP = {
     ],
   },
   linux: {
-    title: 'Funput cho Linux — Bộ gõ tiếng Việt Fcitx5 & IBus',
+    title: 'Funput cho Linux: Bộ gõ tiếng Việt Fcitx5 & IBus',
     description:
       'Cài Funput cho Linux: bộ gõ tiếng Việt Telex, VNI với Fcitx5 hoặc IBus. Hỗ trợ Ubuntu, Debian, Fedora, openSUSE và Arch trên x86-64. Miễn phí, mã nguồn mở.',
     headline: 'Linux của bạn.',
     accent: 'Tiếng Việt của bạn.',
     lead: 'Dù bạn chọn Fcitx5 hay IBus, cách gõ vẫn quen thuộc. Funput đưa Telex và VNI vào môi trường Linux bạn yêu thích.',
-    os: 'Linux x86-64 · Fcitx5 hoặc IBus',
+    os: 'Linux x86-64 | Fcitx5 hoặc IBus',
     requirements:
       'Debian/Ubuntu (.deb), Fedora/openSUSE (.rpm) và Arch (pacman). Chọn framework phù hợp với phiên desktop của bạn.',
     features: [

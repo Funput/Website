@@ -1,5 +1,5 @@
 ---
-title: 'Xin chào, Funput — Gõ tiếng Việt trên mọi thiết bị'
+title: 'Xin chào, Funput: Gõ tiếng Việt trên mọi thiết bị'
 seoTitle: 'Funput là gì? Bộ gõ tiếng Việt cho Windows, macOS, Linux, iOS và Android'
 description: 'Làm quen với Funput: bộ gõ tiếng Việt miễn phí, mã nguồn mở, hỗ trợ Telex và VNI trên năm nền tảng. Chọn bản phù hợp và bắt đầu gõ.'
 pubDate: 2026-09-27
