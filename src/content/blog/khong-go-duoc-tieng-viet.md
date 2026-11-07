@@ -107,7 +107,7 @@ Nếu cùng chuỗi phím cho kết quả đúng trong ứng dụng ghi chú nh�
 
 ## Có dấu rồi nhưng vị trí dấu khác mong muốn
 
-Các cặp như **hòa / hoà** hoặc **khỏe / khoẻ** có thể liên quan đến lựa chọn kiểu đặt dấu truyền thống và hiện đại. Nếu phiên bản Funput bạn dùng có tùy chọn này, kiểm tra trước khi coi đó là lỗi.
+Các cặp như **hòa / hoà** hoặc **khỏe / khoẻ** không phải lỗi. Đó là hai cách đặt dấu: **Truyền thống** và **Hiện đại**. Mở mục **Kiểu đặt dấu** trong cài đặt Funput để chọn cách bạn muốn. Bài [Hòa hay hoà? Đặt dấu kiểu cũ và kiểu mới](/blog/dat-dau-kieu-cu-kieu-moi/) liệt kê những vần bị ảnh hưởng và vị trí tùy chọn trên từng thiết bị.
 
 Trường hợp chữ bị lặp hoặc biến mất là vấn đề khác. Hãy thử lại với một bộ gõ duy nhất, ghi rõ chuỗi phím và kiểm tra ở hai ứng dụng. Nếu hiện tượng vẫn lặp lại, những thông tin đó sẽ hữu ích hơn việc chỉ mô tả “gõ bị sai”.
 

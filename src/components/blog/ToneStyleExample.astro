@@ -1,0 +1,257 @@
+---
+interface Props {
+  /** `compare` puts the two spellings side by side. `keys` shows one key sequence under both styles. */
+  variant?: 'compare' | 'keys';
+}
+
+const { variant = 'compare' } = Astro.props;
+const isKeys = variant === 'keys';
+
+/** Each word is split around the letter that carries the tone, so it can be highlighted. */
+const pairs = [
+  { traditional: ['h', 'ò', 'a'], modern: ['ho', 'à', ''] },
+  { traditional: ['kh', 'ỏ', 'e'], modern: ['kho', 'ẻ', ''] },
+  { traditional: ['th', 'ủ', 'y'], modern: ['thu', 'ỷ', ''] },
+];
+---
+
+{isKeys ? (
+  <figure
+    class="tone-example"
+    aria-label="Gõ hoaf rồi dấu cách: kiểu truyền thống ra hòa, kiểu hiện đại ra hoà"
+  >
+    <div class="example-heading">
+      <span>GÕ MỘT LẦN, DẤU TỰ VÀO CHỖ</span>
+      <span aria-hidden="true">✳</span>
+    </div>
+    <div class="example-flow">
+      <div class="example-input">
+        <span class="example-label">BẠN GÕ (TELEX)</span>
+        <div class="example-keys">
+          <kbd>h</kbd>
+          <kbd>o</kbd>
+          <kbd>a</kbd>
+          <kbd class="tone-key">
+            f<span class="sr-only">, phím dấu huyền</span>
+          </kbd>
+          <span>+</span>
+          <kbd>Space</kbd>
+        </div>
+      </div>
+      <span class="example-arrow" aria-hidden="true">
+        →
+      </span>
+      <div class="example-output">
+        <div class="output-row">
+          <span class="example-label">TRUYỀN THỐNG</span>
+          <p>
+            h<span class="tone">ò</span>a
+          </p>
+        </div>
+        <div class="output-row">
+          <span class="example-label">HIỆN ĐẠI</span>
+          <p>
+            ho<span class="tone">à</span>
+          </p>
+        </div>
+      </div>
+    </div>
+    <figcaption>
+      Telex hofa hay VNI hoa2 cũng ra cùng kết quả. Bạn giữ thói quen gõ, Funput đặt dấu theo kiểu
+      đã chọn.
+    </figcaption>
+  </figure>
+) : (
+  <figure
+    class="tone-example"
+    aria-label="So sánh kiểu cũ hòa, khỏe, thủy với kiểu mới hoà, khoẻ, thuỷ"
+  >
+    <div class="example-heading">
+      <span>CÙNG MỘT TỪ, HAI CÁCH ĐẶT DẤU</span>
+      <span aria-hidden="true">✳</span>
+    </div>
+    <div class="compare-grid">
+      <div class="compare-column">
+        <span class="example-label">KIỂU CŨ · TRUYỀN THỐNG</span>
+        <ul>
+          {pairs.map(({ traditional: [before, toned, after] }) => (
+            <li>
+              {before}
+              <span class="tone">{toned}</span>
+              {after}
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div class="compare-column modern">
+        <span class="example-label">KIỂU MỚI · HIỆN ĐẠI</span>
+        <ul>
+          {pairs.map(({ modern: [before, toned, after] }) => (
+            <li>
+              {before}
+              <span class="tone">{toned}</span>
+              {after}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+    <figcaption>
+      Chữ tô màu là chữ mang dấu thanh. Hai kiểu chỉ khác nhau ở vần oa, oe, uy khi sau đó không có
+      phụ âm cuối.
+    </figcaption>
+  </figure>
+)}
+
+<style>
+  .tone-example {
+    margin-block: 32px;
+    padding: 28px;
+    border: 1px solid #cbd4bd;
+    border-radius: 16px;
+    background: var(--sage);
+    color: var(--ink);
+  }
+  .example-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid #cbd4bd;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+  }
+  .example-heading > :last-child {
+    color: #ba3919;
+    font-size: 32px;
+    line-height: 1;
+  }
+  .example-label {
+    display: block;
+    margin-bottom: 12px;
+    color: #535d46;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+  }
+  .tone {
+    color: #ba3919;
+  }
+  .compare-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    padding-block: 28px;
+  }
+  .compare-column {
+    padding: 20px 22px;
+    border: 1px solid #c5cbb9;
+    border-radius: 12px;
+    background: #fffcf4;
+  }
+  .compare-column.modern {
+    border-color: var(--ink);
+  }
+  .compare-column ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 22px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .compare-column li {
+    margin: 0;
+    padding: 0;
+    font-size: clamp(22px, 3vw, 30px);
+    font-weight: 600;
+    letter-spacing: -0.8px;
+    line-height: 1.5;
+  }
+  .compare-column li::marker {
+    content: none;
+  }
+  .example-flow {
+    display: grid;
+    grid-template-columns: minmax(0, 1.6fr) auto minmax(0, 1fr);
+    align-items: center;
+    gap: 24px;
+    padding-block: 28px;
+  }
+  .example-keys {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 7px;
+  }
+  kbd {
+    padding: 5px 12px;
+    border: 1px solid #c5cbb9;
+    border-bottom-width: 3px;
+    border-radius: 7px;
+    background: #fffcf4;
+    font-family: inherit;
+    font-size: 15px;
+  }
+  kbd.tone-key {
+    border-color: #ba3919;
+    color: #ba3919;
+  }
+  .example-keys > span {
+    color: #535d46;
+    font-size: 12px;
+  }
+  .example-arrow {
+    color: #ba3919;
+    font-size: 28px;
+  }
+  .example-output {
+    display: grid;
+    gap: 14px;
+  }
+  .output-row .example-label {
+    margin-bottom: 4px;
+  }
+  .example-output p {
+    margin: 0;
+    font-size: clamp(22px, 3vw, 30px);
+    font-weight: 600;
+    letter-spacing: -0.8px;
+    line-height: 1.4;
+  }
+  .tone-example figcaption {
+    margin: 0;
+    padding-top: 18px;
+    border-top: 1px solid #cbd4bd;
+    color: #535d46;
+    font-size: 12px;
+    line-height: 1.8;
+  }
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+  @media (max-width: 600px) {
+    .tone-example {
+      padding: 22px;
+    }
+    .compare-grid,
+    .example-flow {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 16px;
+    }
+    .example-arrow {
+      justify-self: start;
+      transform: rotate(90deg);
+      line-height: 1;
+    }
+  }
+</style>

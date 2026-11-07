@@ -100,6 +100,8 @@ Sau đó chuyển sang **Telex nâng cao / Telex+** và thử `t]`, `m[`, `tr][n
 
 Nếu kết quả khác mong đợi, hãy kiểm tra ba điều trước: Funput có đang được chọn làm bộ gõ hoặc bàn phím không, chế độ tiếng Việt có đang bật không và kiểu gõ hiện tại có đúng với bảng bạn đang dùng không.
 
+Gõ `hoaf` mà ra “hòa” thay vì “hoà” không phải do Telex hay VNI. Đó là **kiểu đặt dấu**, một tùy chọn riêng áp dụng cho mọi kiểu gõ. Xem [đặt dấu kiểu cũ và kiểu mới](/blog/dat-dau-kieu-cu-kieu-moi/) để chọn cách bạn muốn.
+
 ## Khi nào nên chọn Telex nâng cao?
 
 Bạn có thể thử Telex nâng cao nếu đã quen Telex và muốn dùng thêm `w`, `[` và `]` để nhập nguyên âm. Trên bàn phím có sẵn ngoặc vuông, các phím này có thể thuận tiện; trên điện thoại, việc chuyển sang lớp ký hiệu có thể khiến chúng kém tiện hơn cách gõ `uw`, `ow`.
