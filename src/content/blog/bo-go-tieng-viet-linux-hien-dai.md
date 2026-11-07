@@ -31,7 +31,7 @@ Tuổi đời của dự án hoặc việc ít có commit chưa đủ để kế
 
 ### Kiểu gõ quen thuộc, thiết lập bằng giao diện
 
-Funput hỗ trợ **Telex, Telex nâng cao và VNI**, cùng lựa chọn đặt dấu như “hòa” hoặc “hoà”. Bạn có thể mở ứng dụng cài đặt để điều chỉnh kiểu gõ, gõ tắt và các tùy chọn nhập liệu mà không cần sửa tệp cấu hình bằng tay.
+Funput hỗ trợ **Telex, Telex nâng cao và VNI**, cùng lựa chọn [đặt dấu kiểu cũ hoặc kiểu mới](/blog/dat-dau-kieu-cu-kieu-moi/) như “hòa” hoặc “hoà”. Bạn có thể mở ứng dụng cài đặt để điều chỉnh kiểu gõ, gõ tắt và các tùy chọn nhập liệu mà không cần sửa tệp cấu hình bằng tay.
 
 Giao diện dùng **GTK4 và libadwaita**, dùng chung cho bản Fcitx5 và IBus. Với người vừa chuyển từ Windows, một nơi tập trung các thiết lập giúp việc làm quen dễ hơn. Xem [cách giữ thói quen gõ khi chuyển sang Linux](/blog/chuyen-windows-sang-linux-go-tieng-viet/) để bắt đầu.
 

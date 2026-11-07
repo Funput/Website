@@ -117,7 +117,7 @@ Nhờ ứng dụng này, bạn gõ “Funput” trong Spotlight là mở đượ
 
 Sau khi gõ được, dành vài phút xem các tính năng sau. Chúng giúp việc gõ tiếng Việt trên Mac thuận tay hơn, nhất là khi bạn viết xen tiếng Anh hoặc làm việc với nhiều ứng dụng.
 
-- **Kiểu đặt dấu:** chọn truyền thống (`hòa`, `khỏe`) hoặc hiện đại (`hoà`, `khoẻ`) trong **Cách gõ**.
+- **Kiểu đặt dấu:** chọn truyền thống (`hòa`, `khỏe`) hoặc hiện đại (`hoà`, `khoẻ`) trong **Cách gõ**. Xem [khác biệt giữa đặt dấu kiểu cũ và kiểu mới](/blog/dat-dau-kieu-cu-kieu-moi/).
 - **Tự khôi phục từ tiếng Anh:** giúp các từ tiếng Anh không bị biến thành chữ có dấu ngoài ý muốn.
 - **Bỏ dấu sau Backspace:** xóa lùi rồi gõ dấu khác, Funput đặt lại dấu cho đúng từ.
 - **Nhớ theo ứng dụng:** Funput nhớ lựa chọn Việt/Anh gần nhất của từng ứng dụng. Tắt tiếng Việt trong Terminal một lần, lần sau quay lại Terminal sẽ tự ở chế độ tiếng Anh, còn Pages vẫn giữ tiếng Việt. Bạn không cần cấu hình danh sách nào.
