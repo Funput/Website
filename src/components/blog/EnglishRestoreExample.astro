@@ -1,0 +1,115 @@
+<figure class="restore-example">
+  <div class="typed-keys">
+    <span>Bạn gõ</span>
+    <div class="key-row" aria-label="t, e, x, t, dấu cách">
+      <kbd>t</kbd>
+      <kbd>e</kbd>
+      <kbd class="tone-key">x</kbd>
+      <kbd>t</kbd>
+      <kbd class="space">Dấu cách</kbd>
+    </div>
+  </div>
+  <div class="restore-results">
+    <div class="result original">
+      <span>Tắt tự khôi phục</span>
+      <samp>tẽt</samp>
+    </div>
+    <div class="result restored">
+      <span>Bật tự khôi phục</span>
+      <samp>text</samp>
+    </div>
+  </div>
+  <figcaption>
+    Phím <kbd>x</kbd> đặt dấu ngã trong Telex. Khi tự khôi phục được bật, Funput trả từ này về đúng
+    chuỗi phím đã gõ.
+  </figcaption>
+</figure>
+
+<style>
+  .restore-example {
+    margin-block: 28px 36px;
+    padding: clamp(16px, 4vw, 28px);
+    border: 1px solid #cdd5bf;
+    border-radius: 18px;
+    color: var(--ink);
+    background: var(--sage);
+  }
+
+  .typed-keys {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 16px;
+    margin-bottom: 16px;
+    font-size: 0.875rem;
+    font-weight: 650;
+  }
+
+  .key-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .key-row kbd {
+    display: inline-grid;
+    min-width: 30px;
+    min-height: 32px;
+    place-items: center;
+    padding-inline: 7px;
+    border: 1px solid #b8c2ac;
+    border-bottom-width: 2px;
+    border-radius: 6px;
+    background: #fcfbf7;
+  }
+
+  .key-row .tone-key {
+    border-color: #c38b72;
+    color: #71351f;
+    background: #f8dfcd;
+  }
+
+  .key-row .space {
+    font: inherit;
+    font-size: 0.75rem;
+  }
+
+  .restore-results {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
+    gap: 10px;
+  }
+
+  .result {
+    display: grid;
+    gap: 6px;
+    padding: 14px 16px;
+    border-radius: 11px;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    line-height: 1.5;
+  }
+
+  .original {
+    border: 1px solid #d4d3c3;
+    background: #fcfbf7;
+  }
+
+  .restored {
+    border: 1px solid #26382e;
+    color: #f7f8ee;
+    background: #26382e;
+  }
+
+  .result samp {
+    font-family: inherit;
+    font-size: clamp(1.65rem, 4vw, 2.2rem);
+    font-weight: 700;
+    line-height: 1.25;
+  }
+
+  .restore-example figcaption {
+    margin: 14px 0 0;
+    color: #4b584b;
+  }
+</style>

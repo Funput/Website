@@ -34,6 +34,7 @@ Funput runs on:
 - [Funput for Android](https://funput.app/android/): Vietnamese keyboard for phones and tablets; Google Play package app.funput.funput.
 - [Introducing Funput](https://funput.app/blog/funput-la-gi/): Vietnamese introduction to Funput, Telex/VNI, supported devices and official downloads.
 - [Telex, VNI and advanced Telex](https://funput.app/blog/telex-vni-va-telex-nang-cao/): Vietnamese typing guide with key mappings, examples and Funput advanced Telex shortcuts.
+- [Type Vietnamese and English together with Telex](https://funput.app/blog/go-xen-tieng-viet-va-tieng-anh/): Fix unwanted Vietnamese accents in English words with Funput's automatic English restore and word-flip shortcut on Windows and macOS.
 - [Set up Funput on iPhone and iPad](https://funput.app/blog/cach-bat-ban-phim-funput-iphone-ipad/): Illustrated keyboard setup, Full Access explanation and troubleshooting.
 - [Install Funput on Windows](https://funput.app/blog/cai-funput-windows-10-11/): Windows 10/11 Microsoft Store installation, typing methods, system tray, troubleshooting, Store updates and optional portable setup.
 - [Install Funput on Mac](https://funput.app/blog/bo-go-tieng-viet-cho-mac/): macOS 26+ setup with .pkg or .app.zip, adding Funput to Input Sources, typing methods, Chromium/Electron workaround, updates and uninstall.
