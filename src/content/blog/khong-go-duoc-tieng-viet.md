@@ -95,6 +95,8 @@ Nếu Funput đã có trong danh sách nhưng ứng dụng không nhận chữ, 
 
 Xem [Funput cho Linux](/linux/) và [tài liệu xử lý sự cố Linux](https://docs.funput.app/docs/install/linux/troubleshooting/) để làm theo đúng trường hợp của máy.
 
+Nếu bạn dùng Ubuntu và chỉ mất dấu trong trình duyệt hoặc trình soạn thảo, xem [cách kiểm tra lỗi gõ tiếng Việt trong Chrome và VS Code](/blog/khong-go-duoc-tieng-viet-ubuntu/).
+
 ## Chỉ lỗi trong một ứng dụng
 
 Nếu cùng chuỗi phím cho kết quả đúng trong ứng dụng ghi chú nhưng sai trong ứng dụng khác, hãy ghi lại tên ứng dụng, phiên bản và loại ô nhập gặp lỗi. Thử thêm một ô văn bản thông thường trong chính ứng dụng đó, nếu có.

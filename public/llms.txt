@@ -50,6 +50,7 @@ Funput runs on:
 - [Set up Funput on Android](https://funput.app/blog/cai-ban-phim-tieng-viet-android/): Enable and select the keyboard, choose Telex/VNI, adjust layout and troubleshoot setup.
 - [Unicode, TCVN3 and VNI-Windows](https://funput.app/blog/unicode-tcvn3-vni-windows/): Distinguish typing methods, encodings and fonts; convert Vietnamese text with Funput desktop.
 - [Troubleshoot Vietnamese typing](https://funput.app/blog/khong-go-duoc-tieng-viet/): Diagnose keyboard selection, Telex/VNI mismatches and app-specific input problems across Windows, macOS, Linux, iOS and Android.
+- [Fix Vietnamese typing in Chrome and VS Code on Ubuntu](https://funput.app/blog/khong-go-duoc-tieng-viet-ubuntu/): Per-app fixes for Chrome, Chromium and VS Code on Wayland or X11: Wayland IME, XWayland, Edit Context, Snap vs `.deb`, and per-launch IM modules. Retest with Telex or VNI.
 - [Sitemap](https://funput.app/sitemap-index.xml): Index of public website pages.
 
 ## Links

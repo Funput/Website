@@ -1,0 +1,158 @@
+---
+title: 'Cách sửa lỗi gõ tiếng Việt trong Chrome và VS Code trên Ubuntu'
+seoTitle: 'Sửa lỗi không gõ được tiếng Việt trên Ubuntu trong Chrome, VS Code'
+description: 'Gõ được tiếng Việt trong Text Editor nhưng mất dấu trong Chrome hoặc VS Code trên Ubuntu? Sửa theo từng ứng dụng trên Wayland hoặc X11, với IBus hoặc Fcitx5.'
+pubDate: 2026-11-22
+draft: false
+tags:
+  - linux
+  - ubuntu
+  - xu-ly-loi
+---
+
+import UbuntuTypingCheck from '../../components/blog/UbuntuTypingCheck.astro';
+
+Mở **Text Editor** trên Ubuntu và gõ `xin chaof` với Telex hoặc `xin chao2` với VNI, rồi nhấn dấu cách. Nếu Text Editor hiện **xin chào** nhưng Chrome, Chromium hoặc VS Code vẫn hiện chữ thô, mất dấu hoặc lặp chữ, hãy làm theo mục của ứng dụng bị lỗi.
+
+- Nếu chỉ lỗi trong **Chrome hoặc Chromium**, [khoanh vùng tiện ích rồi thử Wayland IME hoặc XWayland](#sửa-lỗi-trong-chrome-hoặc-chromium).
+- Nếu chỉ lỗi trong **VS Code**, [cập nhật, tắt Edit Context, đổi bản cài hoặc đổi nền tảng Ozone](#sửa-lỗi-trong-vs-code).
+- Nếu **Text Editor** cũng lỗi, [chọn lại nguồn nhập tiếng Việt](#text-editor-cũng-không-gõ-được).
+- Trước khi chạy lệnh mở ứng dụng, [xác định đúng lệnh binary](#xác-định-lệnh-mở-chrome-hoặc-vs-code).
+
+Bài này dành cho trường hợp Text Editor vẫn gõ đúng trên Ubuntu. Với lỗi trên Windows, macOS hoặc điện thoại, xem [cách kiểm tra khi không gõ được tiếng Việt](/blog/khong-go-duoc-tieng-viet/).
+
+## Xác định lệnh mở Chrome hoặc VS Code
+
+Mở Terminal và chạy:
+
+```bash
+echo "$XDG_SESSION_TYPE"
+command -v google-chrome google-chrome-stable chromium code
+snap list code chromium 2>/dev/null
+```
+
+- Kết quả `wayland` hoặc `x11` cho biết loại phiên đăng nhập.
+- Dùng đúng lệnh mà `command -v` in ra trong các bước bên dưới. Google Chrome cài từ `.deb` thường là `google-chrome` hoặc `google-chrome-stable`. Chromium trên Ubuntu thường là Snap; VS Code từ Ubuntu Software cũng thường là Snap (`snap list code` có dòng `code`).
+- Với VS Code bản `.deb` của Microsoft, ưu tiên `/usr/bin/code` để tránh mở nhầm bản Snap.
+
+## Sửa lỗi trong Chrome hoặc Chromium
+
+### Chỉ lỗi ở một trang web
+
+Mở biểu tượng hồ sơ Chrome và chọn **Khách**, rồi thử lại trong cùng ô nhập. Nếu gõ được bằng hồ sơ Khách, quay lại hồ sơ thường, mở `chrome://extensions` và tắt từng tiện ích có can thiệp vào văn bản, chẳng hạn tiện ích sửa chính tả. Tải lại trang sau mỗi lần tắt để tìm tiện ích gây lỗi. Nếu lỗi vẫn xảy ra trong hồ sơ Khách và những trang khác vẫn gõ được, bạn có thể mở trang bị lỗi bằng Firefox hoặc soạn trong Text Editor rồi dán vào để làm tiếp. [Cách mở hồ sơ Khách của Google](https://support.google.com/chrome/answer/6130773?hl=vi)
+
+### Mất dấu trên nhiều trang, kể cả ô thử gõ
+
+Thoát hẳn trình duyệt bằng **⋮ → Thoát** (hoặc đóng hết cửa sổ Chromium), rồi thử theo thứ tự dưới đây. Sau mỗi lần mở, chọn lại nguồn nhập tiếng Việt và gõ trong [ô thử gõ](#thử-lại-sau-khi-sửa).
+
+**1. Thử chạy native Wayland với IME.** Chỉ dùng khi `echo "$XDG_SESSION_TYPE"` cho `wayland`. Thay `google-chrome` bằng lệnh binary bạn đã xác định:
+
+```bash
+google-chrome --ozone-platform=wayland --enable-wayland-ime
+```
+
+Cờ này bật hỗ trợ bộ gõ khi Chromium hoặc Electron chạy trực tiếp trên Wayland. [Tài liệu Fcitx5 về Chromium và Electron trên Wayland](https://fcitx-im.org/wiki/Using_Fcitx_5_on_Wayland)
+
+**2. Nếu vẫn mất dấu, mở qua XWayland.** Cách này thường ổn định hơn trên **GNOME + Fcitx5**, đúng với thiết lập mà tài liệu Fcitx5 khuyến nghị cho Chrome trên GNOME:
+
+```bash
+google-chrome --ozone-platform=x11
+```
+
+Lệnh mở riêng cửa sổ qua **XWayland**, lớp tương thích X11 trong phiên Wayland. Nếu cửa sổ mới gõ được, bạn có thể dùng lại lệnh khi cần. Để quay lại cách mở bình thường, thoát trình duyệt rồi mở từ menu ứng dụng.
+
+**3. Nếu phiên đã là `x11`, hoặc XWayland vẫn nhận chữ thô**, chuyển đến [bước chỉ định bộ gõ cho ứng dụng](#chỉ-định-bộ-gõ-cho-chrome-hoặc-vs-code).
+
+## Sửa lỗi trong VS Code
+
+### Cập nhật VS Code trước
+
+Một số lỗi IME trong vùng soạn thảo đã được sửa ở bản VS Code mới hơn. Mở **Help → Check for Updates**, hoặc với bản `.deb` chạy cập nhật gói theo [hướng dẫn Linux của Microsoft](https://code.visualstudio.com/docs/setup/linux), rồi thử lại câu mẫu trong tệp **Plain Text**.
+
+### Gõ được ở ô tìm kiếm nhưng lỗi khi sửa tệp
+
+Thử tắt **Edit Context**, tùy chọn điều khiển cách vùng soạn thảo nhận chữ từ bộ gõ. Một số báo cáo IME trên Linux hết lỗi sau khi tắt tùy chọn này, kể cả khi bản Snap vẫn cần đổi sang `.deb`. [Báo cáo VS Code về Edit Context và IME trên Linux](https://github.com/microsoft/vscode/issues/261145)
+
+1. Nhấn `Ctrl+,` để mở **Settings**. Tìm `@id:editor.editContext` trong tab **User** và bỏ chọn **Editor: Edit Context**. Nếu tùy chọn đã tắt, chuyển sang mục Snap hoặc Ozone bên dưới.
+2. Mở bảng lệnh bằng `Ctrl+Shift+P`, chạy **Developer: Reload Window**, rồi gõ lại câu mẫu trong tệp **Plain Text**.
+3. Nếu kết quả vẫn như cũ, bạn có thể giữ tùy chọn tắt trong lúc thử các bước tiếp theo, hoặc khôi phục nếu muốn quay về mặc định. Với lỗi chỉ xảy ra trong terminal tích hợp, thử gõ trong ứng dụng Terminal của Ubuntu để làm tiếp công việc.
+
+### Mọi ô đều nhận chữ thô và bạn đang dùng bản Snap
+
+Nếu chưa rõ, xem lại kết quả `snap list code`. Bản Snap trên Ubuntu thường kết nối bộ gõ kém hơn bản `.deb`, đặc biệt với Fcitx5. Đóng hẳn VS Code, tải gói `.deb` đúng kiến trúc từ trang Microsoft và cài theo hướng dẫn của họ. Sau khi cài, chạy `/usr/bin/code` để mở đúng bản `.deb` và thử lại. Có thể giữ bản Snap trong lúc kiểm tra. [Hướng dẫn cài VS Code của Microsoft](https://code.visualstudio.com/docs/setup/linux) · [Ghi chú tương thích với Fcitx5 của Ngó Sen](https://github.com/ngosen/ngosen#vs-code-trên-ubuntu)
+
+### Bản `.deb` vẫn mất dấu trong mọi ô
+
+Thoát hẳn VS Code, rồi thử theo thứ tự. Thay `/usr/bin/code` nếu lệnh `command -v code` của bạn khác.
+
+**1. Thử native Wayland với IME** khi phiên là `wayland`:
+
+```bash
+/usr/bin/code --ozone-platform=wayland --enable-wayland-ime
+```
+
+[Tài liệu Electron về các cờ Ozone và Wayland IME](https://github.com/electron/electron/blob/main/docs/api/command-line-switches.md) · [Fcitx5: Electron trên Wayland](https://fcitx-im.org/wiki/Using_Fcitx_5_on_Wayland)
+
+**2. Nếu vẫn lỗi, mở qua XWayland:**
+
+```bash
+/usr/bin/code --ozone-platform=x11
+```
+
+**3. Nếu phiên là `x11`, hoặc cả hai lệnh trên vẫn nhận chữ thô**, chuyển đến [bước chỉ định bộ gõ](#chỉ-định-bộ-gõ-cho-chrome-hoặc-vs-code).
+
+Nếu một lệnh mở được cửa sổ gõ đúng, bạn có thể dùng lại lệnh đó khi cần. Để quay lại, thoát VS Code và mở từ menu ứng dụng.
+
+## Chỉ định bộ gõ cho Chrome hoặc VS Code
+
+Dùng bước này khi Text Editor vẫn gõ đúng nhưng cửa sổ mở bằng `--ozone-platform=x11` (hoặc phiên X11 thuần) vẫn nhận chữ thô. Chỉ định bộ gõ cho **một lần mở** của ứng dụng đang lỗi. Chọn dòng đúng với IBus hoặc Fcitx5. Với VS Code bản `.deb`, thay `google-chrome` bằng `/usr/bin/code`. Thoát ứng dụng trước mỗi lần thử.
+
+```bash
+# Fcitx5
+GTK_IM_MODULE=fcitx XMODIFIERS=@im=fcitx google-chrome --ozone-platform=x11
+
+# IBus
+GTK_IM_MODULE=ibus XMODIFIERS=@im=ibus google-chrome --ozone-platform=x11
+```
+
+Các biến chỉ có hiệu lực với lần mở đó. **Không** thêm `GTK_IM_MODULE` vào môi trường toàn cục trên phiên Wayland nếu các ứng dụng GTK khác đang gõ đúng: trên Wayland, GTK hiện đại thường dùng text-input của compositor; ép `GTK_IM_MODULE` toàn cục có thể làm lệch ứng dụng khác. [Hướng dẫn tích hợp Fcitx5](https://fcitx-im.org/wiki/Setup_Fcitx_5) · [Fcitx5 trên Wayland: khi nào cần GTK_IM_MODULE](https://fcitx-im.org/wiki/Using_Fcitx_5_on_Wayland)
+
+Nếu máy thiếu mô-đun GTK cho đường X11/XWayland, cài `fcitx5-frontend-gtk3` và `fcitx5-frontend-gtk4` khi dùng Fcitx5, hoặc `ibus-gtk3` và `ibus-gtk4` khi dùng IBus, rồi chạy lại dòng lệnh đã chọn. [Gói GTK cho Fcitx5 trên Ubuntu](https://packages.ubuntu.com/search?keywords=fcitx5-frontend-gtk) · [Gói GTK cho IBus trên Ubuntu](https://packages.ubuntu.com/ibus)
+
+## Text Editor cũng không gõ được
+
+Sửa nguồn nhập trong Ubuntu trước khi quay lại Chrome hoặc VS Code.
+
+1. Xác định đang dùng **IBus** hay **Fcitx5**. Trên Ubuntu GNOME mặc định thường là IBus.
+2. Với **IBus trên GNOME**, vào **Settings → Keyboard → Input Sources**, thêm và chọn nguồn nhập tiếng Việt của bộ gõ.
+3. Với **Fcitx5**, mở **Fcitx 5 Configuration**, thêm bộ gõ tiếng Việt rồi bật nó trong cửa sổ Text Editor.
+4. Kiểm tra chế độ tiếng Việt và chọn đúng Telex hoặc VNI trong cài đặt bộ gõ.
+5. Thử lại câu `xin chaof` hoặc `xin chao2` trong Text Editor.
+
+Nếu dùng Funput, làm theo [hướng dẫn IBus](https://docs.funput.app/docs/install/linux/ibus/) hoặc [hướng dẫn Fcitx5](https://docs.funput.app/docs/install/linux/fcitx5/), rồi đối chiếu thêm [xử lý sự cố Linux](https://docs.funput.app/docs/install/linux/troubleshooting/) khi nguồn nhập đã đúng mà vẫn không ra dấu.
+
+## Thử lại sau khi sửa
+
+Trong Chrome hoặc Chromium, thử ngay ở ô dưới đây. Với VS Code, gõ cùng một câu trong tệp **Plain Text**, rồi quay lại đúng ô trước đó bị lỗi. Một vài chữ có thể hiện gạch chân trong lúc gõ. Sau khi nhấn dấu cách, hãy kiểm tra câu **xin chào** đã hiện đủ và đúng dấu.
+
+<UbuntuTypingCheck />
+
+Nếu câu thử vẫn lỗi, lưu lại phiên bản Ubuntu, IBus hay Fcitx5, phiên bản Chrome hoặc VS Code, cách cài (`snap` hay `.deb`), loại phiên (`wayland`/`x11`) và kết quả trước/sau khi thử từng bước. Nếu đang dùng Funput, bạn có thể gửi các thông tin đó khi [báo lỗi Funput](https://github.com/Funput/Funput/issues). Bạn cũng có thể [cài Funput cho Linux](/linux/) nếu muốn thử một bộ gõ hỗ trợ cả Telex và VNI, hoặc đọc [vì sao cân nhắc bộ gõ Linux hiện đại](/blog/bo-go-tieng-viet-linux-hien-dai/).
+
+## Câu hỏi thường gặp
+
+### Snap VS Code có gõ được tiếng Việt không?
+
+Đôi khi có, nhưng trên Ubuntu bản Snap thường là nguyên nhân khi mọi ô trong VS Code đều ra chữ thô trong khi Text Editor vẫn đúng. Hãy thử bản `.deb` của Microsoft trước khi kết luận bộ gõ hỏng.
+
+### Wayland khác X11 ở bước nào?
+
+`echo "$XDG_SESSION_TYPE"` cho biết phiên đang dùng. Trên Wayland, hãy thử `--ozone-platform=wayland --enable-wayland-ime` trước; nếu không ổn định, dùng `--ozone-platform=x11` để mở qua XWayland. Trên X11, bỏ qua cờ Wayland và chuyển thẳng tới bước gắn `GTK_IM_MODULE` / `XMODIFIERS` cho lần mở ứng dụng.
+
+### Có cần đổi Unikey hoặc Bamboo sang Funput để hết lỗi Chrome không?
+
+Không bắt buộc. Bài này sửa đường kết nối giữa ứng dụng và bộ gõ đang dùng. Nếu Text Editor đã gõ đúng, hãy ưu tiên sửa Chrome hoặc VS Code theo từng bước trên. Funput là lựa chọn khi bạn muốn đổi bộ gõ hoặc cần hỗ trợ Telex, VNI và tài liệu Linux mới hơn.
+
+### Có nên đặt `GTK_IM_MODULE` trong `/etc/environment` không?
+
+Với phiên Wayland, không nên đặt toàn cục nếu các ứng dụng GTK khác đang hoạt động bình thường. Chỉ gắn biến cho lần mở Chrome hoặc VS Code qua X11/XWayland như lệnh ở trên. Nếu cả máy đều lỗi và bạn đang theo hướng dẫn cài Fcitx5 hoặc IBus cho X11, hãy làm theo [tài liệu thiết lập phiên Linux](https://docs.funput.app/docs/install/linux/session-setup/) thay vì sao chép biến từ một bài cũ.
