@@ -83,10 +83,10 @@ Giả sử bạn lưu chuỗi `vn` với nội dung “việt nam” và bật t
 | Bạn gõ, rồi nhấn dấu cách | Funput điền |
 | ------------------------- | ----------- |
 | `vn`                      | việt nam    |
-| `Vn`                      | Việt Nam    |
+| `Vn`                      | Việt nam    |
 | `VN`                      | VIỆT NAM    |
 
-Với dạng `Vn`, Funput viết hoa đầu **mỗi từ** trong cụm thay thế. Nếu lưu một câu dài, cách này có thể khác mong muốn chỉ viết hoa chữ đầu câu.
+Với dạng `Vn`, Funput chỉ viết hoa chữ cái đầu, không bao giờ hạ chữ hoa đã lưu. Ví dụ lưu `tp` → `TP. HCM` thì gõ `Tp` vẫn ra `TP. HCM`. Muốn tên riêng viết hoa đầy đủ thì lưu sẵn hoa trong bảng (`vn` → `Việt Nam`).
 
 Muốn giữ chính xác cách viết “Cảm ơn bạn!”, “Funput” hoặc một tên thương hiệu, hãy lưu nội dung đúng định dạng rồi gõ chuỗi tắt bằng chữ thường. Bạn cũng có thể **tắt Tự nhận diện hoa/thường**: khi đó chỉ chuỗi khớp chính xác mới bung, và nội dung thay thế giữ nguyên như đã lưu.
 
@@ -102,13 +102,13 @@ Khi cần tạm dừng mọi mục viết tắt, dùng công tắc **Bật gõ t
 
 Kiểm tra từ một ví dụ nhỏ thay vì sửa nhiều tùy chọn cùng lúc:
 
-| Hiện tượng                                         | Nên kiểm tra                                                                   |
-| -------------------------------------------------- | ------------------------------------------------------------------------------ |
-| `cm` vẫn còn nguyên sau dấu cách                   | Funput đã được chọn chưa, Bật gõ tắt đã bật chưa, mục `cm` có đủ nội dung chưa |
-| `cm` bung nhưng `CM` không bung                    | Tự nhận diện hoa/thường đang bật hay tắt                                       |
-| Nội dung xuất hiện với nhiều chữ hoa hơn mong muốn | Cách viết chuỗi tắt và tùy chọn nhận diện hoa/thường                           |
-| Tắt tiếng Việt rồi mà chữ vẫn bung                 | Tùy chọn gõ tắt trong chế độ tiếng Anh                                         |
-| Chỉ một ứng dụng không bung đúng                   | Thử cùng chuỗi trong ứng dụng ghi chú để khoanh vùng                           |
+| Hiện tượng                                                  | Nên kiểm tra                                                                   |
+| ----------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| `cm` vẫn còn nguyên sau dấu cách                            | Funput đã được chọn chưa, Bật gõ tắt đã bật chưa, mục `cm` có đủ nội dung chưa |
+| `cm` bung nhưng `CM` không bung                             | Tự nhận diện hoa/thường đang bật hay tắt                                       |
+| Nội dung viết hoa khác mong muốn (chỉ chữ đầu, hoặc cả cụm) | Cách viết chuỗi tắt (`Vn` / `VN`) và tùy chọn nhận diện hoa/thường             |
+| Tắt tiếng Việt rồi mà chữ vẫn bung                          | Tùy chọn gõ tắt trong chế độ tiếng Anh                                         |
+| Chỉ một ứng dụng không bung đúng                            | Thử cùng chuỗi trong ứng dụng ghi chú để khoanh vùng                           |
 
 Nếu một từ bình thường bị thay nhầm, đổi chuỗi tắt đó sang một chuỗi ít gặp hơn. Tạm tắt **Bật gõ tắt** cũng giúp bạn xác định hiện tượng có đến từ bảng viết tắt hay không.
 
