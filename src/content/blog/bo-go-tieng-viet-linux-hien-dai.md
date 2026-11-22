@@ -85,6 +85,8 @@ Khi xem Issues, hãy đọc cách dự án phân tích lỗi và thông tin cầ
 
 **Bước 4: quyết định từ kết quả.** Nếu ứng dụng quan trọng còn gặp lỗi, ghi lại chuỗi phím, kết quả thực tế và phiên bản phần mềm. Khi báo lỗi, dùng văn bản mẫu thay cho nội dung riêng tư; đọc lại đầu ra chẩn đoán trước khi chia sẻ.
 
+Nếu Text Editor gõ được nhưng Chrome hoặc VS Code mất dấu, hãy dùng [bài kiểm tra lỗi gõ tiếng Việt trên Ubuntu](/blog/khong-go-duoc-tieng-viet-ubuntu/) để khoanh vùng theo ứng dụng.
+
 ## Những giới hạn nên biết trước
 
 Khả năng nhập liệu trên Linux phụ thuộc cả framework, desktop và ứng dụng. Không nên hiểu hỗ trợ Wayland là bảo đảm mọi ô nhập trong mọi ứng dụng đều có hành vi giống nhau.
