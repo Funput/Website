@@ -87,6 +87,8 @@ Khi xem Issues, hãy đọc cách dự án phân tích lỗi và thông tin cầ
 
 Nếu Text Editor gõ được nhưng Chrome hoặc VS Code mất dấu, hãy dùng [bài kiểm tra lỗi gõ tiếng Việt trên Ubuntu](/blog/khong-go-duoc-tieng-viet-ubuntu/) để khoanh vùng theo ứng dụng.
 
+Nếu bạn dùng KDE Plasma trên Wayland, xem [cách kiểm tra Funput và Fcitx5 khi gõ không ra dấu](/blog/khong-go-duoc-tieng-viet-kde-plasma-wayland/).
+
 ## Những giới hạn nên biết trước
 
 Khả năng nhập liệu trên Linux phụ thuộc cả framework, desktop và ứng dụng. Không nên hiểu hỗ trợ Wayland là bảo đảm mọi ô nhập trong mọi ứng dụng đều có hành vi giống nhau.
