@@ -1,0 +1,61 @@
+---
+title: 'Không gõ được tiếng Việt trên KDE Plasma Wayland?'
+seoTitle: 'Sửa lỗi gõ tiếng Việt trên KDE Plasma Wayland với Funput'
+description: 'Không thấy Funput trong Fcitx5 hoặc đã chọn mà vẫn gõ không dấu? Kiểm tra phiên KDE Plasma Wayland, chọn đúng bộ gõ và thử lại trong Kate.'
+pubDate: 2026-11-28
+draft: false
+tags:
+  - linux
+  - kde-plasma
+  - wayland
+  - xu-ly-loi
+---
+
+import KdeWaylandChecklist from '../../components/blog/KdeWaylandChecklist.astro';
+
+Mở **Kate** trên Kubuntu, chọn Funput nếu bộ gõ đã có ở khay hệ thống, rồi gõ `xin chaof` với Telex hoặc `xin chao2` với VNI. Nhấn **Space**. Kết quả cần thấy là **xin chào**. Nếu chữ vẫn không dấu, chọn bước kiểm tra theo dấu hiệu dưới đây.
+
+<KdeWaylandChecklist />
+
+## Kiểm tra phiên KDE Plasma
+
+Hai lệnh dưới đây cho biết loại phiên đăng nhập và tên desktop. Chạy chúng trong **Konsole**.
+
+```bash
+echo "$XDG_SESSION_TYPE"
+echo "$XDG_CURRENT_DESKTOP"
+```
+
+Nếu dòng đầu là `wayland` và dòng sau có `KDE` hoặc `Plasma`, bạn đang ở đúng phiên cho hướng dẫn này. Kubuntu, Fedora KDE và KDE neon đều có thể dùng Plasma, nên hãy dựa vào kết quả trên máy mình. Nếu dòng đầu là `x11`, chọn hướng dẫn dành cho X11. [Thiết lập Fcitx5 theo phiên đăng nhập](https://docs.funput.app/docs/install/linux/fcitx5/#step-3-wire-session)
+
+## Không thấy Funput trong danh sách
+
+1. **Kiểm tra gói đã cài.** Trên Kubuntu, gói `funput` dùng với Fcitx5, còn `funput-ibus` dùng với IBus. Nếu còn thiếu gói, dùng hướng dẫn cài Fcitx5 chính thức của Funput. [Cài Funput với Fcitx5](https://docs.funput.app/docs/install/linux/fcitx5/)
+2. **Chọn Fcitx 5 trong Plasma.** Mở **System Settings**, tìm **Virtual Keyboard**, chọn **Fcitx 5** rồi áp dụng. Lưu công việc, đăng xuất và đăng nhập lại để KDE cấp kết nối bộ gõ cho phiên mới.
+3. **Thêm Funput vào Fcitx5.** Mở **Fcitx 5 Configuration**, chọn **Add Input Method** (hoặc nút **+**), bỏ chọn **Only Show Current Language** nếu cần, rồi tìm **Funput** trong nhóm **Vietnamese**. Sau khi thêm, chọn Funput từ biểu tượng Fcitx5 gần đồng hồ.
+
+Nếu thiếu cửa sổ cấu hình trên Kubuntu, kiểm tra gói `fcitx5-config-qt`. Nếu đã mở được cửa sổ mà danh sách vẫn thiếu Funput, mở ứng dụng **Funput** từ menu để xem bước thiết lập nào còn thiếu. [Xử lý khi Fcitx5 chưa thấy Funput](https://docs.funput.app/docs/install/linux/troubleshooting/#not-listed)
+
+## Đã chọn Funput nhưng vẫn gõ không dấu
+
+**Kiểm tra chế độ tiếng Việt trước.** Khi Funput đang được chọn, biểu tượng Funput có màu ở chế độ tiếng Việt và chuyển sang trắng khi tắt. Dùng phím chuyển đã đặt trong **Funput → Phím tắt**. Mặc định là <kbd>Ctrl</kbd> + <kbd>{'`'}</kbd>. Gõ lại câu mẫu trong Kate bằng đúng kiểu gõ đang chọn.
+
+**Kiểm tra cấu hình của phiên nếu Kate vẫn lỗi.** Khi Kate chạy trực tiếp trên Wayland, hãy kiểm tra lại mục **Virtual Keyboard** để chắc chắn KDE đã chọn **Fcitx 5**. Nếu trước đây đã đặt `GTK_IM_MODULE` hoặc `QT_IM_MODULE` cho cả phiên, làm theo hướng dẫn gỡ hai thiết lập cũ trước khi đăng nhập lại. [Cấu hình riêng cho KDE Wayland](https://docs.funput.app/docs/install/linux/session-setup/#undo-im-config-kde) · [Tài liệu Fcitx5 về KDE Plasma](https://fcitx-im.org/wiki/Using_Fcitx_5_on_Wayland#KDE_Plasma)
+
+**Nạp lại qua phiên đăng nhập.** Lưu công việc rồi đăng xuất và đăng nhập lại. Trên KDE Wayland, `fcitx5 -r` hoặc nút **Restart** ở khay hệ thống có thể làm mất kết nối mà KDE đã cấp cho bộ gõ. [Cách nạp lại Fcitx5 trên KDE Wayland](https://docs.funput.app/docs/install/linux/session-setup/#kde-no-restart)
+
+Nếu lỗi xảy ra trong mọi ứng dụng sau khi đăng nhập lại, dùng lệnh chẩn đoán dưới đây để xem các biến của phiên và kiểm tra Fcitx5 đã nạp Funput chưa.
+
+```bash
+fcitx5-diagnose
+```
+
+Khi gửi báo lỗi, ghi phiên bản Funput, bản phân phối, phiên bản Plasma và kết quả gõ câu mẫu. Chỉ gửi phần liên quan của báo cáo chẩn đoán sau khi đã xem lại. [Báo lỗi Funput](https://github.com/Funput/Funput/issues)
+
+## Chỉ một ứng dụng gặp lỗi
+
+Nếu Kate đã hiện **xin chào**, thử cùng câu trong ứng dụng gặp lỗi. Với ứng dụng chạy qua **XWayland**, kiểm tra `XMODIFIERS=@im=fcitx`. Nếu dùng `~/.config/environment.d/fcitx5.conf`, sửa riêng dòng này và giữ các thiết lập khác. Một số ứng dụng Qt hoặc GTK chạy qua XWayland còn cần thiết lập bộ gõ khi mở riêng ứng dụng đó. [Cấu hình dành cho KDE Plasma Wayland](https://fcitx-im.org/wiki/Using_Fcitx_5_on_Wayland#KDE_Plasma) · [Thiết lập cho riêng ứng dụng](https://docs.funput.app/docs/install/linux/session-setup/#undo-im-config-kde)
+
+Với Chrome hoặc VS Code, bài về Ubuntu có thêm các bước kiểm tra bên trong từng ứng dụng, chẳng hạn thử hồ sơ Khách của Chrome hoặc kiểm tra **Edit Context** trong VS Code. [Xử lý lỗi gõ trong Chrome và VS Code](/blog/khong-go-duoc-tieng-viet-ubuntu/)
+
+_Sơ đồ và các bước trên dựa vào tài liệu Funput và Fcitx5. Đường dẫn trong Cài đặt hệ thống có thể khác giữa các phiên bản Plasma._

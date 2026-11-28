@@ -1,0 +1,141 @@
+<table class="diagnosis-table" aria-label="Tra lỗi gõ tiếng Việt theo triệu chứng">
+  <thead>
+    <tr>
+      <th scope="col">Dấu hiệu bạn gặp</th>
+      <th scope="col">Bước nên thử</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Chưa rõ phiên Wayland hay X11</td>
+      <td>
+        <a href="#kiểm-tra-phiên-kde-plasma">Kiểm tra phiên đăng nhập</a>
+      </td>
+    </tr>
+    <tr>
+      <td>Không thấy Funput trong danh sách</td>
+      <td>
+        <a href="#không-thấy-funput-trong-danh-sách">Thêm Funput vào Fcitx5</a>
+      </td>
+    </tr>
+    <tr>
+      <td>Đã chọn Funput, Kate vẫn gõ không dấu</td>
+      <td>
+        <a href="#đã-chọn-funput-nhưng-vẫn-gõ-không-dấu">Kiểm tra chế độ gõ</a>
+      </td>
+    </tr>
+    <tr>
+      <td>Kate gõ đúng, một ứng dụng khác gặp lỗi</td>
+      <td>
+        <a href="#chỉ-một-ứng-dụng-gặp-lỗi">Kiểm tra riêng ứng dụng đó</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<figure class="setup-flow">
+  <figcaption>Cách KDE Plasma kết nối với Funput</figcaption>
+  <ol role="list">
+    <li>
+      <strong>KDE Plasma</strong>
+      <span>Khởi chạy Fcitx 5 từ Virtual Keyboard.</span>
+    </li>
+    <li>
+      <strong>Fcitx 5</strong>
+      <span>Nạp Funput vào danh sách bộ gõ.</span>
+    </li>
+    <li>
+      <strong>Funput</strong>
+      <span>Đặt dấu tiếng Việt để bạn thử trong Kate.</span>
+    </li>
+  </ol>
+</figure>
+
+<style>
+  .diagnosis-table {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  .diagnosis-table th {
+    min-width: 0;
+  }
+
+  .diagnosis-table th:first-child {
+    width: 52%;
+  }
+
+  .setup-flow {
+    margin-block: 28px;
+    padding: clamp(16px, 4vw, 24px);
+    border: 1px solid #cbd4bd;
+    border-radius: 18px;
+    background: var(--sage);
+  }
+
+  .setup-flow figcaption {
+    margin: 0 0 12px;
+    color: var(--ink);
+    font-size: 15px;
+    font-weight: 700;
+  }
+
+  .setup-flow ol {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .setup-flow li {
+    position: relative;
+    margin: 0;
+    padding: 12px;
+    border: 1px solid #cbd4bd;
+    border-radius: 10px;
+    background: var(--paper);
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .setup-flow li + li::before {
+    position: absolute;
+    top: calc(50% - 1px);
+    right: 100%;
+    width: 19px;
+    border-block-start: 2px solid #91a281;
+    content: '';
+  }
+
+  .setup-flow span {
+    display: block;
+  }
+
+  @media (max-width: 560px) {
+    .diagnosis-table th,
+    .diagnosis-table td {
+      padding: 10px;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .setup-flow ol {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 12px;
+    }
+
+    .setup-flow li + li::before {
+      top: auto;
+      right: auto;
+      bottom: 100%;
+      left: 24px;
+      width: 0;
+      height: 13px;
+      border-block-start: 0;
+      border-inline-start: 2px solid #91a281;
+    }
+  }
+</style>
